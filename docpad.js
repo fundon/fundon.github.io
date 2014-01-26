@@ -2,7 +2,7 @@ var NODE_ENV = process.env.NODE_ENV;
 
 var rootPath = __dirname;
 var siteUrl = NODE_ENV === 'production' ? 'http://fangduncai.com' : 'http://localhost:9778';
-var baseUrl = (siteUrl + (NODE_ENV === 'production' ? '/site' : '/'));
+var baseUrl = (siteUrl + (NODE_ENV === 'production' ? '/blog' : '/'));
 
 var docpadConfig = {
 
