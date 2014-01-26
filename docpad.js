@@ -7,7 +7,7 @@ var baseUrl = (siteUrl + (NODE_ENV === 'production' ? '/site' : '/'));
 var docpadConfig = {
 
   rootPath: rootPath,
-  outPath: rootPath + '/site',
+  outPath: rootPath + '/blog',
   srcPath: rootPath + '/src',
 
   templateData: {
