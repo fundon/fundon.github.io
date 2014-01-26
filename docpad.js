@@ -1,4 +1,4 @@
-var NODE_ENV = process.env.NODE_DEV;
+var NODE_ENV = process.env.NODE_ENV;
 
 var rootPath = __dirname;
 var siteUrl = NODE_ENV === 'production' ? 'http://fangduncai.com' : 'http://localhost:9778';
@@ -32,6 +32,12 @@ var docpadConfig = {
   plugins: {
     marked: {
       sanitize: false
+    }
+  },
+
+  environments: {
+    development: {
+      outPath: rootPath + '/.out'
     }
   }
 
