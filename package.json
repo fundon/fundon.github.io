@@ -8,7 +8,8 @@
     "docpad": "~6.60.3",
     "docpad-plugin-marked": "~2.2.0",
     "docpad-plugin-jade": "~2.6.2",
-    "docpad-plugin-stylus": "~2.5.0"
+    "docpad-plugin-stylus": "~2.5.0",
+    "docpad-plugin-partials": "~2.8.1"
   },
   "devDependencies": {},
   "scripts": {

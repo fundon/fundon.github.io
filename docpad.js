@@ -14,17 +14,24 @@ var docpadConfig = {
 
     site: {
       url: siteUrl,
-      title: "Fundon's blog",
+      title: "Fundon's Moving Castle",
       description: "",
-      keywords: ""
-    },
-
-    getSiteBaseUrl: function () {
-      return baseUrl;
+      keywords: "@fundon, moving castle, web",
+      author: '@fundon',
+      email: 'cfddream@gmail.com',
+      copyright: '© 2014'
     },
 
     getPreparedTitle: function () {
       return this.document.title || this.site.title;
+    },
+
+    getPreparedDescription: function () {
+      return this.document.description || this.site.description;
+    },
+
+    getPreparedKeywords: function () {
+      return this.site.keywords.concat(this.document.keywords || []).join(', ');
     }
 
   },

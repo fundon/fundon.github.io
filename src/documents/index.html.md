@@ -1,5 +1,5 @@
 ---
-title: "Fundon's blog"
+title: "Fundon's Moving Castle"
 layout: "default"
 ---
 
