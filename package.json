@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "docpad": "~6.60.3",
+    "docpad": "~6.60.4",
     "docpad-plugin-marked": "~2.2.0",
     "docpad-plugin-jade": "~2.6.2",
     "docpad-plugin-stylus": "~2.5.0",

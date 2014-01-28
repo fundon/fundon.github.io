@@ -19,7 +19,15 @@ var docpadConfig = {
       keywords: "@fundon, moving castle, web",
       author: '@fundon',
       email: 'cfddream@gmail.com',
-      copyright: '© 2014'
+      copyright: '© 2014',
+
+      styles: [
+        '//cdnjs.cloudflare.com/ajax/libs/pure/0.3.0/pure-min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.min.css',
+        '//cdnjs.cloudflare.com/ajax/libs/colors/1.0/colors.min.css',
+        'vendor/prism.css'
+      ],
+      scripts: ['vendor/prism.js']
     },
 
     getPreparedTitle: function () {

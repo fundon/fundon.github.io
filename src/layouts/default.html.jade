@@ -7,7 +7,8 @@ html
     meta(name="description", content= getPreparedDescription())
     meta(name="keywords", content= getPreparedKeywords())
     meta(name="author", content= site.author || '')
-    != partial('head.html.jade')
+    include includes/head
+    // != partial('head.html.jade')
 
   body
     div.pure-g
