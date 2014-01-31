@@ -4,6 +4,7 @@ a:visited{color:#222}
 a:hover{color:#e50053;text-decoration:underline}
 a{color:#222}
 .x-page{width:618px;margin:0 auto 5em}
+.x-header .pure-u-1-16{width:6.25%;display:inline-block}
 .x-main{margin-top:50px}
 .x-listing{margin:0;padding:0;list-style-type:none;}
 .x-listing li:nth-child(odd){margin-right:25px}
