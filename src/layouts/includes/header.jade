@@ -5,6 +5,14 @@ header.x-header
       a(href= site.url)= site.title
     h2.x-description= site.description
 
+    div.pure-menu.pure-menu-open.pure-menu-horizontal
+      a(href="#", class="pure-menu-heading")= site.title
+      ul
+        li
+          a(href= site.baseUrl + 'blog') blog
+        li
+          a Feed
+
   div.pure-g.colorsss
     div.pure-u-1-16.bg-aqua
     div.pure-u-1-16.bg-blue
