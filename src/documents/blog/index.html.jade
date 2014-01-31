@@ -1,0 +1,7 @@
+---
+layout: default
+standalone: true
+---
+
+each post in getCollection('blog').models
+  p= post.get('title')
