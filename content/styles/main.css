@@ -1,8 +1,8 @@
 body{background:#fdfdfd;font:normal 18px/25px Palatino,"Palatino Linotype",serif;text-rendering:optimizeLegibility}
 h1,h2,h3,h4,h5,h6{font-family:'OFL Sorts Mill Goudy','OFL Sorts Mill Goudy TT',serif;font-weight:normal}
 a:visited{color:#222}
-a:hover{color:#e50053;text-decoration:underline}
-a{color:#222}
+a:hover{color:#e50053}
+a{color:#222;text-decoration:none}
 .gold-618{width:618px;margin:0 auto}
 .x-page{margin-bottom:5em}
 .x-header .colorsss{height:.25rem}
