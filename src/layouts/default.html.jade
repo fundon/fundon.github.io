@@ -10,11 +10,10 @@ html
     include includes/head
     // != partial('head.html.jade')
 
-  body
-    header
+  body.x-page
+    include includes/header
 
-    div.pure-g
-      div.pure-u
-        section!= content
+    div.pure-g.x-main(role="main")
+      div.pure-u!= content
 
-    footer
+    footer.x-footer

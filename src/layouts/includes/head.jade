@@ -1,5 +1,7 @@
+- var baseUrl = site.baseUrl
+
 each style in site.styles
-  link(rel="stylesheet", href= style)
+  link(rel="stylesheet", href= baseUrl + style)
 
 each script in site.scripts
-  script(src= script)
+  script(src= baseUrl + script)
