@@ -1,7 +1,9 @@
 - var baseUrl = site.baseUrl
 
 each style in site.styles
-  link(rel="stylesheet", href= baseUrl + style)
+  - var cdn = style.substr(0, 2) === '//'
+  link(rel="stylesheet", href= (cdn ? baseUrl : '') + style)
 
 each script in site.scripts
-  script(src= baseUrl + script)
+  - var cdn = script.substr(0, 2) === '//'
+  script(src= (cdn ? baseUrl : '') + script)
