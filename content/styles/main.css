@@ -7,8 +7,8 @@ a{color:#222;text-decoration:none}
 .x-page{margin-bottom:5em}
 .x-header .colorsss{height:.25rem;clear:both}
 .x-header .pure-u-1-16{width:6.25%;display:inline-block}
-.x-header .pure-menu a{padding:0}
-.x-header .pure-menu > ul{float:right;padding-top:3px;}
+.x-header .pure-menu a{line-height:46px;padding:0}
+.x-header .pure-menu > ul{float:right;}
 .x-header .pure-menu > ul li a:focus,.x-header .pure-menu > ul li a:hover{background:none}
 .x-header .pure-menu > ul li a{text-transform:lowercase;position:relative;padding:0 10px}
 .x-header .pure-menu > ul li a:after{position:absolute;content:'-';color:#666;padding:0 4px;right:-4px}
