@@ -9,7 +9,7 @@ a{color:#222;text-decoration:none}
 .x-header .pure-u-1-16{width:6.25%;display:inline-block}
 .x-header .pure-menu > ul{float:right;padding-top:3px;}
 .x-header .pure-menu > ul a:focus,.x-header .pure-menu > ul a:hover{background:none}
-.x-header .pure-menu > ul a{text-transform:lowercase;position:relative}
+.x-header .pure-menu > ul a{text-transform:lowercase;position:relative;padding:0}
 .x-header .pure-menu > ul a:after{content:'-';color:#666;padding:0 4px;right:-4px}
 .x-title{float:left;font-size:23px;line-height:50px}
 .x-main{margin-top:50px}
