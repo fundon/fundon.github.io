@@ -32,6 +32,19 @@ a
   .pure-menu > ul
     float: right
     padding-top: 3px
+
+    a:focus
+    a:hover
+      background: none
+    a
+      text-transform: lowercase
+      position: relative
+    a:after
+      content: '-'
+      color: #666
+      padding: 0 4px
+      right: -4px
+
 .x-title
   float: left
   font-size: 23px
