@@ -12,7 +12,6 @@ a{color:#222;text-decoration:none}
 .x-header .pure-menu > ul a:focus,.x-header .pure-menu > ul a:hover{background:none}
 .x-header .pure-menu > ul a{text-transform:lowercase;position:relative;padding:0 10px}
 .x-header .pure-menu > ul a:after{position:absolute;content:'-';color:#666;padding:0 4px;right:-4px}
-.x-header .pure-menu > ul a:last-child::after{display:none}
 .x-title{float:left;font-size:23px;line-height:50px}
 .x-main{margin-top:50px}
 .x-listing{margin:0;padding:0;list-style-type:none;}
