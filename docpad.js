@@ -73,7 +73,10 @@ var docpadConfig = {
       return db.findAllLive({
           standalone: false,
           relativeOutDirPath: 'blog'
-        }, [{date: -1}]);
+        }, [{date: -1}])
+        .on('add', function (model) {
+          model.setMetaDefaults({layout: "post"});
+        });
     }
   },
 
