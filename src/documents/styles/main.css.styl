@@ -36,19 +36,22 @@ a
     float: right
     padding-top: 3px
 
-    a:focus
-    a:hover
-      background: none
-    a
-      text-transform: lowercase
-      position: relative
-      padding: 0 10px
-    a:after
-      position: absolute
-      content: '-'
-      color: #666
-      padding: 0 4px
-      right: -4px
+    li
+      a:focus
+      a:hover
+        background: none
+      a
+        text-transform: lowercase
+        position: relative
+        padding: 0 10px
+      a:after
+        position: absolute
+        content: '-'
+        color: #666
+        padding: 0 4px
+        right: -4px
+    li:last-child a:after
+      display: none
 
 .x-title
   float: left
