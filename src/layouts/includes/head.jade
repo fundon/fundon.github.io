@@ -1,9 +1,0 @@
-- var baseUrl = site.baseUrl
-
-each style in site.styles
-  - var cdn = style.substr(0, 2) === '//'
-  link(rel="stylesheet", href= (cdn ? '' : baseUrl) + style)
-
-each script in site.scripts
-  - var cdn = script.substr(0, 2) === '//'
-  script(src= (cdn ? '' : baseUrl) + script)
