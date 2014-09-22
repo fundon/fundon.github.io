@@ -118,7 +118,11 @@ cd ~/services/gogs
 # open 127.0.0.0:3000
 ```
 
-## Enjoy!
+## <3 Enjoy!
+
+## Other
+
+* http://gogs.io/docs/intro/
 
 
 
