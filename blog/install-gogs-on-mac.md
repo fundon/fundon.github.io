@@ -30,6 +30,6 @@ brew install postgresql
 ```
 
 
-Homebrew: http://brew.sh
-git: http://git-scm.com
-postgresql: http://www.postgresql.org
+[Homebrew]: http://brew.sh
+[git]: http://git-scm.com
+[postgresql]: http://www.postgresql.org
