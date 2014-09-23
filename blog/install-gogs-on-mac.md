@@ -131,3 +131,4 @@ cd ~/services/gogs
 [postgresql]: http://www.postgresql.org
 [gogs]: http://gogs.io
 [gopm]: http://gopm.io
+[go]: http://golang.org
