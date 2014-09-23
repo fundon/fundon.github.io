@@ -87,7 +87,7 @@ postgres -D /usr/local/var/postgres
 
 #### conf/app.ini
 
-You can add git user or use currently login user.
+You can add git user or use currently logged in user.
 If you want to add git user to run gogs, see http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script.
 
 ```
@@ -116,6 +116,35 @@ SECRET_KEY = YOU_MUST_CHANGE
 cd ~/services/gogs
 ./gogs web
 # open 127.0.0.0:3000
+```
+
+Or add launchd plist file to `~/Library/LaunchAgents/io.gogs.web.plist`
+
+```
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>io.gogs.web</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>sh</string>
+    <string>-c</string>
+    <string>cd /Users/fundon/services/gogs; ./gogs web</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+  <key>KeepAlive</key>
+  <true/>
+  <key>WorkingDirectory</key>
+  <string>/Users/fundon/services/gogs</string>
+</dict>
+</plist>
+```
+
+```sh
+launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 ```
 
 ## <3 Enjoy!
