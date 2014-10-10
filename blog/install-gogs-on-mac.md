@@ -1,6 +1,7 @@
 ---
 date: 2014090222352
 tags: gogs, git
+update: 201410102055
 ---
 
 Install Gogs on Mac OS X
@@ -85,15 +86,25 @@ postgres -D /usr/local/var/postgres
 
 ### gogs
 
-#### conf/app.ini
+#### custom/conf/app.ini
 
 You can add git user or use currently logged in user.
 If you want to add git user to run gogs, see http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script.
+
+```sh
+# Create custom folder
+mkdir -p custom/conf
+cp conf/app.ini custom/conf
+```
+
 
 ```
 ...
 
 RUN_USER = git
+
+[server]
+SSH_PORT = 22
 
 ...
 
@@ -146,6 +157,39 @@ Or add launchd plist file to `~/Library/LaunchAgents/io.gogs.web.plist`
 ```sh
 launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 ```
+
+
+## SSH Remote
+
+### Setting SSH config `/etc/sshd_config
+
+```
+sudo cp /etc/sshd_config /etc/sshd_config~previous
+sudo vi /etc/sshd_config
+```
+
+Edit `/etc/sshd_config`
+
+```
+PermitRootLogin no
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+
+UsePAM no
+```
+
+### Start SSH Server
+
+```
+Open System Preferences > Sharing > Remote Login
+```
+
+### Other SSH Articles
+
+https://help.github.com/categories/ssh/
+
+
 
 ## <3 Enjoy!
 
