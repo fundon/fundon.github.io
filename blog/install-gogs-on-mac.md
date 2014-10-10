@@ -161,7 +161,7 @@ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 
 ## SSH Remote
 
-### Setting SSH config `/etc/sshd_config
+### Setting SSH config `/etc/sshd_config`
 
 ```
 sudo cp /etc/sshd_config /etc/sshd_config~previous
