@@ -105,14 +105,22 @@ li {
 
 .title {
   padding: 10px 10px 10px 23px;
-  border-left: 7px solid #eee;
   margin: 40px -30px 30px -30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+:not(pre) > code {
+  padding: 2px 4px;
+  font-size: 90%;
+  color: #c7254e;
+  background-color: #f9f2f4;
+  border-radius: 4px;
 }
 
 h1 {
   margin: 0;
   font-weight: bold;
-  font-size: 34px;
+  font-size: 30px;
   font-weight: 400;
   color: #444;
 }
@@ -124,7 +132,6 @@ h1 {
   h2 {
     margin: 50px -30px 20px -30px;
     padding: 10px 30px 10px 25px;
-    border-left: 5px solid #eee;
     font-weight: bold;
     font-size: 24px;
     color: #444;
@@ -138,8 +145,7 @@ h1 {
     margin: 50px -30px 20px -27px;
     padding: 15px 30px;
     font-weight: bold;
-    border-left: 3px solid #eee;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
     color: #444;
   }

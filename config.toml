@@ -1,6 +1,5 @@
 baseurl = "https://fundon.github.io/"
-title = ""
-author = "fundon"
+title = "Fangdun Cai"
 description = ""
 languageCode = "en-us"
 disqusShortname = "fundon"
@@ -8,6 +7,9 @@ copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
 metaDataFormat = "yaml"
 
 twitter = "_fundon"
+
+[author]
+  name = "fundon"
 
 [indexes]
   tag = "tags"

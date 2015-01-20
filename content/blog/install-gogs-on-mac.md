@@ -19,43 +19,43 @@ title: Install Gogs on Mac OS X
 
 ### Homebrew
 
-```sh
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```bash
+$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
 ### git
 
-```sh
-brew install git
+```bash
+$ brew install git
 ```
 
 ### postgresql
 
-```sh
-brew install postgresql
+```bash
+$ brew install postgresql
 ```
 
 ### go
 
-```
-brew install go
+```bash
+$ brew install go
 ```
 
 ### gopm
 
-```
-go get -u github.com/gpmgo/gopm
+```bash
+$ go get -u github.com/gpmgo/gopm
 ```
 
 ### gogs
 Build from dev source.
 
-```sh
-go get -u github.com/gogits/gogs
-mkdir -p ~/services && cd ~/services
-git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
-cd gogs
-gopm build
+```bash
+$ go get -u github.com/gogits/gogs
+$ mkdir -p ~/services && cd ~/services
+$ git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
+$ cd gogs
+$ gopm build
 ```
 
 
@@ -64,41 +64,43 @@ gopm build
 ### postgresql
 
 #### Init postgresql
-```sh
-createdb
-psql --command "CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';"
-createdb -O root gogs
+
+```bash
+$ createdb
+$ psql --command "CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';"
+$ createdb -O root gogs
 ```
 
 #### Start postgresql server
 
-```sh
-cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+```bash
+$ cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+$ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 ```
 
 Or just run
 
-```sh
-postgres -D /usr/local/var/postgres
+```bash
+$ postgres -D /usr/local/var/postgres
 ```
 
 ### gogs
 
 #### custom/conf/app.ini
 
-You can add git user or use currently logged in user.
-If you want to add git user to run gogs, see http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script.
+You can add git user or use currently logged in user.   
+If you want to add git user to run gogs.   
+See http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script.
 
-```sh
-# Create custom folder
-mkdir -p custom/conf
-cp conf/app.ini custom/conf
+```bash
+$ # Create custom folder
+$ mkdir -p custom/conf
+$ cp conf/app.ini custom/conf
 ```
 
 
-```
+```ini
 ...
 
 RUN_USER = git
@@ -123,15 +125,15 @@ SECRET_KEY = YOU_MUST_CHANGE
 
 ## Run gogs server
 
-```
-cd ~/services/gogs
-./gogs web
-# open 127.0.0.0:3000
+```bash
+$ cd ~/services/gogs
+$ ./gogs web
+$ # open 127.0.0.0:3000
 ```
 
 Or add launchd plist file to `~/Library/LaunchAgents/io.gogs.web.plist`
 
-```xml
+```markup
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
@@ -154,8 +156,8 @@ Or add launchd plist file to `~/Library/LaunchAgents/io.gogs.web.plist`
 </plist>
 ```
 
-```sh
-launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
+```bash
+$ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 ```
 
 
@@ -163,14 +165,14 @@ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 
 ### Setting SSH config `/etc/sshd_config`
 
-```
-sudo cp /etc/sshd_config /etc/sshd_config~previous
-sudo vi /etc/sshd_config
+```bash
+$ sudo cp /etc/sshd_config /etc/sshd_config~previous
+$ sudo vi /etc/sshd_config
 ```
 
 Edit `/etc/sshd_config`
 
-```
+```ini
 PermitRootLogin no
 
 RSAAuthentication yes

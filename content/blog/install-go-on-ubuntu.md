@@ -7,7 +7,7 @@ title: Install Go on Ubuntu
 
 ## Installation
 
-```sh
+```bash
 VERSION="1.3.3"
 wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz
 tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz

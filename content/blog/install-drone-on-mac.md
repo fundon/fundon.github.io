@@ -6,7 +6,7 @@ tags:
 title: Install Drone on Mac
 ---
 
-DON'T LET BUGS INVADE YOUR CODE.
+DON'T LET BUGS INVADE YOUR CODE.   
 Start up a hosted continuous integration service for yourself or your team.
 
 

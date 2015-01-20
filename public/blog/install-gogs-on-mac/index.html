@@ -52,38 +52,38 @@
 
 <h3 id="homebrew:a980d2687ee25fbe161e675aa93e86d1">Homebrew</h3>
 
-<pre><code class="language-sh">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+<pre><code class="language-bash">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre>
 
 <h3 id="git:a980d2687ee25fbe161e675aa93e86d1">git</h3>
 
-<pre><code class="language-sh">brew install git
+<pre><code class="language-bash">$ brew install git
 </code></pre>
 
 <h3 id="postgresql:a980d2687ee25fbe161e675aa93e86d1">postgresql</h3>
 
-<pre><code class="language-sh">brew install postgresql
+<pre><code class="language-bash">$ brew install postgresql
 </code></pre>
 
 <h3 id="go:a980d2687ee25fbe161e675aa93e86d1">go</h3>
 
-<pre><code>brew install go
+<pre><code class="language-bash">$ brew install go
 </code></pre>
 
 <h3 id="gopm:a980d2687ee25fbe161e675aa93e86d1">gopm</h3>
 
-<pre><code>go get -u github.com/gpmgo/gopm
+<pre><code class="language-bash">$ go get -u github.com/gpmgo/gopm
 </code></pre>
 
 <h3 id="gogs:a980d2687ee25fbe161e675aa93e86d1">gogs</h3>
 
 <p>Build from dev source.</p>
 
-<pre><code class="language-sh">go get -u github.com/gogits/gogs
-mkdir -p ~/services &amp;&amp; cd ~/services
-git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
-cd gogs
-gopm build
+<pre><code class="language-bash">$ go get -u github.com/gogits/gogs
+$ mkdir -p ~/services &amp;&amp; cd ~/services
+$ git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
+$ cd gogs
+$ gopm build
 </code></pre>
 
 <h2 id="configuration:a980d2687ee25fbe161e675aa93e86d1">Configuration</h2>
@@ -92,36 +92,37 @@ gopm build
 
 <h4 id="init-postgresql:a980d2687ee25fbe161e675aa93e86d1">Init postgresql</h4>
 
-<pre><code class="language-sh">createdb
-psql --command &quot;CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';&quot;
-createdb -O root gogs
+<pre><code class="language-bash">$ createdb
+$ psql --command &quot;CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';&quot;
+$ createdb -O root gogs
 </code></pre>
 
 <h4 id="start-postgresql-server:a980d2687ee25fbe161e675aa93e86d1">Start postgresql server</h4>
 
-<pre><code class="language-sh">cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+<pre><code class="language-bash">$ cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+$ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 </code></pre>
 
 <p>Or just run</p>
 
-<pre><code class="language-sh">postgres -D /usr/local/var/postgres
+<pre><code class="language-bash">$ postgres -D /usr/local/var/postgres
 </code></pre>
 
 <h3 id="gogs-1:a980d2687ee25fbe161e675aa93e86d1">gogs</h3>
 
 <h4 id="custom-conf-app-ini:a980d2687ee25fbe161e675aa93e86d1">custom/conf/app.ini</h4>
 
-<p>You can add git user or use currently logged in user.
-If you want to add git user to run gogs, see <a href="http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script">http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script</a>.</p>
+<p>You can add git user or use currently logged in user.<br />
+If you want to add git user to run gogs.<br />
+See <a href="http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script">http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script</a>.</p>
 
-<pre><code class="language-sh"># Create custom folder
-mkdir -p custom/conf
-cp conf/app.ini custom/conf
+<pre><code class="language-bash">$ # Create custom folder
+$ mkdir -p custom/conf
+$ cp conf/app.ini custom/conf
 </code></pre>
 
-<pre><code>...
+<pre><code class="language-ini">...
 
 RUN_USER = git
 
@@ -145,14 +146,14 @@ SECRET_KEY = YOU_MUST_CHANGE
 
 <h2 id="run-gogs-server:a980d2687ee25fbe161e675aa93e86d1">Run gogs server</h2>
 
-<pre><code>cd ~/services/gogs
-./gogs web
-# open 127.0.0.0:3000
+<pre><code class="language-bash">$ cd ~/services/gogs
+$ ./gogs web
+$ # open 127.0.0.0:3000
 </code></pre>
 
 <p>Or add launchd plist file to <code>~/Library/LaunchAgents/io.gogs.web.plist</code></p>
 
-<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+<pre><code class="language-markup">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
 &lt;plist version=&quot;1.0&quot;&gt;
 &lt;dict&gt;
@@ -174,20 +175,20 @@ SECRET_KEY = YOU_MUST_CHANGE
 &lt;/plist&gt;
 </code></pre>
 
-<pre><code class="language-sh">launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
+<pre><code class="language-bash">$ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 </code></pre>
 
 <h2 id="ssh-remote:a980d2687ee25fbe161e675aa93e86d1">SSH Remote</h2>
 
 <h3 id="setting-ssh-config-etc-sshd-config:a980d2687ee25fbe161e675aa93e86d1">Setting SSH config <code>/etc/sshd_config</code></h3>
 
-<pre><code>sudo cp /etc/sshd_config /etc/sshd_config~previous
-sudo vi /etc/sshd_config
+<pre><code class="language-bash">$ sudo cp /etc/sshd_config /etc/sshd_config~previous
+$ sudo vi /etc/sshd_config
 </code></pre>
 
 <p>Edit <code>/etc/sshd_config</code></p>
 
-<pre><code>PermitRootLogin no
+<pre><code class="language-ini">PermitRootLogin no
 
 RSAAuthentication yes
 PubkeyAuthentication yes
