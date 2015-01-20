@@ -3,22 +3,27 @@
   
   <url>
     <loc>https://fundon.github.io/</loc>
-    <lastmod>2014-09-28T00:00:00+00:00</lastmod>
+    <lastmod>2015-01-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://fundon.github.io/blog/install-drone-on-mac/</loc>
+    <loc>https://fundon.github.io/blog/ubuntu_setup.html</loc>
+    <lastmod>2015-01-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fundon.github.io/blog/install-drone-on-mac.html</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://fundon.github.io/blog/install-gogs-on-mac/</loc>
+    <loc>https://fundon.github.io/blog/install-gogs-on-mac.html</loc>
     <lastmod>2014-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://fundon.github.io/blog/install-go-on-ubuntu/</loc>
+    <loc>https://fundon.github.io/blog/install-go-on-ubuntu.html</loc>
     <lastmod>2014-01-25T00:00:00+00:00</lastmod>
   </url>
   

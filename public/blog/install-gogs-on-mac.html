@@ -38,7 +38,7 @@
   </div>
   
 
-<h2 id="dependences:a980d2687ee25fbe161e675aa93e86d1">Dependences</h2>
+<h2 id="dependences">Dependences</h2>
 
 <ul>
 <li><a href="http://brew.sh">homebrew</a></li>
@@ -48,34 +48,34 @@
 <li><a href="http://gopm.io">gopm</a></li>
 </ul>
 
-<h2 id="installation:a980d2687ee25fbe161e675aa93e86d1">Installation</h2>
+<h2 id="installation">Installation</h2>
 
-<h3 id="homebrew:a980d2687ee25fbe161e675aa93e86d1">Homebrew</h3>
+<h3 id="homebrew">Homebrew</h3>
 
 <pre><code class="language-bash">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
 </code></pre>
 
-<h3 id="git:a980d2687ee25fbe161e675aa93e86d1">git</h3>
+<h3 id="git">git</h3>
 
 <pre><code class="language-bash">$ brew install git
 </code></pre>
 
-<h3 id="postgresql:a980d2687ee25fbe161e675aa93e86d1">postgresql</h3>
+<h3 id="postgresql">postgresql</h3>
 
 <pre><code class="language-bash">$ brew install postgresql
 </code></pre>
 
-<h3 id="go:a980d2687ee25fbe161e675aa93e86d1">go</h3>
+<h3 id="go">go</h3>
 
 <pre><code class="language-bash">$ brew install go
 </code></pre>
 
-<h3 id="gopm:a980d2687ee25fbe161e675aa93e86d1">gopm</h3>
+<h3 id="gopm">gopm</h3>
 
 <pre><code class="language-bash">$ go get -u github.com/gpmgo/gopm
 </code></pre>
 
-<h3 id="gogs:a980d2687ee25fbe161e675aa93e86d1">gogs</h3>
+<h3 id="gogs">gogs</h3>
 
 <p>Build from dev source.</p>
 
@@ -86,18 +86,18 @@ $ cd gogs
 $ gopm build
 </code></pre>
 
-<h2 id="configuration:a980d2687ee25fbe161e675aa93e86d1">Configuration</h2>
+<h2 id="configuration">Configuration</h2>
 
-<h3 id="postgresql-1:a980d2687ee25fbe161e675aa93e86d1">postgresql</h3>
+<h3 id="postgresql-1">postgresql</h3>
 
-<h4 id="init-postgresql:a980d2687ee25fbe161e675aa93e86d1">Init postgresql</h4>
+<h4 id="init-postgresql">Init postgresql</h4>
 
 <pre><code class="language-bash">$ createdb
 $ psql --command &quot;CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';&quot;
 $ createdb -O root gogs
 </code></pre>
 
-<h4 id="start-postgresql-server:a980d2687ee25fbe161e675aa93e86d1">Start postgresql server</h4>
+<h4 id="start-postgresql-server">Start postgresql server</h4>
 
 <pre><code class="language-bash">$ cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
 $ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
@@ -109,9 +109,9 @@ $ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 <pre><code class="language-bash">$ postgres -D /usr/local/var/postgres
 </code></pre>
 
-<h3 id="gogs-1:a980d2687ee25fbe161e675aa93e86d1">gogs</h3>
+<h3 id="gogs-1">gogs</h3>
 
-<h4 id="custom-conf-app-ini:a980d2687ee25fbe161e675aa93e86d1">custom/conf/app.ini</h4>
+<h4 id="custom-conf-app-ini">custom/conf/app.ini</h4>
 
 <p>You can add git user or use currently logged in user.<br />
 If you want to add git user to run gogs.<br />
@@ -144,7 +144,7 @@ SECRET_KEY = YOU_MUST_CHANGE
 ...
 </code></pre>
 
-<h2 id="run-gogs-server:a980d2687ee25fbe161e675aa93e86d1">Run gogs server</h2>
+<h2 id="run-gogs-server">Run gogs server</h2>
 
 <pre><code class="language-bash">$ cd ~/services/gogs
 $ ./gogs web
@@ -178,9 +178,9 @@ $ # open 127.0.0.0:3000
 <pre><code class="language-bash">$ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 </code></pre>
 
-<h2 id="ssh-remote:a980d2687ee25fbe161e675aa93e86d1">SSH Remote</h2>
+<h2 id="ssh-remote">SSH Remote</h2>
 
-<h3 id="setting-ssh-config-etc-sshd-config:a980d2687ee25fbe161e675aa93e86d1">Setting SSH config <code>/etc/sshd_config</code></h3>
+<h3 id="setting-ssh-config-etc-sshd-config">Setting SSH config <code>/etc/sshd_config</code></h3>
 
 <pre><code class="language-bash">$ sudo cp /etc/sshd_config /etc/sshd_config~previous
 $ sudo vi /etc/sshd_config
@@ -196,18 +196,18 @@ PubkeyAuthentication yes
 UsePAM no
 </code></pre>
 
-<h3 id="start-ssh-server:a980d2687ee25fbe161e675aa93e86d1">Start SSH Server</h3>
+<h3 id="start-ssh-server">Start SSH Server</h3>
 
 <pre><code>Open System Preferences &gt; Sharing &gt; Remote Login
 </code></pre>
 
-<h3 id="other-ssh-articles:a980d2687ee25fbe161e675aa93e86d1">Other SSH Articles</h3>
+<h3 id="other-ssh-articles">Other SSH Articles</h3>
 
 <p><a href="https://help.github.com/categories/ssh/">https://help.github.com/categories/ssh/</a></p>
 
-<h2 id="3-enjoy:a980d2687ee25fbe161e675aa93e86d1">&lt;3 Enjoy!</h2>
+<h2 id="3-enjoy">&lt;3 Enjoy!</h2>
 
-<h2 id="other:a980d2687ee25fbe161e675aa93e86d1">Other</h2>
+<h2 id="other">Other</h2>
 
 <ul>
 <li><a href="http://gogs.io/docs/intro/">http://gogs.io/docs/intro/</a></li>

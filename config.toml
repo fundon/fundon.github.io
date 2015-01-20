@@ -4,7 +4,10 @@ description = ""
 languageCode = "en-us"
 disqusShortname = "fundon"
 copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
-metaDataFormat = "yaml"
+
+MetaDataFormat = "yaml"
+[Blackfriday]
+  plainIdAnchors = true
 
 twitter = "_fundon"
 

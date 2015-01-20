@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Fangdun Cai</title>
+  <title>Install Go on Ubuntu</title>
   <meta name="author" content="" />
   <meta name="description" content="" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -31,36 +31,28 @@
     </div>
   </div>
 
-
 <section class="container content">
-  <div class="rule">
-    <hr>Older posts<hr>
+  <div class="title">
+    <h1>Install Go on Ubuntu</h1>
+    <div class="when">2014-01-25</div>
   </div>
-  <ul class="listing">
   
-    <li>
-      <span>2015-01-21</span>
-      <a href="https://fundon.github.io/blog/ubuntu_setup.html">Ubuntu Setup</a>
-    </li>
-  
-    <li>
-      <span>2014-09-28</span>
-      <a href="https://fundon.github.io/blog/install-drone-on-mac.html">Install Drone on Mac</a>
-    </li>
-  
-    <li>
-      <span>2014-09-02</span>
-      <a href="https://fundon.github.io/blog/install-gogs-on-mac.html">Install Gogs on Mac OS X</a>
-    </li>
-  
-    <li>
-      <span>2014-01-25</span>
-      <a href="https://fundon.github.io/blog/install-go-on-ubuntu.html">Install Go on Ubuntu</a>
-    </li>
-  
-  </ul>
-</section>
 
+<h2 id="installation">Installation</h2>
+
+<pre><code class="language-bash">VERSION=&quot;1.3.3&quot;
+wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz
+tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
+
+export PATH=&quot;$PATH:/usr/local/go/bin&quot;
+
+# You can custom `GOPATH`.
+#export GOPATH=$HOME/dev/go
+#export PATH=&quot;$PATH:$GOPATH/bin&quot;
+</code></pre>
+
+</section>
   <script src="/js/prism.js"></script>
 </body>
 </html>
+

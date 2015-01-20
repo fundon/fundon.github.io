@@ -3,22 +3,87 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Blogs on Fangdun Cai</title>
-    <link>https://fundon.github.io/blog/</link>
+    <link>https://fundon.github.io/blog.html</link>
     <description>Recent content in Blogs on Fangdun Cai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
     
     <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 UT</lastBuildDate>
-    <atom:link href="https://fundon.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 21 Jan 2015 00:00:00 UT</lastBuildDate>
+    <atom:link href="https://fundon.github.io/blog.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ubuntu Setup</title>
+      <link>https://fundon.github.io/blog/ubuntu_setup.html</link>
+      <pubDate>Wed, 21 Jan 2015 00:00:00 UT</pubDate>
+      
+      <guid>https://fundon.github.io/blog/ubuntu_setup.html</guid>
+      <description>
+
+&lt;h2 id=&#34;update-upgrade&#34;&gt;Update &amp;amp; Upgrade&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get update
+$ sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;add-user&#34;&gt;Add User&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;# adduser fundon
+# usermod fundon -G sudo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;package-search-and-show-package-info&#34;&gt;Package Search and Show Package Info&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;$ apt-cache search golang
+$ aptitude search golang
+$ aptitude show golang
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;packages-install&#34;&gt;Packages Install&lt;/h2&gt;
+
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install golang
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install docker.io
+$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;node-js&#34;&gt;Node.js&lt;/h2&gt;
+
+&lt;h3 id=&#34;ppa&#34;&gt;PPA&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://launchpad.net/~chris-lea/+archive/node.js&#34;&gt;https://launchpad.net/~chris-lea/+archive/node.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ sudo apt-get install build-essential
+$ sudo apt-get install libssl-dev
+$
+$ sudo su fundon
+$ git clone https://github.com/creationix/nvm.git ~/.nvm
+$ echo &#39;source ~/.nvm/nvm.sh&#39; &amp;gt;&amp;gt; ~/.bashrc
+$ nvm install -s 0.10.29
+$ nvm install -s 0.11.13
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>Install Drone on Mac</title>
-      <link>https://fundon.github.io/blog/install-drone-on-mac/</link>
+      <link>https://fundon.github.io/blog/install-drone-on-mac.html</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 UT</pubDate>
       
-      <guid>https://fundon.github.io/blog/install-drone-on-mac/</guid>
+      <guid>https://fundon.github.io/blog/install-drone-on-mac.html</guid>
       <description>&lt;p&gt;DON&amp;rsquo;T LET BUGS INVADE YOUR CODE.&lt;br /&gt;
 Start up a hosted continuous integration service for yourself or your team.&lt;/p&gt;
 </description>
@@ -26,13 +91,13 @@ Start up a hosted continuous integration service for yourself or your team.&lt;/
     
     <item>
       <title>Install Gogs on Mac OS X</title>
-      <link>https://fundon.github.io/blog/install-gogs-on-mac/</link>
+      <link>https://fundon.github.io/blog/install-gogs-on-mac.html</link>
       <pubDate>Tue, 02 Sep 2014 00:00:00 UT</pubDate>
       
-      <guid>https://fundon.github.io/blog/install-gogs-on-mac/</guid>
+      <guid>https://fundon.github.io/blog/install-gogs-on-mac.html</guid>
       <description>
 
-&lt;h2 id=&#34;dependences:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Dependences&lt;/h2&gt;
+&lt;h2 id=&#34;dependences&#34;&gt;Dependences&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://brew.sh&#34;&gt;homebrew&lt;/a&gt;&lt;/li&gt;
@@ -42,34 +107,34 @@ Start up a hosted continuous integration service for yourself or your team.&lt;/
 &lt;li&gt;&lt;a href=&#34;http://gopm.io&#34;&gt;gopm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;installation:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
-&lt;h3 id=&#34;homebrew:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Homebrew&lt;/h3&gt;
+&lt;h3 id=&#34;homebrew&#34;&gt;Homebrew&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;git:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;git&lt;/h3&gt;
+&lt;h3 id=&#34;git&#34;&gt;git&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install git
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;postgresql:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;postgresql&lt;/h3&gt;
+&lt;h3 id=&#34;postgresql&#34;&gt;postgresql&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install postgresql
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;go:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;go&lt;/h3&gt;
+&lt;h3 id=&#34;go&#34;&gt;go&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install go
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gopm:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gopm&lt;/h3&gt;
+&lt;h3 id=&#34;gopm&#34;&gt;gopm&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ go get -u github.com/gpmgo/gopm
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gogs:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gogs&lt;/h3&gt;
+&lt;h3 id=&#34;gogs&#34;&gt;gogs&lt;/h3&gt;
 
 &lt;p&gt;Build from dev source.&lt;/p&gt;
 
@@ -80,18 +145,18 @@ $ cd gogs
 $ gopm build
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;configuration:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Configuration&lt;/h2&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
-&lt;h3 id=&#34;postgresql-1:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;postgresql&lt;/h3&gt;
+&lt;h3 id=&#34;postgresql-1&#34;&gt;postgresql&lt;/h3&gt;
 
-&lt;h4 id=&#34;init-postgresql:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Init postgresql&lt;/h4&gt;
+&lt;h4 id=&#34;init-postgresql&#34;&gt;Init postgresql&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ createdb
 $ psql --command &amp;quot;CREATE USER root WITH SUPERUSER PASSWORD &#39;THE_DB_PASSWORD&#39;;&amp;quot;
 $ createdb -O root gogs
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;start-postgresql-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Start postgresql server&lt;/h4&gt;
+&lt;h4 id=&#34;start-postgresql-server&#34;&gt;Start postgresql server&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
 $ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
@@ -103,9 +168,9 @@ $ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ postgres -D /usr/local/var/postgres
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gogs-1:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gogs&lt;/h3&gt;
+&lt;h3 id=&#34;gogs-1&#34;&gt;gogs&lt;/h3&gt;
 
-&lt;h4 id=&#34;custom-conf-app-ini:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;custom/conf/app.ini&lt;/h4&gt;
+&lt;h4 id=&#34;custom-conf-app-ini&#34;&gt;custom/conf/app.ini&lt;/h4&gt;
 
 &lt;p&gt;You can add git user or use currently logged in user.&lt;br /&gt;
 If you want to add git user to run gogs.&lt;br /&gt;
@@ -138,7 +203,7 @@ SECRET_KEY = YOU_MUST_CHANGE
 ...
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;run-gogs-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Run gogs server&lt;/h2&gt;
+&lt;h2 id=&#34;run-gogs-server&#34;&gt;Run gogs server&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd ~/services/gogs
 $ ./gogs web
@@ -172,9 +237,9 @@ $ # open 127.0.0.0:3000
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;ssh-remote:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;SSH Remote&lt;/h2&gt;
+&lt;h2 id=&#34;ssh-remote&#34;&gt;SSH Remote&lt;/h2&gt;
 
-&lt;h3 id=&#34;setting-ssh-config-etc-sshd-config:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Setting SSH config &lt;code&gt;/etc/sshd_config&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;setting-ssh-config-etc-sshd-config&#34;&gt;Setting SSH config &lt;code&gt;/etc/sshd_config&lt;/code&gt;&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo cp /etc/sshd_config /etc/sshd_config~previous
 $ sudo vi /etc/sshd_config
@@ -190,18 +255,18 @@ PubkeyAuthentication yes
 UsePAM no
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;start-ssh-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Start SSH Server&lt;/h3&gt;
+&lt;h3 id=&#34;start-ssh-server&#34;&gt;Start SSH Server&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;Open System Preferences &amp;gt; Sharing &amp;gt; Remote Login
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;other-ssh-articles:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Other SSH Articles&lt;/h3&gt;
+&lt;h3 id=&#34;other-ssh-articles&#34;&gt;Other SSH Articles&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://help.github.com/categories/ssh/&#34;&gt;https://help.github.com/categories/ssh/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;3-enjoy:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;&amp;lt;3 Enjoy!&lt;/h2&gt;
+&lt;h2 id=&#34;3-enjoy&#34;&gt;&amp;lt;3 Enjoy!&lt;/h2&gt;
 
-&lt;h2 id=&#34;other:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Other&lt;/h2&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://gogs.io/docs/intro/&#34;&gt;http://gogs.io/docs/intro/&lt;/a&gt;&lt;/li&gt;
@@ -211,13 +276,13 @@ UsePAM no
     
     <item>
       <title>Install Go on Ubuntu</title>
-      <link>https://fundon.github.io/blog/install-go-on-ubuntu/</link>
+      <link>https://fundon.github.io/blog/install-go-on-ubuntu.html</link>
       <pubDate>Sat, 25 Jan 2014 00:00:00 UT</pubDate>
       
-      <guid>https://fundon.github.io/blog/install-go-on-ubuntu/</guid>
+      <guid>https://fundon.github.io/blog/install-go-on-ubuntu.html</guid>
       <description>
 
-&lt;h2 id=&#34;installation:5538edb85bf163c81357354aa48d4993&#34;&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;VERSION=&amp;quot;1.3.3&amp;quot;
 wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz
