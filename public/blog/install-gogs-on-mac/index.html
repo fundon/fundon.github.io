@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Install Gogs on Mac OS X</title>
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+  <link href="//cdnjs.cloudflare.com/ajax/libs/normalize/3.0.2/normalize.min.css" rel="stylesheet" />
+  <link href='//fonts.googleapis.com/css?family=Arbutus+Slab%7CCabin:600%7CSource+Code+Pro' rel='stylesheet' type='text/css'>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/base.css" type="text/css" media="screen, projection" />
+  <link media="only screen and (max-device-width: 480px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
+  <link media="only screen and (device-width: 768px)" href="/css/mobile.css" type="text/css" rel="stylesheet" />
+  <link type="text/css" rel="stylesheet" href="/css/prism.css"/>
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+</head>
+
+<body>
+  <div class="header">
+    <div class="container">
+      <ul class="menu">
+        <li><a href="/about">About</a></li>
+        <li><a href="/talks">Talks</a></li>
+      </ul>
+
+      <section class="name">
+        <a href="/"><b>Fangdun</b>Cai</a>
+      </section>
+    </div>
+  </div>
+
+<section class="container content">
+  <div class="title">
+    <h1>Install Gogs on Mac OS X</h1>
+    <div class="when">2014-09-02</div>
+  </div>
+  
+
+<h2 id="dependences:a980d2687ee25fbe161e675aa93e86d1">Dependences</h2>
+
+<ul>
+<li><a href="http://brew.sh">homebrew</a></li>
+<li><a href="http://git-scm.com">git</a></li>
+<li><a href="http://www.postgresql.org">postgresql</a></li>
+<li><a href="http://golang.org">go</a></li>
+<li><a href="http://gopm.io">gopm</a></li>
+</ul>
+
+<h2 id="installation:a980d2687ee25fbe161e675aa93e86d1">Installation</h2>
+
+<h3 id="homebrew:a980d2687ee25fbe161e675aa93e86d1">Homebrew</h3>
+
+<pre><code class="language-sh">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+
+<h3 id="git:a980d2687ee25fbe161e675aa93e86d1">git</h3>
+
+<pre><code class="language-sh">brew install git
+</code></pre>
+
+<h3 id="postgresql:a980d2687ee25fbe161e675aa93e86d1">postgresql</h3>
+
+<pre><code class="language-sh">brew install postgresql
+</code></pre>
+
+<h3 id="go:a980d2687ee25fbe161e675aa93e86d1">go</h3>
+
+<pre><code>brew install go
+</code></pre>
+
+<h3 id="gopm:a980d2687ee25fbe161e675aa93e86d1">gopm</h3>
+
+<pre><code>go get -u github.com/gpmgo/gopm
+</code></pre>
+
+<h3 id="gogs:a980d2687ee25fbe161e675aa93e86d1">gogs</h3>
+
+<p>Build from dev source.</p>
+
+<pre><code class="language-sh">go get -u github.com/gogits/gogs
+mkdir -p ~/services &amp;&amp; cd ~/services
+git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
+cd gogs
+gopm build
+</code></pre>
+
+<h2 id="configuration:a980d2687ee25fbe161e675aa93e86d1">Configuration</h2>
+
+<h3 id="postgresql-1:a980d2687ee25fbe161e675aa93e86d1">postgresql</h3>
+
+<h4 id="init-postgresql:a980d2687ee25fbe161e675aa93e86d1">Init postgresql</h4>
+
+<pre><code class="language-sh">createdb
+psql --command &quot;CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';&quot;
+createdb -O root gogs
+</code></pre>
+
+<h4 id="start-postgresql-server:a980d2687ee25fbe161e675aa93e86d1">Start postgresql server</h4>
+
+<pre><code class="language-sh">cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</code></pre>
+
+<p>Or just run</p>
+
+<pre><code class="language-sh">postgres -D /usr/local/var/postgres
+</code></pre>
+
+<h3 id="gogs-1:a980d2687ee25fbe161e675aa93e86d1">gogs</h3>
+
+<h4 id="custom-conf-app-ini:a980d2687ee25fbe161e675aa93e86d1">custom/conf/app.ini</h4>
+
+<p>You can add git user or use currently logged in user.
+If you want to add git user to run gogs, see <a href="http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script">http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script</a>.</p>
+
+<pre><code class="language-sh"># Create custom folder
+mkdir -p custom/conf
+cp conf/app.ini custom/conf
+</code></pre>
+
+<pre><code>...
+
+RUN_USER = git
+
+[server]
+SSH_PORT = 22
+
+...
+
+[database]
+DB_TYPE = postgres
+HOST = 127.0.0.1:5432
+
+...
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY = YOU_MUST_CHANGE
+
+...
+</code></pre>
+
+<h2 id="run-gogs-server:a980d2687ee25fbe161e675aa93e86d1">Run gogs server</h2>
+
+<pre><code>cd ~/services/gogs
+./gogs web
+# open 127.0.0.0:3000
+</code></pre>
+
+<p>Or add launchd plist file to <code>~/Library/LaunchAgents/io.gogs.web.plist</code></p>
+
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+  &lt;key&gt;Label&lt;/key&gt;
+  &lt;string&gt;io.gogs.web&lt;/string&gt;
+  &lt;key&gt;ProgramArguments&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;sh&lt;/string&gt;
+    &lt;string&gt;-c&lt;/string&gt;
+    &lt;string&gt;cd /Users/fundon/services/gogs; ./gogs web&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;RunAtLoad&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;KeepAlive&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;WorkingDirectory&lt;/key&gt;
+  &lt;string&gt;/Users/fundon/services/gogs&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+
+<pre><code class="language-sh">launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
+</code></pre>
+
+<h2 id="ssh-remote:a980d2687ee25fbe161e675aa93e86d1">SSH Remote</h2>
+
+<h3 id="setting-ssh-config-etc-sshd-config:a980d2687ee25fbe161e675aa93e86d1">Setting SSH config <code>/etc/sshd_config</code></h3>
+
+<pre><code>sudo cp /etc/sshd_config /etc/sshd_config~previous
+sudo vi /etc/sshd_config
+</code></pre>
+
+<p>Edit <code>/etc/sshd_config</code></p>
+
+<pre><code>PermitRootLogin no
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+
+UsePAM no
+</code></pre>
+
+<h3 id="start-ssh-server:a980d2687ee25fbe161e675aa93e86d1">Start SSH Server</h3>
+
+<pre><code>Open System Preferences &gt; Sharing &gt; Remote Login
+</code></pre>
+
+<h3 id="other-ssh-articles:a980d2687ee25fbe161e675aa93e86d1">Other SSH Articles</h3>
+
+<p><a href="https://help.github.com/categories/ssh/">https://help.github.com/categories/ssh/</a></p>
+
+<h2 id="3-enjoy:a980d2687ee25fbe161e675aa93e86d1">&lt;3 Enjoy!</h2>
+
+<h2 id="other:a980d2687ee25fbe161e675aa93e86d1">Other</h2>
+
+<ul>
+<li><a href="http://gogs.io/docs/intro/">http://gogs.io/docs/intro/</a></li>
+</ul>
+
+</section>
+  <script src="/js/prism.js"></script>
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
+

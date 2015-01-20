@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on </title>
+    <link>http://localhost:1313/tags/go/</link>
+    <description>Recent content in Go on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+    
+    <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
+    <lastBuildDate>Sun, 28 Sep 2014 00:00:00 UT</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Install Drone on Mac</title>
+      <link>http://localhost:1313/blog/install-drone-on-mac/</link>
+      <pubDate>Sun, 28 Sep 2014 00:00:00 UT</pubDate>
+      
+      <guid>http://localhost:1313/blog/install-drone-on-mac/</guid>
+      <description>&lt;p&gt;DON&amp;rsquo;T LET BUGS INVADE YOUR CODE.
+Start up a hosted continuous integration service for yourself or your team.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install Gogs on Mac OS X</title>
+      <link>http://localhost:1313/blog/install-gogs-on-mac/</link>
+      <pubDate>Tue, 02 Sep 2014 00:00:00 UT</pubDate>
+      
+      <guid>http://localhost:1313/blog/install-gogs-on-mac/</guid>
+      <description>
+
+&lt;h2 id=&#34;dependences:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Dependences&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://brew.sh&#34;&gt;homebrew&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://git-scm.com&#34;&gt;git&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.postgresql.org&#34;&gt;postgresql&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://golang.org&#34;&gt;go&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://gopm.io&#34;&gt;gopm&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;installation:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;h3 id=&#34;homebrew:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Homebrew&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;git:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;git&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;postgresql:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;postgresql&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;brew install postgresql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;go:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;go&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install go
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gopm:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gopm&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;go get -u github.com/gpmgo/gopm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gogs:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gogs&lt;/h3&gt;
+
+&lt;p&gt;Build from dev source.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;go get -u github.com/gogits/gogs
+mkdir -p ~/services &amp;amp;&amp;amp; cd ~/services
+git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
+cd gogs
+gopm build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;configuration:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Configuration&lt;/h2&gt;
+
+&lt;h3 id=&#34;postgresql-1:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;postgresql&lt;/h3&gt;
+
+&lt;h4 id=&#34;init-postgresql:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Init postgresql&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;createdb
+psql --command &amp;quot;CREATE USER root WITH SUPERUSER PASSWORD &#39;THE_DB_PASSWORD&#39;;&amp;quot;
+createdb -O root gogs
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;start-postgresql-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Start postgresql server&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
+launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or just run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;postgres -D /usr/local/var/postgres
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;gogs-1:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gogs&lt;/h3&gt;
+
+&lt;h4 id=&#34;custom-conf-app-ini:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;custom/conf/app.ini&lt;/h4&gt;
+
+&lt;p&gt;You can add git user or use currently logged in user.
+If you want to add git user to run gogs, see &lt;a href=&#34;http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script&#34;&gt;http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;# Create custom folder
+mkdir -p custom/conf
+cp conf/app.ini custom/conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;...
+
+RUN_USER = git
+
+[server]
+SSH_PORT = 22
+
+...
+
+[database]
+DB_TYPE = postgres
+HOST = 127.0.0.1:5432
+
+...
+
+[security]
+INSTALL_LOCK = true
+SECRET_KEY = YOU_MUST_CHANGE
+
+...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run-gogs-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Run gogs server&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;cd ~/services/gogs
+./gogs web
+# open 127.0.0.0:3000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or add launchd plist file to &lt;code&gt;~/Library/LaunchAgents/io.gogs.web.plist&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-xml&#34;&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;
+&amp;lt;!DOCTYPE plist PUBLIC &amp;quot;-//Apple Computer//DTD PLIST 1.0//EN&amp;quot; &amp;quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&amp;quot;&amp;gt;
+&amp;lt;plist version=&amp;quot;1.0&amp;quot;&amp;gt;
+&amp;lt;dict&amp;gt;
+  &amp;lt;key&amp;gt;Label&amp;lt;/key&amp;gt;
+  &amp;lt;string&amp;gt;io.gogs.web&amp;lt;/string&amp;gt;
+  &amp;lt;key&amp;gt;ProgramArguments&amp;lt;/key&amp;gt;
+  &amp;lt;array&amp;gt;
+    &amp;lt;string&amp;gt;sh&amp;lt;/string&amp;gt;
+    &amp;lt;string&amp;gt;-c&amp;lt;/string&amp;gt;
+    &amp;lt;string&amp;gt;cd /Users/fundon/services/gogs; ./gogs web&amp;lt;/string&amp;gt;
+  &amp;lt;/array&amp;gt;
+  &amp;lt;key&amp;gt;RunAtLoad&amp;lt;/key&amp;gt;
+  &amp;lt;true/&amp;gt;
+  &amp;lt;key&amp;gt;KeepAlive&amp;lt;/key&amp;gt;
+  &amp;lt;true/&amp;gt;
+  &amp;lt;key&amp;gt;WorkingDirectory&amp;lt;/key&amp;gt;
+  &amp;lt;string&amp;gt;/Users/fundon/services/gogs&amp;lt;/string&amp;gt;
+&amp;lt;/dict&amp;gt;
+&amp;lt;/plist&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;ssh-remote:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;SSH Remote&lt;/h2&gt;
+
+&lt;h3 id=&#34;setting-ssh-config-etc-sshd-config:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Setting SSH config &lt;code&gt;/etc/sshd_config&lt;/code&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo cp /etc/sshd_config /etc/sshd_config~previous
+sudo vi /etc/sshd_config
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Edit &lt;code&gt;/etc/sshd_config&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;PermitRootLogin no
+
+RSAAuthentication yes
+PubkeyAuthentication yes
+
+UsePAM no
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;start-ssh-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Start SSH Server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Open System Preferences &amp;gt; Sharing &amp;gt; Remote Login
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;other-ssh-articles:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Other SSH Articles&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://help.github.com/categories/ssh/&#34;&gt;https://help.github.com/categories/ssh/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;3-enjoy:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;&amp;lt;3 Enjoy!&lt;/h2&gt;
+
+&lt;h2 id=&#34;other:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Other&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://gogs.io/docs/intro/&#34;&gt;http://gogs.io/docs/intro/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install Go on Ubuntu</title>
+      <link>http://localhost:1313/blog/install-go-on-ubuntu/</link>
+      <pubDate>Sat, 25 Jan 2014 00:00:00 UT</pubDate>
+      
+      <guid>http://localhost:1313/blog/install-go-on-ubuntu/</guid>
+      <description>
+
+&lt;h2 id=&#34;installation:5538edb85bf163c81357354aa48d4993&#34;&gt;Installation&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;VERSION=&amp;quot;1.3.3&amp;quot;
+wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz
+tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
+
+export PATH=&amp;quot;$PATH:/usr/local/go/bin&amp;quot;
+
+# You can custom `GOPATH`.
+#export GOPATH=$HOME/dev/go
+#export PATH=&amp;quot;$PATH:$GOPATH/bin&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

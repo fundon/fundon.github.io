@@ -1,11 +1,11 @@
 ---
-date: 2014090222352
-tags: gogs, git
-update: 201410102055
+date: 2014-09-02
+tags:
+  - git
+  - go
+update: 2014-10-10
+title: Install Gogs on Mac OS X
 ---
-
-Install Gogs on Mac OS X
--------------------------
 
 ## Dependences
 
@@ -131,7 +131,7 @@ cd ~/services/gogs
 
 Or add launchd plist file to `~/Library/LaunchAgents/io.gogs.web.plist`
 
-```
+```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">

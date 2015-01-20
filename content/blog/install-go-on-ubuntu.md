@@ -1,11 +1,9 @@
 ---
-date: 201401025
-tags: go
+date: 2014-01-25
+tags:
+  - go
+title: Install Go on Ubuntu
 ---
-
-Install Go on Ubuntu
--------------------------
-
 
 ## Installation
 
