@@ -1,6 +1,6 @@
 
 build:
-	@ hugo --uglyUrls
+	@ hugo -t NexT
 
 publish: build
 	@ git subtree push --prefix public origin master

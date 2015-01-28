@@ -1,9 +1,12 @@
 baseurl = "https://fundon.github.io/"
+theme = "NexT"
 title = "Fangdun Cai"
 description = ""
 languageCode = "en-us"
 disqusShortname = "fundon"
 copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
+Paginate = 7
+#canonifyUrls = true
 
 MetaDataFormat = "yaml"
 [Blackfriday]
@@ -16,4 +19,20 @@ twitter = "_fundon"
 
 [indexes]
   tag = "tags"
-  topic = "topics"
+  category = "categories"
+
+[[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = -100
+
+[[menu.main]]
+    name = "Blog"
+    url = "/Blog"
+    identifier = "archives"
+    weight = -80
+
+[[menu.main]]
+    name = "Tags"
+    url = "/tags"
+    weight = -60

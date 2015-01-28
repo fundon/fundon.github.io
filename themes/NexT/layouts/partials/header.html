@@ -1,0 +1,20 @@
+  <h1 class="site-meta has-feed">
+    <a href="{{ .Site.BaseUrl }}" class="brand">
+      <span class="logo the-shape"></span>
+      <span class="site-title">{{ .Site.Title }}</span>
+    </a>
+    <a class="feed" href="{{ .RSSlink }}"></a>
+  </h1>
+
+  <ul id="menu" class="menu">
+  {{ $currentNode := . }}
+  {{ range .Site.Menus.main }}
+    {{ if .Identifier }}
+      <li class="menu-item menu-item-{{lower .Identifier }}">
+    {{ else }}
+      <li class="menu-item menu-item-{{lower .Name }}">
+    {{ end }}
+      <a href="{{ .Url | safeUrl }}" title="{{ .Name }}">{{ .Name }}</a>
+    </li>
+  {{ end }}
+  </ul>

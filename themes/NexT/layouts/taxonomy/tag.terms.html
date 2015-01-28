@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+  <div class="container one-column">
+
+    <div id="header" class="header">
+      <div class="header-inner">
+      {{ partial "header.html" . }}
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          <div id="posts" class=posts-collapse>
+            <div class="tag-cloud">
+              <div class="tag-cloud-title">Totally {{ len .Data.Terms }} tags</div>
+              <div class="tag-cloud-tags">
+              {{ $data := .Data }}
+              {{ range $key, $value := .Data.Terms.ByCount }}
+              <a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}"
+                title="">{{ $value.Name }}({{ $value.Count }})</a>
+              {{ end }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+      {{ partial "footer.html" . }}
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
+

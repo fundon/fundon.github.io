@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="zh">
+<head>
+  <title>Fangdun Cai</title>
+  <meta name="author" content="" />
+  <meta name="description" content="" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="canonical" href="http://localhost:1313/blog/ubuntu_setup/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Fangdun Cai" />
+  <link rel="stylesheet" type="text/css" href="/css/main.css" />
+
+</head>
+<body>
+  <div class="container one-column">
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <h1 class="site-meta has-feed">
+    <a href="http://localhost:1313" class="brand">
+      <span class="logo the-shape"></span>
+      <span class="site-title">Fangdun Cai</span>
+    </a>
+    <a class="feed" href=""></a>
+  </h1>
+
+  <ul id="menu" class="menu">
+  
+  
+    
+      <li class="menu-item menu-item-home">
+    
+      <a href="/" title="Home">Home</a>
+    </li>
+  
+    
+      <li class="menu-item menu-item-archives">
+    
+      <a href="/blog/" title="Blog">Blog</a>
+    </li>
+  
+    
+      <li class="menu-item menu-item-tags">
+    
+      <a href="/tags/" title="Tags">Tags</a>
+    </li>
+  
+  </ul>
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          <div id="posts" class="posts-expand">
+              <div class="post post-type-normal">
+    <div class="post-header">
+      <div class="post-meta">
+        <span class="post-time">Posted on 2015-01-21</span>
+        <h2 class="post-title">
+          <a class="post-title-link" href="http://localhost:1313/blog/ubuntu_setup/">Ubuntu Setup</a>
+        </h2>
+      </div>
+    </div>
+    <div class="post-body">
+
+<h2 id="update-upgrade">Update &amp; Upgrade</h2>
+
+<pre><code>$ sudo apt-get update
+$ sudo apt-get upgrade
+</code></pre>
+
+<h2 id="add-user">Add User</h2>
+
+<pre><code># adduser fundon
+# usermod fundon -G sudo
+</code></pre>
+
+<h2 id="package-search-and-show-package-info">Package Search and Show Package Info</h2>
+
+<pre><code>$ apt-cache search golang
+$ aptitude search golang
+$ aptitude show golang
+</code></pre>
+
+<h2 id="packages-install">Packages Install</h2>
+
+<h3 id="git">Git</h3>
+
+<pre><code>$ sudo apt-get install git
+</code></pre>
+
+<h3 id="golang">Golang</h3>
+
+<pre><code>$ sudo apt-get install golang
+</code></pre>
+
+<h3 id="docker">Docker</h3>
+
+<pre><code>$ sudo apt-get install docker.io
+$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+</code></pre>
+
+<h2 id="node-js">Node.js</h2>
+
+<h3 id="ppa">PPA</h3>
+
+<p><a href="https://launchpad.net/~chris-lea/+archive/node.js">https://launchpad.net/~chris-lea/+archive/node.js</a></p>
+
+<h3 id="source">Source</h3>
+
+<pre><code>$ sudo apt-get install build-essential
+$ sudo apt-get install libssl-dev
+$
+$ sudo su fundon
+$ git clone https://github.com/creationix/nvm.git ~/.nvm
+$ echo 'source ~/.nvm/nvm.sh' &gt;&gt; ~/.bashrc
+$ nvm install -s 0.10.29
+$ nvm install -s 0.11.13
+</code></pre>
+</div>
+    <div class="post-footer">
+      <div class="post-tags">
+          
+
+      </div>
+      <div class="post-eof the-shape"></div>
+    </div>
+  </div>
+
+            <div class="pagination">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+      <div class="copyright">
+  2015
+  <span class="with-love">&hearts;</span>
+  <span class="author">fundon</span>
+</div>
+
+<div class="powered-by">
+  Powered By - <a class="theme-link" href="http://gohugo.io/">Hugo</a>
+</div>
+
+<div class="theme-info">
+  Theme - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT</a>
+</div>
+
+      </div>
+    </div>
+
+  </div>
+
+<script>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+  <div class="container one-column">
+
+    <div id="header" class="header">
+      <div class="header-inner">
+      {{ partial "header.html" . }}
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          <div id="posts" class="posts-collapse">
+            {{ range .Data.Pages.GroupByDate "2006" }}
+            <h2 class="collection-title">{{ .Key }}</h2>
+            <ul id="list">
+            {{ range .Pages }}
+              {{ .Render "li"}}
+            {{ end }}
+            </ul>
+            {{ end }}
+            <div class="pagination">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer" class="footer">
+      <div class="footer-inner">
+      {{ partial "footer.html" . }}
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
