@@ -601,7 +601,7 @@ pre .javascript .function {
   background-size: 100% 100%;
 }
 .menu-item-feed a::before {
-  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0…yNHY0eiIvPjxwYXRoIGQ9Ik0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==") no-repeat;
+  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTIwIDM2aDh2LTRoLTh2NHptLTE0LTI0djRoMzZ2LTRoLTM2em02IDE0aDI0di00aC0yNHY0eiIvPjxwYXRoIGQ9Ik0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==") no-repeat;
   background-size: 100% 100%;
 }
 .translation {
@@ -1035,7 +1035,7 @@ pre .javascript .function {
 }
 
 #header {
-  background: #34495e url("../images/water.jpg") no-repeat center center fixed;
+  background: #eee url("../images/water.jpg") no-repeat center center fixed;
   background-size: cover;
   box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.03),0px 1px 2px 0px rgba(0,0,0,0.38);
 }
