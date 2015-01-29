@@ -6,16 +6,18 @@ languageCode = "en-us"
 disqusShortname = "fundon"
 copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
 Paginate = 7
-#canonifyUrls = true
+canonifyUrls = true
 
 MetaDataFormat = "yaml"
+
+[params]
+  author = "fundon"
+  description = "Fundon's Moving Castle"
+  twitter = "_fundon"
+  github = "fundon"
+
 [Blackfriday]
   plainIdAnchors = true
-
-twitter = "_fundon"
-
-[author]
-  name = "fundon"
 
 [indexes]
   tag = "tags"
@@ -36,3 +38,8 @@ twitter = "_fundon"
     name = "Tags"
     url = "/tags"
     weight = -60
+
+[[menu.main]]
+    name = "Feed"
+    url = "/index.xml"
+    weight = -40

@@ -600,6 +600,10 @@ pre .javascript .function {
   background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDQ4IDQ4IiB3aWR0aD0iNDgiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0OHY0OGgtNDh6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTQgNDBoNDB2LThoLTQwdjh6bTQtNmg0djRoLTR2LTR6bS00LTI2djhoNDB2LThoLTQwem04IDZoLTR2LTRoNHY0em0tOCAxNGg0MHYtOGgtNDB2OHptNC02aDR2NGgtNHYtNHoiLz48L3N2Zz4=") no-repeat 0 50%;
   background-size: 100% 100%;
 }
+.menu-item-feed a::before {
+  background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSI0…yNHY0eiIvPjxwYXRoIGQ9Ik0wIDBoNDh2NDhoLTQ4eiIgZmlsbD0ibm9uZSIvPjwvc3ZnPg==") no-repeat;
+  background-size: 100% 100%;
+}
 .translation {
   margin-top: -20px;
   font-size: 14px;
