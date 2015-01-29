@@ -572,7 +572,7 @@ pre .javascript .function {
 .menu .menu-item a {
   display: block;
   color: #222;
-  font-size: 14px;
+  font-size: 18px;
   text-decoration: none;
   text-transform: capitalize;
   border-bottom: 1px solid #999;
@@ -1028,4 +1028,15 @@ pre .javascript .function {
   .footer-inner {
     padding: 0 10px;
   }
+}
+
+#header {
+  background: #34495e url("../images/water.jpg") no-repeat center center fixed;
+  background-size: cover;
+  box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.03),0px 1px 2px 0px rgba(0,0,0,0.38);
+}
+.menu .menu-item a {
+  color: #fff;
+  text-shadow: 0px 1px 1px rgba(0,0,0,0.38);
+  transition: all 0.4s cubic-bezier(0.08, 1.09, 0.64, 1.12);
 }
