@@ -16,6 +16,9 @@ MetaDataFormat = "yaml"
   twitter = "_fundon"
   github = "fundon"
 
+[params.googleAnalytics]
+  trackingId = "UA-59772344-1"
+
 [Blackfriday]
   plainIdAnchors = true
 
@@ -26,6 +29,7 @@ MetaDataFormat = "yaml"
 [[menu.main]]
     name = "Home"
     url = "/"
+    identifier = "home"
     weight = -100
 
 [[menu.main]]
@@ -37,9 +41,11 @@ MetaDataFormat = "yaml"
 [[menu.main]]
     name = "Tags"
     url = "/tags"
+    identifier = "tags"
     weight = -60
 
 [[menu.main]]
     name = "Feed"
     url = "/index.xml"
+    identifier = "feed"
     weight = -40

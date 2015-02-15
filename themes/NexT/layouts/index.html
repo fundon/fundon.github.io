@@ -1,10 +1,11 @@
 <!doctype html>
-<html lang="zh">
+<html>
 <head>
 {{ partial "head.html" . }}
 </head>
 <body>
   <div class="container one-column">
+    <div class="headband"></div>
 
     <div id="header" class="header">
       <div class="header-inner">
@@ -26,11 +27,7 @@
       </div>
     </div>
 
-    <div id="footer" class="footer">
-      <div class="footer-inner">
-      {{ partial "footer.html" . }}
-      </div>
-    </div>
+    {{ partial "footer.html" . }}
 
   </div>
 
