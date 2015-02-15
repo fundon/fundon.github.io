@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh">
+<html>
 <head>
 {{ partial "head.html" . }}
 </head>
@@ -19,9 +19,10 @@
             <div class="tag-cloud">
               <div class="tag-cloud-title">Totally {{ len .Data.Terms }} tags</div>
               <div class="tag-cloud-tags">
+              {{ $baseurl := .Site.BaseUrl }}
               {{ $data := .Data }}
               {{ range $key, $value := .Data.Terms.ByCount }}
-              <a href="/{{ $data.Plural }}/{{ $value.Name | urlize }}"
+              <a href="{{ $baseurl }}/{{ $data.Plural }}/{{ $value.Name | urlize }}"
                 title="">{{ $value.Name }}({{ $value.Count }})</a>
               {{ end }}
               </div>
