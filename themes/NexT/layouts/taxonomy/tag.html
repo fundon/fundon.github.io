@@ -16,7 +16,9 @@
       <div class="main-inner">
         <div id="content" class="content">
           <div id="posts" class="posts-collapse">
-            <h2 class="collection-title">{{ .Title }}</h2>
+            <div class="collection-title">
+              <h2>{{ .Title }}</h2>
+            </div>
             {{ range .Data.Pages.ByDate }}
               {{ .Render "li"}}
             {{ end }}
