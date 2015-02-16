@@ -5,7 +5,7 @@ title: Ubuntu Setup
 
 ## Update & Upgrade
 
-```
+```bash
 $ sudo apt-get update
 $ sudo apt-get upgrade
 ```
@@ -13,7 +13,7 @@ $ sudo apt-get upgrade
 
 ## Add User
 
-```
+```bash
 # adduser fundon
 # usermod fundon -G sudo
 ```
@@ -21,7 +21,7 @@ $ sudo apt-get upgrade
 
 ## Package Search and Show Package Info
 
-```
+```bash
 $ apt-cache search golang
 $ aptitude search golang
 $ aptitude show golang
@@ -32,19 +32,19 @@ $ aptitude show golang
 
 ### Git
 
-```
+```bash
 $ sudo apt-get install git
 ```
 
 ### Golang
 
-```
+```bash
 $ sudo apt-get install golang
 ```
 
 ### Docker
 
-```
+```bash
 $ sudo apt-get install docker.io
 $ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
 ```
@@ -57,7 +57,7 @@ https://launchpad.net/~chris-lea/+archive/node.js
 
 ### Source
 
-```
+```bash
 $ sudo apt-get install build-essential
 $ sudo apt-get install libssl-dev
 $
