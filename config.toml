@@ -1,5 +1,5 @@
-baseurl = "https://fundon.github.io/"
-theme = "NexT"
+#baseurl = "https://fundon.github.io/"
+baseurl = "./"
 title = "Fangdun Cai"
 description = ""
 languageCode = "en-us"
@@ -7,6 +7,7 @@ disqusShortname = "fundon"
 copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
 Paginate = 7
 canonifyUrls = true
+theme = "robots"
 
 MetaDataFormat = "yaml"
 
@@ -15,6 +16,7 @@ MetaDataFormat = "yaml"
   description = "Fundon's Moving Castle"
   twitter = "_fundon"
   github = "fundon"
+  fullname = "Fangdun Cai"
 
 [params.googleAnalytics]
   trackingId = "UA-59772344-1"
@@ -27,25 +29,31 @@ MetaDataFormat = "yaml"
   category = "categories"
 
 [[menu.main]]
-    name = "Home"
-    url = "/"
-    identifier = "home"
+    name = "All Topics"
+    url = "/tags"
+    identifier = "tags"
     weight = -100
 
 [[menu.main]]
-    name = "Blog"
-    url = "/Blog"
-    identifier = "archives"
+    name = "Design"
+    url = "/design"
+    identifier = "design"
     weight = -80
 
 [[menu.main]]
-    name = "Tags"
-    url = "/tags"
-    identifier = "tags"
+    name = "Web"
+    url = "/web"
+    identifier = "web"
     weight = -60
+
+[[menu.main]]
+    name = "iOS"
+    url = "/ios"
+    identifier = "iOS"
+    weight = -40
 
 [[menu.main]]
     name = "Feed"
     url = "/index.xml"
     identifier = "feed"
-    weight = -40
+    weight = -20

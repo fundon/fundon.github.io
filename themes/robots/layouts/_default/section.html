@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+  <div class="container one-column page-not-home page-archive">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+      {{ partial "header.html" . }}
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          <div id="posts" class="posts-collapse">
+            <span class="archive-move-on"></span>
+            <span class="archive-page-counter">Totally {{ len .Data.Pages }} Posts</span>
+          {{ range .Data.Pages.GroupByDate "2006" }}
+
+            <div class="collection-title">
+              <h2 class="archive-year motion-element" id="archive-year-{{ .Key }}">{{ .Key }}</h2>
+            </div>
+
+            {{ range .Pages }}
+              {{ .Render "li"}}
+            {{ end }}
+          {{ end }}
+            <div class="pagination">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {{ partial "footer.html" . }}
+
+  </div>
+
+</body>
+</html>

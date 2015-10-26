@@ -1,5 +1,5 @@
   <h1 class="site-meta">
-    <a href="{{ .Site.BaseUrl }}" class="brand">
+    <a href="{{ .Site.BaseURL }}" class="brand">
       <span class="logo">
         <i class="icon-logo"></i>
       </span>
@@ -10,7 +10,7 @@
   <ul id="menu" class="menu">
   {{ range .Site.Menus.main }}
     <li class="menu-item menu-item-{{lower .Identifier }}">
-      <a href="{{ .Url | safeUrl }}" title="{{ .Name }}">
+      <a href="{{ .URL | safeURL }}" title="{{ .Name }}">
         <i class="menu-item-icon icon-{{lower .Identifier }}"></i>
         <br/>
         {{ .Name }}

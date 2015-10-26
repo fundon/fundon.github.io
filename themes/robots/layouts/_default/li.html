@@ -1,0 +1,25 @@
+<li class="mini-post">
+
+  <h2 class="mini-post-title">
+    <a class="mini-post-link" href="{{ .Permalink }}">{{ .Title }}</a>
+  </h2>
+  <p class="mini-post-teaser">
+    {{ .Description }}
+  </p>
+  <div class="meta">
+    <div class="meta-author">
+      <a href="https://twitter.com/{{ .Site.Params.twitter }}">{{ .Site.Params.fullname }}</a>
+    </div>
+    <time class="meta-date" datetime="{{ .Date }}">
+      {{ .Date.Format "Jan 2, 2006" }}
+    </time>
+    <ul class="meta-tag-list">
+    {{ range .Params.tags }}
+      <li class="meta-tag-item">
+        <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+      </li>
+    {{ end }}
+    </ul>
+  </div>
+
+</li>

@@ -1,448 +1,180 @@
 <!doctype html>
 <html>
 <head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
   <title>Fangdun Cai</title>
   <meta name="author" content="fundon" />
   <meta name="description" content="Fundon&#39;s Moving Castle" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <link rel="canonical" href="https://fundon.github.io/">
-  <link rel="alternate" type="application/rss+xml" href="https://fundon.github.io/index.xml" title="Fangdun Cai" />
-  <link rel="stylesheet" type="text/css" href="https://fundon.github.io/css/main.css" />
-  <link rel="stylesheet" type="text/css" href="https://fundon.github.io/css/water.css" />
+  <link rel="canonical" href="./">
+  <link rel="alternate" type="application/rss+xml" href="index.xml" title="Fangdun Cai" />
+  <link rel="stylesheet" type="text/css" href="./css/main.css" />
+  <link rel="stylesheet" type="text/css" href="./css/water.css" />
 
 </head>
 <body>
-  <div class="container one-column">
-    <div class="headband"></div>
-
-    <div id="header" class="header">
-      <div class="header-inner">
-        <h1 class="site-meta">
-    <a href="https://fundon.github.io" class="brand">
-      <span class="logo">
-        <i class="icon-logo"></i>
-      </span>
-      <span class="site-title">Fangdun Cai</span>
-    </a>
-  </h1>
-
-  <ul id="menu" class="menu">
-  
-    <li class="menu-item menu-item-home">
-      <a href="https://fundon.github.io/" title="Home">
-        <i class="menu-item-icon icon-home"></i>
-        <br/>
-        Home
-        </a>
-    </li>
-  
-    <li class="menu-item menu-item-archives">
-      <a href="https://fundon.github.io/blog/" title="Blog">
-        <i class="menu-item-icon icon-archives"></i>
-        <br/>
-        Blog
-        </a>
-    </li>
-  
-    <li class="menu-item menu-item-tags">
-      <a href="https://fundon.github.io/tags/" title="Tags">
-        <i class="menu-item-icon icon-tags"></i>
-        <br/>
-        Tags
-        </a>
-    </li>
-  
-    <li class="menu-item menu-item-feed">
-      <a href="https://fundon.github.io/index.xml" title="Feed">
-        <i class="menu-item-icon icon-feed"></i>
-        <br/>
-        Feed
-        </a>
-    </li>
-  
-  </ul>
-
-      </div>
-    </div>
-
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          <div id="posts" class="posts-expand">
-            
-            
-                <div class="post post-type-normal">
-    <div class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="https://fundon.github.io/blog/ubuntu_setup/">Ubuntu Setup</a>
-      </h1>
-      <div class="post-meta">
-        <span class="post-time">Posted on 2015-01-21</span>
-      </div>
-    </div>
-    <div class="post-body">
-
-<h2 id="update-upgrade">Update &amp; Upgrade</h2>
-
-<pre><code class="language-bash">$ sudo apt-get update
-$ sudo apt-get upgrade
-</code></pre>
-
-<h2 id="add-user">Add User</h2>
-
-<pre><code class="language-bash"># adduser fundon
-# usermod fundon -G sudo
-</code></pre>
-
-<h2 id="package-search-and-show-package-info">Package Search and Show Package Info</h2>
-
-<pre><code class="language-bash">$ apt-cache search golang
-$ aptitude search golang
-$ aptitude show golang
-</code></pre>
-
-<h2 id="packages-install">Packages Install</h2>
-
-<h3 id="git">Git</h3>
-
-<pre><code class="language-bash">$ sudo apt-get install git
-</code></pre>
-
-<h3 id="golang">Golang</h3>
-
-<pre><code class="language-bash">$ sudo apt-get install golang
-</code></pre>
-
-<h3 id="docker">Docker</h3>
-
-<pre><code class="language-bash">$ sudo apt-get install docker.io
-$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
-</code></pre>
-
-<h2 id="node-js">Node.js</h2>
-
-<h3 id="ppa">PPA</h3>
-
-<p><a href="https://launchpad.net/~chris-lea/+archive/node.js">https://launchpad.net/~chris-lea/+archive/node.js</a></p>
-
-<h3 id="source">Source</h3>
-
-<pre><code class="language-bash">$ sudo apt-get install build-essential
-$ sudo apt-get install libssl-dev
-$
-$ sudo su fundon
-$ git clone https://github.com/creationix/nvm.git ~/.nvm
-$ echo 'source ~/.nvm/nvm.sh' &gt;&gt; ~/.bashrc
-$ nvm install -s 0.10.29
-$ nvm install -s 0.11.13
-</code></pre>
-</div>
-    <div class="post-footer">
-      <div class="post-tags">
-          
-
-      </div>
-      <div class="post-eof the-shape"></div>
-    </div>
-  </div>
-
-            
-                <div class="post post-type-normal">
-    <div class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="https://fundon.github.io/blog/install-drone-on-mac/">Install Drone on Mac</a>
-      </h1>
-      <div class="post-meta">
-        <span class="post-time">Posted on 2014-09-28</span>
-      </div>
-    </div>
-    <div class="post-body"><p>DON&rsquo;T LET BUGS INVADE YOUR CODE.<br />
-Start up a hosted continuous integration service for yourself or your team.</p>
-</div>
-    <div class="post-footer">
-      <div class="post-tags">
-          
-<a href="https://fundon.github.io/tags/docker">#docker</a>
-
-<a href="https://fundon.github.io/tags/go">#go</a>
-
-
-      </div>
-      <div class="post-eof the-shape"></div>
-    </div>
-  </div>
-
-            
-                <div class="post post-type-normal">
-    <div class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="https://fundon.github.io/blog/install-gogs-on-mac/">Install Gogs on Mac OS X</a>
-      </h1>
-      <div class="post-meta">
-        <span class="post-time">Posted on 2014-09-02</span>
-      </div>
-    </div>
-    <div class="post-body">
-
-<h2 id="dependences">Dependences</h2>
-
-<ul>
-<li><a href="http://brew.sh">homebrew</a></li>
-<li><a href="http://git-scm.com">git</a></li>
-<li><a href="http://www.postgresql.org">postgresql</a></li>
-<li><a href="http://golang.org">go</a></li>
-<li><a href="http://gopm.io">gopm</a></li>
-</ul>
-
-<h2 id="installation">Installation</h2>
-
-<h3 id="homebrew">Homebrew</h3>
-
-<pre><code class="language-bash">$ ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
-</code></pre>
-
-<h3 id="git">git</h3>
-
-<pre><code class="language-bash">$ brew install git
-</code></pre>
-
-<h3 id="postgresql">postgresql</h3>
-
-<pre><code class="language-bash">$ brew install postgresql
-</code></pre>
-
-<h3 id="go">go</h3>
-
-<pre><code class="language-bash">$ brew install go
-</code></pre>
-
-<h3 id="gopm">gopm</h3>
-
-<pre><code class="language-bash">$ go get -u github.com/gpmgo/gopm
-</code></pre>
-
-<h3 id="gogs">gogs</h3>
-
-<p>Build from dev source.</p>
-
-<pre><code class="language-bash">$ go get -u github.com/gogits/gogs
-$ mkdir -p ~/services &amp;&amp; cd ~/services
-$ git clone --branch=dev file:///$GOPATH/src/github.com/gogits/gogs
-$ cd gogs
-$ gopm build
-</code></pre>
-
-<h2 id="configuration">Configuration</h2>
-
-<h3 id="postgresql-1">postgresql</h3>
-
-<h4 id="init-postgresql">Init postgresql</h4>
-
-<pre><code class="language-bash">$ createdb
-$ psql --command &quot;CREATE USER root WITH SUPERUSER PASSWORD 'THE_DB_PASSWORD';&quot;
-$ createdb -O root gogs
-</code></pre>
-
-<h4 id="start-postgresql-server">Start postgresql server</h4>
-
-<pre><code class="language-bash">$ cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
-$ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-$ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
-</code></pre>
-
-<p>Or just run</p>
-
-<pre><code class="language-bash">$ postgres -D /usr/local/var/postgres
-</code></pre>
-
-<h3 id="gogs-1">gogs</h3>
-
-<h4 id="custom-conf-app-ini">custom/conf/app.ini</h4>
-
-<p>You can add git user or use currently logged in user.<br />
-If you want to add git user to run gogs.<br />
-See <a href="http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script">http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script</a>.</p>
-
-<pre><code class="language-bash">$ # Create custom folder
-$ mkdir -p custom/conf
-$ cp conf/app.ini custom/conf
-</code></pre>
-
-<pre><code class="language-ini">...
-
-RUN_USER = git
-
-[server]
-SSH_PORT = 22
-
-...
-
-[database]
-DB_TYPE = postgres
-HOST = 127.0.0.1:5432
-
-...
-
-[security]
-INSTALL_LOCK = true
-SECRET_KEY = YOU_MUST_CHANGE
-
-...
-</code></pre>
-
-<h2 id="run-gogs-server">Run gogs server</h2>
-
-<pre><code class="language-bash">$ cd ~/services/gogs
-$ ./gogs web
-$ # open 127.0.0.0:3000
-</code></pre>
-
-<p>Or add launchd plist file to <code>~/Library/LaunchAgents/io.gogs.web.plist</code></p>
-
-<pre><code class="language-markup">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
-&lt;plist version=&quot;1.0&quot;&gt;
-&lt;dict&gt;
-  &lt;key&gt;Label&lt;/key&gt;
-  &lt;string&gt;io.gogs.web&lt;/string&gt;
-  &lt;key&gt;ProgramArguments&lt;/key&gt;
-  &lt;array&gt;
-    &lt;string&gt;sh&lt;/string&gt;
-    &lt;string&gt;-c&lt;/string&gt;
-    &lt;string&gt;cd /Users/fundon/services/gogs; ./gogs web&lt;/string&gt;
-  &lt;/array&gt;
-  &lt;key&gt;RunAtLoad&lt;/key&gt;
-  &lt;true/&gt;
-  &lt;key&gt;KeepAlive&lt;/key&gt;
-  &lt;true/&gt;
-  &lt;key&gt;WorkingDirectory&lt;/key&gt;
-  &lt;string&gt;/Users/fundon/services/gogs&lt;/string&gt;
-&lt;/dict&gt;
-&lt;/plist&gt;
-</code></pre>
-
-<pre><code class="language-bash">$ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
-</code></pre>
-
-<h2 id="ssh-remote">SSH Remote</h2>
-
-<h3 id="setting-ssh-config-etc-sshd-config">Setting SSH config <code>/etc/sshd_config</code></h3>
-
-<pre><code class="language-bash">$ sudo cp /etc/sshd_config /etc/sshd_config~previous
-$ sudo vi /etc/sshd_config
-</code></pre>
-
-<p>Edit <code>/etc/sshd_config</code></p>
-
-<pre><code class="language-ini">PermitRootLogin no
-
-RSAAuthentication yes
-PubkeyAuthentication yes
-
-UsePAM no
-</code></pre>
-
-<h3 id="start-ssh-server">Start SSH Server</h3>
-
-<pre><code>Open System Preferences &gt; Sharing &gt; Remote Login
-</code></pre>
-
-<h3 id="other-ssh-articles">Other SSH Articles</h3>
-
-<p><a href="https://help.github.com/categories/ssh/">https://help.github.com/categories/ssh/</a></p>
-
-<h2 id="3-enjoy">&lt;3 Enjoy!</h2>
-
-<h2 id="other">Other</h2>
-
-<ul>
-<li><a href="http://gogs.io/docs/intro/">http://gogs.io/docs/intro/</a></li>
-</ul>
-</div>
-    <div class="post-footer">
-      <div class="post-tags">
-          
-<a href="https://fundon.github.io/tags/git">#git</a>
-
-<a href="https://fundon.github.io/tags/go">#go</a>
-
-
-      </div>
-      <div class="post-eof the-shape"></div>
-    </div>
-  </div>
-
-            
-                <div class="post post-type-normal">
-    <div class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="https://fundon.github.io/blog/install-go-on-ubuntu/">Install Go on Ubuntu</a>
-      </h1>
-      <div class="post-meta">
-        <span class="post-time">Posted on 2014-01-25</span>
-      </div>
-    </div>
-    <div class="post-body">
-
-<h2 id="installation">Installation</h2>
-
-<pre><code class="language-bash">VERSION=&quot;1.3.3&quot;
-wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz
-tar -C /usr/local -xzf go$VERSION.linux-amd64.tar.gz
-
-export PATH=&quot;$PATH:/usr/local/go/bin&quot;
-
-# You can custom `GOPATH`.
-#export GOPATH=$HOME/dev/go
-#export PATH=&quot;$PATH:$GOPATH/bin&quot;
-</code></pre>
-</div>
-    <div class="post-footer">
-      <div class="post-tags">
-          
-<a href="https://fundon.github.io/tags/go">#go</a>
-
-
-      </div>
-      <div class="post-eof the-shape"></div>
-    </div>
-  </div>
-
-            
-            
+  <div class="container">
+
+      <header class="blog-header" role="banner">
+    <a class="logo" href=""></a>
+    <h1 class="blog-title">Fundon&#39;s Moving Castle</h1>
+    <h2 class="blog-author">Written by <a href="">Fangdun Cai</a></h2>
+    <nav class="main">
+      <a class="logo" href="./"></a>
+
+      <ul class="topic-nav">
+      
+        <li class="topic-nav-item">
+          <a href="./tags/">All Topics</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="./design/">Design</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="./web/">Web</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="./ios/">iOS</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="./index.xml">Feed</a>
+        </li>
+      
+      </ul>
+
+    </nav>
+  </header>
+
+
+
+    <ol class="mini-post-list">
+      
+      
+        <li class="mini-post">
+
+  <h2 class="mini-post-title">
+    <a class="mini-post-link" href="./blog/ubuntu_setup/">Ubuntu Setup</a>
+  </h2>
+  <p class="mini-post-teaser">
     
-
-          </div>
-        </div>
-      </div>
+  </p>
+  <div class="meta">
+    <div class="meta-author">
+      <a href="https://twitter.com/_fundon">Fangdun Cai</a>
     </div>
-
-    <div id="footer" class="footer">
-  <div class="footer-inner">
-    <div class="copyright">
-      © 2015
-      <span class="with-love">
-        <i class="icon-heart"></i>
-      </span>
-      <span class="author">fundon</span>
-    </div>
-
-    <div class="powered-by">
-      Powered By - <a class="theme-link" href="http://gohugo.io/">Hugo</a>
-    </div>
-
-    <div class="theme-info">
-      Theme - <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT</a>
-    </div>
-    <div class="cc-license">
-      <a href="http://creativecommons.org/licenses/by-nc-sa/4.0" class="cc-opacity" target="_blank">
-        <img src="https://fundon.github.io/images/cc-by-nc-sa.svg" alt="Creative Commons">
-      </a>
-    </div>
+    <time class="meta-date" datetime="2015-01-21 00:00:00 &#43;0000 UTC">
+      Jan 21, 2015
+    </time>
+    <ul class="meta-tag-list">
+    
+    </ul>
   </div>
-</div>
 
-<script src="https://fundon.github.io/js/prism.js"></script>
+</li>
+
+      
+        <li class="mini-post">
+
+  <h2 class="mini-post-title">
+    <a class="mini-post-link" href="./blog/install-drone-on-mac/">Install Drone on Mac</a>
+  </h2>
+  <p class="mini-post-teaser">
+    
+  </p>
+  <div class="meta">
+    <div class="meta-author">
+      <a href="https://twitter.com/_fundon">Fangdun Cai</a>
+    </div>
+    <time class="meta-date" datetime="2014-09-28 00:00:00 &#43;0000 UTC">
+      Sep 28, 2014
+    </time>
+    <ul class="meta-tag-list">
+    
+      <li class="meta-tag-item">
+        <a href="./tags/docker">docker</a>
+      </li>
+    
+      <li class="meta-tag-item">
+        <a href="./tags/go">go</a>
+      </li>
+    
+    </ul>
+  </div>
+
+</li>
+
+      
+        <li class="mini-post">
+
+  <h2 class="mini-post-title">
+    <a class="mini-post-link" href="./blog/install-gogs-on-mac/">Install Gogs on Mac OS X</a>
+  </h2>
+  <p class="mini-post-teaser">
+    
+  </p>
+  <div class="meta">
+    <div class="meta-author">
+      <a href="https://twitter.com/_fundon">Fangdun Cai</a>
+    </div>
+    <time class="meta-date" datetime="2014-09-02 00:00:00 &#43;0000 UTC">
+      Sep 2, 2014
+    </time>
+    <ul class="meta-tag-list">
+    
+      <li class="meta-tag-item">
+        <a href="./tags/git">git</a>
+      </li>
+    
+      <li class="meta-tag-item">
+        <a href="./tags/go">go</a>
+      </li>
+    
+    </ul>
+  </div>
+
+</li>
+
+      
+        <li class="mini-post">
+
+  <h2 class="mini-post-title">
+    <a class="mini-post-link" href="./blog/install-go-on-ubuntu/">Install Go on Ubuntu</a>
+  </h2>
+  <p class="mini-post-teaser">
+    
+  </p>
+  <div class="meta">
+    <div class="meta-author">
+      <a href="https://twitter.com/_fundon">Fangdun Cai</a>
+    </div>
+    <time class="meta-date" datetime="2014-01-25 00:00:00 &#43;0000 UTC">
+      Jan 25, 2014
+    </time>
+    <ul class="meta-tag-list">
+    
+      <li class="meta-tag-item">
+        <a href="./tags/go">go</a>
+      </li>
+    
+    </ul>
+  </div>
+
+</li>
+
+      
+    </ol>
+
+    <div class="container etc"></div>
+
+
+  </div>
+
+  <script src="./js/prism.js"></script>
 
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -456,8 +188,28 @@ export PATH=&quot;$PATH:/usr/local/go/bin&quot;
 
 
 
+<footer>
+  <section id="universal-footer">
+    <div class="wrap">
+      <div class="footer-nav">
+        <ul>
+          <li class="title">
+            Open Source
+          </li>
+          <li>
+            <a href="https://github.com/trekjs/trek">Trek.js</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</footer>
 
-  </div>
+<div id="copyright-footer" role="contentinfo">
+  <strong>© 2015 Fangdun Cai.</strong>
+</div>
+
+
 
 </body>
 </html>
