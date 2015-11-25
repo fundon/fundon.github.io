@@ -1,0 +1,428 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <title>Fangdun Cai</title>
+  <meta name="author" content="fundon" />
+  <meta name="description" content="Fundon&#39;s Moving Castle" />
+  <link rel="canonical" href="https://fundon.me/web/Using-Docker-Compose-in-Node.js-Project/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Fangdun Cai" />
+  <link rel="stylesheet" type="text/css" href="https://fundon.me/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="https://fundon.me/css/water.css" />
+
+</head>
+<body>
+  <div class="container one-column">
+    <div class="headband"></div>
+
+    <div id="header" class="header">
+      <div class="header-inner">
+        <header class="blog-header" role="banner">
+    <a class="logo" href="https://fundon.me"></a>
+    <h1 class="blog-title">Fundon&#39;s Moving Castle</h1>
+    <h2 class="blog-author">Written by <a href="">Fangdun Cai</a></h2>
+    <nav class="main">
+      <a class="logo" href="https://fundon.me/"></a>
+
+      <ul class="topic-nav">
+      
+        <li class="topic-nav-item">
+          <a href="https://fundon.me/tags/">All Topics</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="https://fundon.me/design/">Design</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="https://fundon.me/web/">Web</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="https://fundon.me/ios/">iOS</a>
+        </li>
+      
+        <li class="topic-nav-item">
+          <a href="https://fundon.me/index.xml">Feed</a>
+        </li>
+      
+      </ul>
+
+    </nav>
+  </header>
+
+
+      </div>
+    </div>
+
+    <div id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content">
+          <div id="posts" class="posts-expand">
+              <div class="post post-type-normal">
+    <div class="post-header">
+      <h1 class="post-title">
+        <a class="post-title-link" href="https://fundon.me/web/Using-Docker-Compose-in-Node.js-Project/">Using Docker Compose in Node.js Project</a>
+      </h1>
+      <div class="post-meta">
+        <span class="post-time">Posted on 2015-11-26</span>
+      </div>
+    </div>
+    <div class="post-body">
+
+<p><a href="https://medium.com/@fundon/using-docker-compose-in-node-js-project-65081953ce62#.3h17cxx5v">Published on Medium</a>.</p>
+
+<h3 id="docker-到底有什么优点吸引我们">Docker 到底有什么优点吸引我们？</h3>
+
+<ul>
+<li><strong>Build</strong>：允许自由组合各种服务来构建我们的应用，避免<strong>开发</strong>和<strong>生产</strong>之间的环境问题，并且不局限在任何平台和语言</li>
+<li><strong>Ship</strong>：通过统一的用户接口，管理，设计应用开发、测试、发布的生命周期</li>
+<li><strong>Run</strong>：可以快捷地在多个平台，发布可扩展、安全、可靠的服务</li>
+</ul>
+
+<h3 id="use-it">Use it!</h3>
+
+<p>说了这么多，那就让我们玩起来！</p>
+
+<h4 id="0-install-docker-tools">0. Install <a href="https://docs.docker.com">Docker</a> Tools</h4>
+
+<pre><code class="language-sh">$ brew install docker docker-machine docker-compose
+$ docker help
+</code></pre>
+
+<ul>
+<li><p><a href="https://docs.docker.com">Docker</a> - 开源的容器应用引擎</p></li>
+
+<li><p><a href="https://docs.docker.com/machine/">Machine</a> - 管理本地、云服务提供商中的 Docker 服务</p></li>
+
+<li><p><a href="https://docs.docker.com/compose/">Compose</a> - 定义，组合，运行多个容器应用</p></li>
+</ul>
+
+<p><strong>NOTE</strong>:</p>
+
+<ul>
+<li>如果是 Mac OS X 用户，请先安装 Virtualbox <code>brew cask install virtualbox</code>。</li>
+<li>如果不喜欢 Docker CLI 工具，也可以安装 <a href="https://docs.docker.com/kitematic/">Kitematic</a>，Kitematic 是 Docker 的 GUI 管理工具。</li>
+</ul>
+
+<h4 id="1-create-node-js-project">1. Create Node.js Project</h4>
+
+<pre><code class="language-sh">$ mkdir docker-express-mongoose-reis-example
+$ cd docker-express-mongoose-redis-example
+$ npm init
+$ npm i express express-session connect-redis ioredis mongoose --save
+$ touch server.js 
+</code></pre>
+
+<p><strong><em>server.js</em></strong></p>
+
+<pre><code class="language-javascript">// Import modules
+const express = require('express')
+const session = require('express-session')
+const ioredis = require('ioredis')
+const RedisStore = require('connect-redis')(session)
+const mongoose = require('mongoose')
+
+// Create App
+const app = express()
+
+// Redis Client
+const client = ioredis.createClient(6379, process.env.REDIS_PORT_6379_TCP_ADDR)
+
+// Compose Schema
+const ComposeSchema = new mongoose.Schema({
+  name:  String,
+  build: String,
+  ports: [String]
+})
+
+// Compose Model
+const Compose = mongoose.model('Compose', ComposeSchema) 
+
+// Create Session
+app.use(session({
+  store: new RedisStore({ client }),
+  secret: 'Dream'
+}))
+
+// Routes for redis
+app.get('/redis', (req, res) =&gt; {
+  res.send('Redis is live!')
+})
+app.get('/redis/set', (req, res) =&gt; {
+  client.set('key', 'Redis is live!');
+  res.send(`It's redis.`)
+})
+app.get('/redis/get', (req, res) =&gt; {
+  client.get('key').then(result =&gt; {
+    res.send(result || 'Nothing!')
+  })
+})
+
+// Routes for redis
+app.get('/mongoose', (req, res) =&gt; {
+  res.send('Mongoose is live!')
+})
+app.get('/mongoose/set', (req, res) =&gt; {
+  var c = new Compose({
+    name: 'docker',
+    build: '.',
+    ports: ['3000:3000']
+  })
+
+  c.save().then(() =&gt; {
+      res.send(`It's mongoose.`);
+    })
+})
+app.get('/mongoose/get', (req, res) =&gt; {
+  Compose
+    .find({ name: 'docker' })
+    .then((result) =&gt; {
+      res.send(result)
+    })
+})
+
+app.use((req, res) =&gt; {
+  res.send('Hello Docker, Express, Mongoose, Redis!')
+})
+
+mongoose.connect(`mongodb://${process.env.MONGO_PORT_27017_TCP_ADDR}`, (err) =&gt; {
+  if (err) throw err
+
+  // Start App
+  app.listen(process.env.PORT || 3000)
+})
+</code></pre>
+
+<p><strong><em>package.json</em></strong></p>
+
+<pre><code class="language-js">{
+  &quot;name&quot;: &quot;docker-express-mongoose-redis-example&quot;,
+  &quot;private&quot;: true,
+  &quot;version&quot;: &quot;1.0.0&quot;,
+  &quot;description&quot;: &quot;&quot;,
+  &quot;main&quot;: &quot;index.js&quot;,
+  &quot;scripts&quot;: {
+    &quot;start&quot;: &quot;node server.js&quot;
+  },
+  &quot;author&quot;: &quot;&quot;,
+  &quot;license&quot;: &quot;ISC&quot;,
+  &quot;dependencies&quot;: {
+    &quot;connect-redis&quot;: &quot;^3.0.1&quot;,
+    &quot;express&quot;: &quot;^4.13.3&quot;,
+    &quot;express-session&quot;: &quot;^1.11.3&quot;,
+    &quot;ioredis&quot;: &quot;^1.9.1&quot;,
+    &quot;mongoose&quot;: &quot;^4.2.0&quot;
+  }
+}
+</code></pre>
+
+<h4 id="2-machine-在-virtualbox-中创建-docker-host">2. <a href="https://docs.docker.com/machine/">Machine</a>：在 virtualbox 中创建 Docker Host</h4>
+
+<pre><code class="language-sh">$ # 查看命令行帮助
+$ docker-machine
+$ # 创建 Docker Host
+$ docker-machine create -d virtualbox dev
+$ # 启动
+$ docker-machine start dev
+$ # 查看 dev IP
+$ docker-machine ip dev
+$ # 查看 dev 环境变量
+$ docker-machine env dev
+$ # 设置环境变量
+$ eval &quot;$(docker-machine env dev)&quot;
+</code></pre>
+
+<h4 id="3-compose-定义及操作">3. <a href="https://docs.docker.com/compose/">Compose</a>：定义及操作</h4>
+
+<h5 id="为项目创建-dockerfile">为项目创建 <a href="https://docs.docker.com/reference/builder/">Dockerfile</a></h5>
+
+<pre><code class="language-sh">$ cd docker-express-mongoose-redis-example
+$ touch Dockerfile
+</code></pre>
+
+<p><strong><em>Dockerfile</em></strong></p>
+
+<pre><code class="language-Dockerfile">FROM mhart/alpine-node
+# FROM mhart/alpine-node:base
+# FROM mhart/alpine-node:base-0.10
+
+WORKDIR /src
+ADD . .
+
+# If you have native dependencies, you'll need extra tools
+RUN apk add --update make gcc g++ python
+
+# If you need npm, don't use a base tag
+RUN npm install
+
+# If you had native dependencies you can now remove build tools
+RUN apk del make gcc g++ python &amp;&amp; \
+  rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
+
+EXPOSE 3000
+CMD [&quot;npm&quot;, &quot;start&quot;]
+</code></pre>
+
+<h5 id="创建-docker-compose-yml-来组合-node-js-redis-mongodb-服务">创建 <a href="https://docs.docker.com/compose/yml">docker-compose.yml</a> 来组合 Node.js, Redis, Mongodb 服务</h5>
+
+<pre><code class="language-sh">$ cd docker-express-mongoose-redis-example
+$ touch docker-compose.yml
+</code></pre>
+
+<p><strong><em>Dockerfile</em></strong></p>
+
+<pre><code class="language-yaml">app:
+  build: .
+  volumes:
+    - .:/src
+  links:
+    - mongo
+    - redis
+  ports:
+    - 3000:3000
+
+redis:
+  image: redis
+
+mongo:
+  image: mongo
+</code></pre>
+
+<pre><code class="language-sh">$ # 查看命令行帮助
+$ docker-compose
+$ # 创建
+$ docker-compose build
+$ # 启动 app, redis, mongo 等服务，特点是常驻前台
+$ docker-compose up
+$ # 也可以通过 `start` 启动，特点是常驻在后台
+$ docker-compose start
+$ # 停止服务
+$ docker-compose stop
+$ # 输出日志
+$ docker-compose logs
+</code></pre>
+
+<h5 id="测试-访问我们的服务-rocket">测试、访问我们的服务 :rocket:</h5>
+
+<pre><code class="language-sh">$ open &quot;http://$(docker-machine ip dev):3000&quot;
+$ open &quot;http://$(docker-machine ip dev):3000/redis&quot;
+$ open &quot;http://$(docker-machine ip dev):3000/redis/set&quot;
+$ open &quot;http://$(docker-machine ip dev):3000/redis/get&quot;
+$ open &quot;http://$(docker-machine ip dev):3000/mongoose&quot;
+$ open &quot;http://$(docker-machine ip dev):3000/mongoose/set&quot;
+$ open &quot;http://$(docker-machine ip dev):3000/mongoose/get&quot;
+</code></pre>
+
+<h4 id="关闭服务-休息下">关闭服务，休息下</h4>
+
+<pre><code class="language-sh">$ docker-compose stop
+$ docker-machine stop dev
+</code></pre>
+
+<p><strong>NOTE</strong>:</p>
+
+<ul>
+<li><p>Compose 的前身是 <strong>fig</strong>。</p></li>
+
+<li><p><code>up</code> <code>start</code> <code>logs</code> <code>stop</code> <code>rm</code> 等 COMMANDs 可以针对某个 Container 使用 e.g: <code>$ docker-compose logs app</code></p></li>
+
+<li><p><strong>如果 Node 项目比较大，依赖的模块较多，频繁改动，我们可以不需要创建 Node 项目本身的 Container，只需要创建启动其他服务即可。</strong></p></li>
+</ul>
+
+<h3 id="其他工具">其他工具</h3>
+
+<ul>
+<li><a href="https://www.vagrantup.com">Vargant</a> - 也是一款环境构建工具，比 Docker 还早</li>
+</ul>
+
+<p>Vargant 是一款不错的工具，可以帮助我们快速搭建各种服务环境，也能团队之间进行分享，现在基于它的工具链也越来越丰富，感兴趣也可以一试。</p>
+
+<ul>
+<li>不用其他构建工具，我们自己搭</li>
+</ul>
+
+<p>“自己动手，丰衣足食” － 不依赖环境构建工具，自己搭，时间精力充足的化，不妨一试，会收获更多。</p>
+
+<h3 id="最后">最后</h3>
+
+<p>Docker 可玩的不仅仅如此，还可以打包、发布容器应用到线上，构建自己的 Paas(<a href="https://github.com/progrium/dokku">dokku</a>) 服务等。</p>
+
+<p>Docker Compose 也可以有更高级玩法。</p>
+
+<p>Enjoy!</p>
+
+<pre><code class="language-javascript">{
+  github: '@fundon',
+  email: 'cfddream#gmail.com',
+  twitter: '@_fundon'
+}
+</code></pre>
+
+<h3 id="relates">Relates</h3>
+
+<ul>
+<li><a href="https://docs.docker.com/kitematic/">https://docs.docker.com/kitematic/</a></li>
+<li><a href="https://docs.docker.com/installation/mac/">https://docs.docker.com/installation/mac/</a></li>
+<li><a href="https://docs.docker.com/machine/install-machine/">https://docs.docker.com/machine/install-machine/</a></li>
+<li><a href="https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></li>
+<li><a href="https://github.com/mhart/alpine-node">https://github.com/mhart/alpine-node</a></li>
+<li><a href="https://github.com/progrium/dokku">https://github.com/progrium/dokku</a></li>
+</ul>
+</div>
+    <div class="post-footer">
+      <div class="post-tags">
+          
+<a href="https://fundon.me/tags/docker">#docker</a>
+
+<a href="https://fundon.me/tags/docker-compose">#docker-compose</a>
+
+<a href="https://fundon.me/tags/node">#node</a>
+
+
+
+      </div>
+      <div class="post-eof the-shape"></div>
+    </div>
+  </div>
+
+            <div class="pagination">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://fundon.me/js/prism.js"></script>
+
+
+
+<footer>
+  <section id="universal-footer">
+    <div class="wrap">
+      <div class="footer-nav">
+        <ul>
+          <li class="title">
+            Open Source
+          </li>
+          <li>
+            <a href="https://github.com/trekjs/trek">Trek.js</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<div id="copyright-footer" role="contentinfo">
+  <strong>© 2015 Fangdun Cai.</strong>
+</div>
+
+
+
+  </div>
+
+</body>
+</html>
