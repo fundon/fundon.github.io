@@ -2,28 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>/</loc>
+    <loc>https://fundon..me/</loc>
     <lastmod>2015-01-21T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/blog/ubuntu_setup/</loc>
+    <loc>https://fundon..me/blog/ubuntu_setup/</loc>
     <lastmod>2015-01-21T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/install-drone-on-mac/</loc>
+    <loc>https://fundon..me/blog/install-drone-on-mac/</loc>
     <lastmod>2014-09-28T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/install-gogs-on-mac/</loc>
+    <loc>https://fundon..me/blog/install-gogs-on-mac/</loc>
     <lastmod>2014-09-02T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/install-go-on-ubuntu/</loc>
+    <loc>https://fundon..me/blog/install-go-on-ubuntu/</loc>
     <lastmod>2014-01-25T00:00:00+00:00</lastmod>
   </url>
   

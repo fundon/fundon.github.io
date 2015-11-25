@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Fangdun Cai</title>
-    <link>tags/docker/</link>
+    <link>https://fundon..me/tags/docker/</link>
     <description>Recent content in Docker on Fangdun Cai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
     <lastBuildDate>Sun, 28 Sep 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fundon..me/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Install Drone on Mac</title>
-      <link>/blog/install-drone-on-mac/</link>
+      <link>https://fundon..me/blog/install-drone-on-mac/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/install-drone-on-mac/</guid>
+      <guid>https://fundon..me/blog/install-drone-on-mac/</guid>
       <description>&lt;p&gt;DON&amp;rsquo;T LET BUGS INVADE YOUR CODE.&lt;br /&gt;
 Start up a hosted continuous integration service for yourself or your team.&lt;/p&gt;
 </description>

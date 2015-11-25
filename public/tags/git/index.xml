@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Fangdun Cai</title>
-    <link>tags/git/</link>
+    <link>https://fundon..me/tags/git/</link>
     <description>Recent content in Git on Fangdun Cai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
     <lastBuildDate>Tue, 02 Sep 2014 00:00:00 +0000</lastBuildDate>
-    <atom:link href="tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://fundon..me/tags/git/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Install Gogs on Mac OS X</title>
-      <link>/blog/install-gogs-on-mac/</link>
+      <link>https://fundon..me/blog/install-gogs-on-mac/</link>
       <pubDate>Tue, 02 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>/blog/install-gogs-on-mac/</guid>
+      <guid>https://fundon..me/blog/install-gogs-on-mac/</guid>
       <description>
 
 &lt;h2 id=&#34;dependences&#34;&gt;Dependences&lt;/h2&gt;
