@@ -22,6 +22,7 @@ MetaDataFormat = "yaml"
   category = "categories"
 
 [params]
+  cname = "fundon.me"
   author = "fundon"
   description = "Fundon's Moving Castle"
   twitter = "_fundon"
