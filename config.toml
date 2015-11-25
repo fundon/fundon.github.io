@@ -1,5 +1,6 @@
 #baseurl = "https://fundon.github.io/"
-baseurl = "./"
+#baseurl = "./"
+baseurl = "https://fundon..me"
 canonifyUrls = true
 copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
 title = "Fangdun Cai"
