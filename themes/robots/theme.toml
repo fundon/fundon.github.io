@@ -1,6 +1,12 @@
-author = ""
+author = "Fangdun Cai"
 description = ""
 license = "MIT"
 name = "robots"
 source_repo = ""
 tags = ["", ""]
+
+# If porting an existing theme
+[original]
+  name = ""
+  homepage = "https://thoughtbot.com"
+  repo = ""

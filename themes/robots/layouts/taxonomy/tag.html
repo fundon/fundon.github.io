@@ -13,22 +13,12 @@
       </div>
     </div>
 
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          <div id="posts" class="posts-collapse">
-            <div class="collection-title">
-              <h2>{{ .Title }}</h2>
-            </div>
-            {{ range .Data.Pages.ByDate }}
-              {{ .Render "li"}}
-            {{ end }}
-            <div class="pagination">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <ol class="mini-post-list">
+    {{ range .Data.Pages.ByDate }}
+      {{ .Render "li"}}
+    {{ end }}
+      <div class="pagination"></div>
+    </ol>
 
     {{ partial "footer.html" . }}
 

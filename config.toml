@@ -1,15 +1,24 @@
 #baseurl = "https://fundon.github.io/"
 baseurl = "./"
+canonifyUrls = true
+copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
 title = "Fangdun Cai"
 description = ""
-languageCode = "en-us"
 disqusShortname = "fundon"
-copyright = "Copyright (c) 2015, Fangdun Cai; all rights reserved."
-Paginate = 7
-canonifyUrls = true
+hasCJKLanguage = true
+languageCode = "en-us"
 theme = "robots"
-
+Paginate = 7
 MetaDataFormat = "yaml"
+
+[taxonomies]
+  category = "categories"
+  doc = "doc"
+  tag = "tags"
+
+[indexes]
+  tag = "tags"
+  category = "categories"
 
 [params]
   author = "fundon"
@@ -17,16 +26,11 @@ MetaDataFormat = "yaml"
   twitter = "_fundon"
   github = "fundon"
   fullname = "Fangdun Cai"
-
-[params.googleAnalytics]
   trackingId = "UA-59772344-1"
+  tempmap = []
 
 [Blackfriday]
   plainIdAnchors = true
-
-[indexes]
-  tag = "tags"
-  category = "categories"
 
 [[menu.main]]
     name = "All Topics"
