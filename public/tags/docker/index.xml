@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on Fangdun Cai</title>
-    <link>https://fundon.me/tags/docker/</link>
+    <link>http://localhost:1313/tags/docker/</link>
     <description>Recent content in Docker on Fangdun Cai</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
     <lastBuildDate>Thu, 26 Nov 2015 02:42:34 +0800</lastBuildDate>
-    <atom:link href="https://fundon.me/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Install Drone on Mac</title>
-      <link>https://fundon.me/blog/install-drone-on-mac/</link>
+      <link>http://localhost:1313/blog/install-drone-on-mac/</link>
       <pubDate>Sun, 28 Sep 2014 00:00:00 +0000</pubDate>
       
-      <guid>https://fundon.me/blog/install-drone-on-mac/</guid>
+      <guid>http://localhost:1313/blog/install-drone-on-mac/</guid>
       <description>&lt;p&gt;DON&amp;rsquo;T LET BUGS INVADE YOUR CODE.&lt;br /&gt;
 Start up a hosted continuous integration service for yourself or your team.&lt;/p&gt;
 </description>
@@ -23,10 +23,10 @@ Start up a hosted continuous integration service for yourself or your team.&lt;/
     
     <item>
       <title>Using Docker Compose in Node.js Project</title>
-      <link>https://fundon.me/web/Using-Docker-Compose-in-Node.js-Project/</link>
+      <link>http://localhost:1313/web/Using-Docker-Compose-in-Node.js-Project/</link>
       <pubDate>Thu, 26 Nov 2015 02:42:34 +0800</pubDate>
       
-      <guid>https://fundon.me/web/Using-Docker-Compose-in-Node.js-Project/</guid>
+      <guid>http://localhost:1313/web/Using-Docker-Compose-in-Node.js-Project/</guid>
       <description>
 
 &lt;p&gt;&lt;a href=&#34;https://medium.com/@fundon/using-docker-compose-in-node-js-project-65081953ce62#.3h17cxx5v&#34;&gt;Published on Medium&lt;/a&gt;.&lt;/p&gt;
