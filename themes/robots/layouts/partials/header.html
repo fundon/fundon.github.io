@@ -1,18 +1,7 @@
-  <header class="blog-header" role="banner">
-    <a class="logo" href="{{ .Site.BaseURL }}"></a>
-    <h1 class="blog-title">{{ .Site.Params.description }}</h1>
-    <h2 class="blog-author">Written by <a href="">Fangdun Cai</a></h2>
-    <nav class="main">
-      <a class="logo" href="/"></a>
-
-      <ul class="topic-nav">
-      {{ range .Site.Menus.main }}
-        <li class="topic-nav-item">
-          <a href="{{ .URL | safeURL }}">{{ .Name }}</a>
-        </li>
-      {{ end }}
-      </ul>
-
-    </nav>
-  </header>
+<header class="blog-header" role="banner">
+  <a class="logo" href="{{ .Site.BaseURL }}"></a>
+  <h1 class="blog-title">{{ .Site.Params.description }}</h1>
+  <h2 class="blog-author">Written by <a href="">Fangdun Cai</a></h2>
+  {{ partial "nav.html" . }}
+</header>
 

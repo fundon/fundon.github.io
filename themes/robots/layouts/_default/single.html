@@ -1,33 +1,18 @@
 <!doctype html>
 <html>
 <head>
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 </head>
 <body>
-  <div class="container one-column">
-    <div class="headband"></div>
+  {{ partial "nav.html" . }}
 
-    <div id="header" class="header">
-      <div class="header-inner">
-      {{ partial "header.html" . }}
-      </div>
-    </div>
+  <section class="container">
+    <section id="posts">
+      {{ .Render "summary" }}
+    </section>
+  </section>
 
-    <div id="main" class="main">
-      <div class="main-inner">
-        <div id="content" class="content">
-          <div id="posts" class="posts-expand">
-            {{ .Render "summary"}}
-            <div class="pagination">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{ partial "footer.html" . }}
-
-  </div>
+  {{ partial "footer.html" . }}
 
 </body>
 </html>

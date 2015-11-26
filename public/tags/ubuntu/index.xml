@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on Fangdun Cai</title>
+    <link>https://fundon.me/tags/ubuntu/</link>
+    <description>Recent content in Ubuntu on Fangdun Cai</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 21 Jan 2015 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://fundon.me/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Ubuntu Setup</title>
+      <link>https://fundon.me/blog/ubuntu_setup/</link>
+      <pubDate>Wed, 21 Jan 2015 00:00:00 +0000</pubDate>
+      
+      <guid>https://fundon.me/blog/ubuntu_setup/</guid>
+      <description>
+
+&lt;h2 id=&#34;update-upgrade&#34;&gt;Update &amp;amp; Upgrade&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get update
+$ sudo apt-get upgrade
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;add-user&#34;&gt;Add User&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# adduser fundon
+# usermod fundon -G sudo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;package-search-and-show-package-info&#34;&gt;Package Search and Show Package Info&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ apt-cache search golang
+$ aptitude search golang
+$ aptitude show golang
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;packages-install&#34;&gt;Packages Install&lt;/h2&gt;
+
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install golang
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install docker.io
+$ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;node-js&#34;&gt;Node.js&lt;/h2&gt;
+
+&lt;h3 id=&#34;ppa&#34;&gt;PPA&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://launchpad.net/~chris-lea/+archive/node.js&#34;&gt;https://launchpad.net/~chris-lea/+archive/node.js&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install build-essential
+$ sudo apt-get install libssl-dev
+$
+$ sudo su fundon
+$ git clone https://github.com/creationix/nvm.git ~/.nvm
+$ echo &#39;source ~/.nvm/nvm.sh&#39; &amp;gt;&amp;gt; ~/.bashrc
+$ nvm install -s 0.10.29
+$ nvm install -s 0.11.13
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

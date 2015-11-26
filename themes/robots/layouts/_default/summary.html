@@ -1,17 +1,23 @@
-  <div class="post post-type-normal">
-    <div class="post-header">
-      <h1 class="post-title">
-        <a class="post-title-link" href="{{ .Permalink }}">{{ .Title }}</a>
-      </h1>
-      <div class="post-meta">
-        <span class="post-time">Posted on {{ .Date.Format "2006-01-02" }}</span>
+<article class="post text" data-url="{{ .Permalink }}" role="main">
+  <header>
+    <h1 class="title">{{ .Title }}</h1>
+    <div class="meta">
+      <div class="meta-author">
+        <a href="https://twitter.com/{{ .Site.Params.twitter }}">{{ .Site.Params.fullname }}</a>
       </div>
+      <time class="meta-date" datetime="{{ .Date }}">
+        {{ .Date.Format "Jan 2, 2006" }}
+      </time>
+      <ul class="meta-tag-list">
+        {{ range .Params.tags }}
+        <li class="meta-tag-item">
+          <a href="/tags/{{ . | urlize }}">{{ . }}</a>
+        </li>
+        {{ end }}
+      </ul>
     </div>
-    <div class="post-body">{{ .Content }}</div>
-    <div class="post-footer">
-      <div class="post-tags">
-          {{ .Render "tags" }}
-      </div>
-      <div class="post-eof the-shape"></div>
-    </div>
+  </header>
+  <div class="post-body" style="position: relative;">
+  {{ .Content }}
   </div>
+</article>

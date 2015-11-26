@@ -1,6 +1,8 @@
 ---
 date: 2015-01-21
 title: Ubuntu Setup
+tags:
+  - ubuntu
 ---
 
 ## Update & Upgrade

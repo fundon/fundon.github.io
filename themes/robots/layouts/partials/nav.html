@@ -1,0 +1,11 @@
+<nav class="main">
+  <a class="logo" href="/"></a>
+
+  <ul class="topic-nav">
+    {{ range .Site.Menus.main }}
+    <li class="topic-nav-item">
+      <a href="{{ .URL | safeURL }}">{{ .Name }}</a>
+    </li>
+    {{ end }}
+  </ul>
+</nav>
