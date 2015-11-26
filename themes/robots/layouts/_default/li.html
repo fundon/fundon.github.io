@@ -14,11 +14,11 @@
       {{ .Date.Format "Jan 2, 2006" }}
     </time>
     <ul class="meta-tag-list">
-    {{ range .Params.tags }}
+      {{ range .Params.tags }}
       <li class="meta-tag-item">
         <a href="/tags/{{ . | urlize }}">{{ . }}</a>
       </li>
-    {{ end }}
+      {{ end }}
     </ul>
   </div>
 

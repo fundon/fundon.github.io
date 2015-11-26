@@ -1,9 +1,11 @@
 <!doctype html>
 <html>
 <head>
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 </head>
 <body>
+  {{ partial "github.html" . }}
+
   <div class="container one-column">
 
     {{ partial "header.html" . }}
@@ -13,7 +15,7 @@
         <div id="content" class="content">
           <div id="posts" class="posts-expand">
             {{ range .Data.Pages.ByDate }}
-              {{ .Render "summary"}}
+            {{ .Render "summary"}}
             {{ end }}
             <div class="pagination">
             </div>

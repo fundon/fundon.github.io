@@ -1,9 +1,12 @@
 <!doctype html>
 <html>
 <head>
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 </head>
 <body>
+
+  {{ partial "github.html" . }}
+
   <div class="container one-column page-not-home page-archive">
 
     {{ partial "header.html" . }}
@@ -11,7 +14,7 @@
     <ol class="mini-post-list">
       {{ $paginator := .Paginate (.Data.Pages.ByDate.Reverse) }}
       {{ range $paginator.Pages }}
-        {{ .Render "li"}}
+      {{ .Render "li"}}
       {{ end }}
     </ol>
 

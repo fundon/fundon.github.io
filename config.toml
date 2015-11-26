@@ -27,6 +27,7 @@ MetaDataFormat = "yaml"
   description = "Fundon's Moving Castle"
   twitter = "_fundon"
   github = "fundon"
+  repo = "fundon.github.io"
   fullname = "Fangdun Cai"
   trackingId = "UA-59772344-1"
   tempmap = []
