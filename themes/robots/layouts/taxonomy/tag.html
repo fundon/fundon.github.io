@@ -1,22 +1,19 @@
 <!doctype html>
 <html>
 <head>
-{{ partial "head.html" . }}
+  {{ partial "head.html" . }}
 </head>
 <body>
-  <div class="container one-column">
-    <div class="headband"></div>
+  {{ partial "github.html" . }}
 
-    <div id="header" class="header">
-      <div class="header-inner">
-      {{ partial "header.html" . }}
-      </div>
-    </div>
+  <div class="container">
+
+    {{ partial "header.html" . }}
 
     <ol class="mini-post-list">
-    {{ range .Data.Pages.ByDate }}
+      {{ range .Data.Pages.ByDate }}
       {{ .Render "li"}}
-    {{ end }}
+      {{ end }}
       <div class="pagination"></div>
     </ol>
 
