@@ -1,0 +1,371 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <title>Fangdun Cai</title>
+  <meta name="author" content="fundon" />
+  <meta name="description" content="Fundon&#39;s Moving Castle" />
+  <link rel="canonical" href="https://fundon.me/blog/10-Habits-of-a-Happy-Node-Hacker-2016/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Fangdun Cai" />
+  <link rel="stylesheet" type="text/css" href="https://fundon.me/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="https://fundon.me/css/water.css" />
+
+</head>
+<body>
+  <a href="https://github.com/fundon/fundon.github.io" class="github-corner"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <nav class="main">
+  <a class="logo" href="https://fundon.me/"></a>
+
+  <ul class="topic-nav">
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/tags/">All Topics</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/design/">Design</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/web/">Web</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/ios/">iOS</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/index.xml">Feed</a>
+    </li>
+    
+  </ul>
+</nav>
+
+
+  <section class="container">
+    <section id="posts">
+      <article class="post text" data-url="https://fundon.me/blog/10-Habits-of-a-Happy-Node-Hacker-2016/" role="main">
+  <header>
+    <h1 class="title">10 Habits of a Happy Node Hacker 2016</h1>
+    <div class="meta">
+      <div class="meta-author">
+        <a href="https://twitter.com/_fundon">Fangdun Cai</a>
+      </div>
+      <time class="meta-date" datetime="2015-12-12 22:22:46 &#43;0800 CST">
+        Dec 12, 2015
+      </time>
+      <ul class="meta-tag-list">
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/%E7%BF%BB%E8%AF%91">翻译</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/node">node</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/npm">npm</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/es6">es6</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/es7">es7</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/javascript">javascript</a>
+        </li>
+        
+      </ul>
+    </div>
+  </header>
+  <div class="post-body" style="position: relative;">
+    
+
+<p>原文：<a href="https://blog.heroku.com/archives/2015/11/10/node-habits-2016">10 Habits of a Happy Node Hacker (2016)</a> by Hunter</p>
+
+<p>在 2015 年底，JavaScript 开发者周边已经充斥了很多工具，供他们支配使用。
+<a href="https://blog.heroku.com/archives/2014/3/11/node-habits">上次</a>我们已经观察了这个问题，现代 JS 的兴起。今天，我们很容易迷失在这巨大的生态系统中，
+所以成功的团队都需要遵循指南，使他们的时间和项目保存健康。</p>
+
+<p>这 10 个习惯很适合即将进入 2016 的 Node.js 黑客。
+它们真对的是应用开发者，而不是模块作者，因为这些群体有不同的目标和约束：</p>
+
+<h2 id="1-使用-npm-init-开始每个新项目:ea9bff932f9bb2c44cceb6375aa9fa7a">1. 使用 <code>npm init</code> 开始每个新项目</h2>
+
+<p>NPM <code>init</code> 命令将为你的项目生成一个有效的 <code>package.json</code> 文件，
+从工作目录中自动推到出一些常见属性。</p>
+
+<pre><code class="language-sh">$ mkdir my-awesome-app
+$ cd my-awesome-app
+$ npm init --yes
+</code></pre>
+
+<p>我比较懒，所以我使用了 <code>--yes</code> 标志去执行它，然后打开 package.json 做些修改。
+第一件事你应该指定一个 <code>engines</code> 关键词，使用你当前的 node 版本（<code>node -v</code>）。</p>
+
+<pre><code class="language-json">&quot;engines&quot;: {
+  &quot;node&quot;: &quot;4.2.1&quot;
+}
+</code></pre>
+
+<h2 id="2-使用一个智能的-npmrc-配置:ea9bff932f9bb2c44cceb6375aa9fa7a">2. 使用一个智能的 <code>.npmrc</code> 配置</h2>
+
+<p>默认地，npm 不会保存已经安装的依赖到 package.json（所以你总是需要追踪你的依赖！）。</p>
+
+<p>如果你使用 <code>--save</code> 标志去自动更新 package.json，npm 安装这些包会以 <code>^</code> 开头，会导致你的
+模块在不同版本之间漂移。这对模块开发没问题，但对应用不好，
+如果你想要在所有的环境之间保持一致的依赖关系。</p>
+
+<p>一个解决方案是像这样安装包：</p>
+
+<pre><code class="language-sh">$ npm install foobar --save --save-exact
+</code></pre>
+
+<p>更胜一筹的，你可以把这些选项添加到 <code>~/.npmrc</code> 中，更新你的默认设置：</p>
+
+<pre><code class="language-sh">$ npm config set save=true
+$ npm config set save-exact=true
+$ cat ~/.npmrc
+</code></pre>
+
+<p>现在，<code>npm install foobar</code> 将会自动添加 <code>foobar</code> 到 package.json
+并且你的依赖不会在安装时产生偏移!</p>
+
+<p>如果你更喜欢在 package.json 中保持弹性依赖，但仍然需要在生产环境中锁住依赖的话，你或者可以
+生成 <a href="https://docs.npmjs.com/cli/shrinkwrap">npm&rsquo;s shrinkwrap</a> 到你的工作流中。这需要花费更多的精力，但是还是很多好处的，保持
+准确的版本的嵌套依赖关系。</p>
+
+<h2 id="3-快跳上-es6-火车吧:ea9bff932f9bb2c44cceb6375aa9fa7a">3. 快跳上 ES6 火车吧！</h2>
+
+<p>Node 4+ 携带了一个 <a href="https://nodejs.org/en/blog/release/v4.0.0/">V8 引擎的更新</a>，拥有几个有用的 <a href="https://nodejs.org/en/docs/es6/">ES6 特性</a>。
+不要害怕，并不是一些复杂的东西，你可以轻松学习它。有许多简单的改进，让人满意。</p>
+
+<pre><code class="language-js">let user = users.find(u =&gt; u.id === ID);
+
+console.log(`Hello, ${ user.name }!`);
+</code></pre>
+
+<h2 id="4-坚持使用小写:ea9bff932f9bb2c44cceb6375aa9fa7a">4. 坚持使用小写</h2>
+
+<p>一些语言鼓励文件名匹配类名，比如 <code>MyClass</code> 和 <code>MyClass.js</code>。在 Node 中，
+不要那样做。而是使用文件名小写的方式：</p>
+
+<pre><code class="language-js">let MyClass = require('my-class');
+</code></pre>
+
+<p>Node.js 是一个罕见的范例，Linux-centric 化工具，但跨平台支持又多。
+当在 OSX 和 Windows 平台时，对待 <code>myclass.js</code> 和 <code>MyClass.js</code> 是一样的，
+Linux 不会。如果要编写可在这些平台移植的代码，你就需要明确匹配 <code>require</code>
+中的声明，包括大写。</p>
+
+<p>一个简单正确的方式，就是一切都使用文件名小写的方式。例如 <code>my-class.js</code>。</p>
+
+<blockquote>
+<p>译者：其实 Mac OSX 也可以设置文件系统 case-sensitive。</p>
+</blockquote>
+
+<h2 id="5-cluster-你的应用:ea9bff932f9bb2c44cceb6375aa9fa7a">5. Cluster 你的应用</h2>
+
+<p>自从 node 运行时被限制在单核 CPU 和大约 1.5 GB 的内存之后，
+部署一个无 clustered 模式的 node 应用在一个大型服务器上是一个对资源巨大的浪费。</p>
+
+<p>要想利用多核和内存超过 1.5 GB 的话，把支持 <a href="https://nodejs.org/api/cluster.html">Cluster</a> 烧尽你的应用。
+即使如果今天你仅仅把单个进程运行在小硬件上，在未来 Cluster 也会带给你足够的灵活。</p>
+
+<p>测试是最好的方式，弄清楚你的应用理想的 clustered 进程数，
+但最好根据你的平台提出一个<a href="https://devcenter.heroku.com/articles/node-concurrency">合理的默认值</a>，可以有个简单的备选。
+比如：</p>
+
+<pre><code class="language-js">const CONCURRENCY = process.env.WEB_CONCURRENCY || 1;
+</code></pre>
+
+<p>选择一个 <a href="https://www.npmjs.com/search?q=cluster">Cluster abstraction</a> 可以避免重复造（进程管理的）轮子。如果你喜欢分开
+<code>master</code> 和 <code>worker</code> 文件，可以试试 <a href="https://www.npmjs.com/package/forky">forky</a>。 如果你更喜欢单个入口文件和函数的话，
+看看这个 <a href="https://www.npmjs.com/package/throng">throng</a>。</p>
+
+<h2 id="6-有环境意识:ea9bff932f9bb2c44cceb6375aa9fa7a">6. 有环境意识</h2>
+
+<p>不要在你的项目中乱扔具体环境配置文件！而应该使用环境变量。</p>
+
+<p>首选，安装 <a href="https://github.com/strongloop/node-foreman">node-foreman</a>：</p>
+
+<pre><code class="language-sh">$ npm install --save --save-exact foreman
+</code></pre>
+
+<p>然后，创建一个 <a href="https://devcenter.heroku.com/articles/procfile">Procfile</a> 文件，声明你的应用的进程类型：</p>
+
+<pre><code>web: bin/web
+worker: bin/worker
+</code></pre>
+
+<p>现在，你就可以使用 <code>nf</code> 程序启动你的应用</p>
+
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;start&quot;: &quot;nf start&quot;
+}
+</code></pre>
+
+<p>要支持本地开发环境，可以创建 <code>.gitignore</code> 文件，把 <code>.env</code> 文件加入进来。
+使用 node-foreman 时，<code>.env</code> 文件将会被加载进来：</p>
+
+<pre><code class="language-sh">DATABASE_URL='postgres://localhost/foobar'
+HTTP_TIMEOUT=10000
+</code></pre>
+
+<p>现在，一个简单的命令（<code>npm start</code>）将会使 <code>web</code> 和 <code>worker</code> 进程在那个环境下
+同时运转起来。然后，当你部署你的项目时，它会在新的主机上自动适应这些环境变量。</p>
+
+<p>比起 <code>config/abby-dev.js</code>、<code>config/brian-dev.js</code>，<code>config/qa1.js</code>、
+<code>config/qa2.js</code>、<code>config/prod.js</code>，这个更加简单灵活。</p>
+
+<h2 id="7-避免垃圾回收:ea9bff932f9bb2c44cceb6375aa9fa7a">7. 避免垃圾回收</h2>
+
+<p>Node（V8）使用一个懒惰、贪婪的垃圾回收。它默认被限制在大约 1.5 GB。
+在回收无用内存前，它有时会等待，直到它彻底回收这些无用内存。如果你的内存使用不断增加，
+它可能不是内存泄漏，反而是 <a href="https://github.com/nodejs/node/issues/3370#issuecomment-148108323">node 通常的懒惰行为</a>。</p>
+
+<p>要想对你应用的垃圾回收获得更多的控制，你可以在你的 <code>Procfile</code> 文件中给 V8 添加一些标志：</p>
+
+<pre><code>web: node --optimize_for_size --max_old_space_size=920 --gc_interval=100 server.js
+</code></pre>
+
+<p>这个尤其重要，如果你的应用是运行在一个少于 1.5 GB 内存的环境上。
+例如，你想要把 node 调整到一个 512 MB 的容器上，试试这个：</p>
+
+<pre><code>web: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server.js
+</code></pre>
+
+<h2 id="8-把事情链接起来:ea9bff932f9bb2c44cceb6375aa9fa7a">8. 把事情链接起来</h2>
+
+<p>Npm 的<a href="https://docs.npmjs.com/misc/scripts">生命周期脚本</a> 可以为自动化创建丰富的钩子。如果你需要在构建你的应用之前运行一些东西，
+你可以使用 <code>preinstall</code> 脚本。如果想使用 grunt、gulp、browserify 或者 webpack 构建
+assets 呢？那就使用 <code>postinstall</code> 脚本。</p>
+
+<p>在 package.json 中：</p>
+
+<pre><code class="language-json">&quot;scripts&quot;: {
+  &quot;postinstall&quot;: &quot;bower install &amp;&amp; grunt build&quot;,
+  &quot;start&quot;: &quot;nf start&quot;
+}
+</code></pre>
+
+<p>你也可以使用环境变量去控制这些脚本：</p>
+
+<pre><code class="language-json">&quot;postinstall&quot;: &quot;if $BUILD_ASSETS; then npm run build-assets; fi&quot;,
+&quot;build-assets&quot;: &quot;bower install &amp;&amp; grunt build&quot;
+</code></pre>
+
+<p>如果你的脚本想在外面进行控制的话，把它们移到相应的文件：</p>
+
+<pre><code class="language-json">&quot;postinstall&quot;: &quot;scripts/postinstall.sh&quot;
+</code></pre>
+
+<p>由于 <code>./node_modules/.bin</code> 会被自动添加到环境变量 <code>PATH</code> 上，在 package.json 中的脚本
+会从上面去寻找，所以你可以直接执行它们，就像 <code>bower</code> 或者 <code>wepack</code>。</p>
+
+<h2 id="9-仅-git-重要的部分:ea9bff932f9bb2c44cceb6375aa9fa7a">9. 仅 git 重要的部分</h2>
+
+<p>大多数的应用是由必要的文件和生成文件组成。当使用一个版本控制系统像 git 时，你应该避免对生成的
+任何文件都进行追踪。</p>
+
+<p>例如，你的 node 应用可能会有一个 <code>node_modules</code> 依赖目录，这个你应该<a href="https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git">避免 git 控制</a>。
+只要每个依赖都列在 package.json 文件中，任何人都可以创建一个你的应用的工作副本，包括
+<code>node_modules</code> － 在运行 <code>npm install</code> 后。</p>
+
+<p>追踪这些生成文件，将会导致你的 git 历史充斥着无用的声音和臃肿。这是非常糟糕的，自从有些依赖是
+原生并且需要被编译时，检查它们将使你的应用缺少便捷性，因为你将需要提供多个编译版本，
+但却只从一个、可能是不正确的环境中生成。</p>
+
+<p>同样的原因，你也不应该检查 <code>bower_components</code> 或者由 grunt 编译生成的 assets。</p>
+
+<p>如果你之前已经不慎检查了 <code>node_modules</code> 目录，没关系，你可以删掉它，像这样：</p>
+
+<pre><code class="language-sh">$ echo 'node_modules' &gt;&gt; .gitignore
+$ git rm -r --cached node_modules
+$ git commit -am 'ignore node_modules'
+</code></pre>
+
+<p>我也忽略了 npm 的 logs 文件，所以它们不会搞乱我的代码：</p>
+
+<pre><code class="language-sh">$ echo 'npm-debug.log' &gt;&gt; .gitignore
+$ git commit -am 'ignore npm-debug'
+</code></pre>
+
+<p>忽略了这些无用的文件，你的仓库将会更加的小，你的提交将会更加简单，
+并且你将避免合并这些因生成目录而导致的分歧。</p>
+
+<h2 id="10-简化:ea9bff932f9bb2c44cceb6375aa9fa7a">10. 简化</h2>
+
+<p>技术预测是不准确的，但我还是会预测下即将到来的一年，2016 将是 JavaScript 简化的一年。</p>
+
+<p>越来越多的开发者正在简化它们的架构。为替换庞大的 MVCs 框架，他们正在使用<a href="https://medium.com/swlh/scaling-on-the-cheap-933e46944886#.2lvubkyhm">静态化的前端构建项目</a>，
+这样可以部署在 CDN 上，且使用一个 Node.js API 提供动态数据。</p>
+
+<p>我们也开始看到了复杂的构建系统对我们项目的阻力。一些前沿的开发者正在简化他们的构建系统。例如，
+使用一个 <code>vanilla</code> 构建系统，没有 <a href="https://medium.com/@tarkus/you-might-not-need-gulp-js-89a0220487dd#.etiox78kw">bower、gulp 或者 grunt</a>。</p>
+
+<p>最终，我们将简化我们的代码在 2016。有时，这来自删除功能，
+就像 <a href="https://www.youtube.com/watch?v=bo36MrBfTk4">Douglas Crockford&rsquo;s &ldquo;The Better Parts&rdquo;</a>。
+其他，这来自添加功能 － 就像我喜欢的 callback 的替代物 <a href="https://thomashunter.name/blog/the-long-road-to-asyncawait-in-javascript/">async-await</a>。
+Async-await 在 Node 中还不能用，但今天你可以借助牛逼的 <a href="http://babeljs.io/docs/usage/cli/#babel-node">Babeljs</a> 项目使用它。</p>
+
+<p>不要把看到那么多工具和框架一次性都挤进你的项目，试着去简化你的工作。</p>
+
+<h2 id="你的习惯是什么:ea9bff932f9bb2c44cceb6375aa9fa7a">你的习惯是什么？</h2>
+
+<p>我试着在我的所有项目中遵从这些习惯。不管你是 <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">node 新人</a>还是服务端 JS 老手，我确定你会为
+自己开发一些技巧。我们非常欢迎听到它们！使用 <a href="https://twitter.com/search?f=tweets&amp;vertical=default&amp;q=%23node_habits&amp;src=typd">#node_habits</a> 标签，分享你的习惯！</p>
+
+<p>Happy hacking!</p>
+
+<p>本文由 fundon 翻译，未经许可，不得转载。</p>
+
+  </div>
+</article>
+
+    </section>
+  </section>
+
+  <script src="https://fundon.me/js/prism.js"></script>
+
+
+
+<footer>
+  <section id="universal-footer">
+    <div class="wrap">
+      <div class="footer-nav">
+        <ul>
+          <li class="title">
+            Open Source
+          </li>
+          <li>
+            <a href="https://github.com/trekjs">Trek.js</a>
+          </li>
+          <li>
+            <a href="https://github.com/transwarpjs">Transwarp.js</a>
+          </li>
+          <li>
+            <a href="https://github.com/atom-minimap">Atom Minimap</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<div id="copyright-footer" role="contentinfo">
+  <strong>© 2015 Fangdun Cai.</strong>
+</div>
+
+
+
+</body>
+</html>
