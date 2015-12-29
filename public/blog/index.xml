@@ -231,7 +231,7 @@ $ git commit -am &#39;ignore npm-debug&#39;
 &lt;p&gt;忽略了这些无用的文件，你的仓库将会更加的小，你的提交将会更加简单，
 并且你将避免合并这些因生成目录而导致的分歧。&lt;/p&gt;
 
-&lt;h2 id=&#34;10-简化:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;10. 简化&lt;/h2&gt;
+&lt;h2 id=&#34;10-简约:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;10. 简约&lt;/h2&gt;
 
 &lt;p&gt;技术预测是不准确的，但我还是会预测下即将到来的一年，2016 将是 JavaScript 简化的一年。&lt;/p&gt;
 
