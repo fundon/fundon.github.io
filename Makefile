@@ -4,7 +4,7 @@ build:
 	hugo --theme=robots
 
 publish: build
-	git subtree push --prefix public origin master
+	git push master `git subtree push --prefix public origin master`:master --force
 
 watch:
 	hugo server --theme=robots --watch
