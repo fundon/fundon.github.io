@@ -27,7 +27,7 @@
 &lt;p&gt;这 10 个习惯很适合即将进入 2016 的 Node.js 黑客。
 它们真对的是应用开发者，而不是模块作者，因为这些群体有不同的目标和约束：&lt;/p&gt;
 
-&lt;h2 id=&#34;1-使用-npm-init-开始每个新项目:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;1. 使用 &lt;code&gt;npm init&lt;/code&gt; 开始每个新项目&lt;/h2&gt;
+&lt;h2 id=&#34;1-使用-npm-init-开始每个新项目&#34;&gt;1. 使用 &lt;code&gt;npm init&lt;/code&gt; 开始每个新项目&lt;/h2&gt;
 
 &lt;p&gt;NPM &lt;code&gt;init&lt;/code&gt; 命令将为你的项目生成一个有效的 &lt;code&gt;package.json&lt;/code&gt; 文件，
 从工作目录中自动推到出一些常见属性。&lt;/p&gt;
@@ -45,7 +45,7 @@ $ npm init --yes
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;2-使用一个智能的-npmrc-配置:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;2. 使用一个智能的 &lt;code&gt;.npmrc&lt;/code&gt; 配置&lt;/h2&gt;
+&lt;h2 id=&#34;2-使用一个智能的-npmrc-配置&#34;&gt;2. 使用一个智能的 &lt;code&gt;.npmrc&lt;/code&gt; 配置&lt;/h2&gt;
 
 &lt;p&gt;默认地，npm 不会保存已经安装的依赖到 package.json（所以你总是需要追踪你的依赖！）。&lt;/p&gt;
 
@@ -72,7 +72,7 @@ $ cat ~/.npmrc
 生成 &lt;a href=&#34;https://docs.npmjs.com/cli/shrinkwrap&#34;&gt;npm&amp;rsquo;s shrinkwrap&lt;/a&gt; 到你的工作流中。这需要花费更多的精力，但是还是很多好处的，保持
 准确的版本的嵌套依赖关系。&lt;/p&gt;
 
-&lt;h2 id=&#34;3-快跳上-es6-火车吧:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;3. 快跳上 ES6 火车吧！&lt;/h2&gt;
+&lt;h2 id=&#34;3-快跳上-es6-火车吧&#34;&gt;3. 快跳上 ES6 火车吧！&lt;/h2&gt;
 
 &lt;p&gt;Node 4+ 携带了一个 &lt;a href=&#34;https://nodejs.org/en/blog/release/v4.0.0/&#34;&gt;V8 引擎的更新&lt;/a&gt;，拥有几个有用的 &lt;a href=&#34;https://nodejs.org/en/docs/es6/&#34;&gt;ES6 特性&lt;/a&gt;。
 不要害怕，并不是一些复杂的东西，你可以轻松学习它。有许多简单的改进，让人满意。&lt;/p&gt;
@@ -82,7 +82,7 @@ $ cat ~/.npmrc
 console.log(`Hello, ${ user.name }!`);
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;4-坚持使用小写:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;4. 坚持使用小写&lt;/h2&gt;
+&lt;h2 id=&#34;4-坚持使用小写&#34;&gt;4. 坚持使用小写&lt;/h2&gt;
 
 &lt;p&gt;一些语言鼓励文件名匹配类名，比如 &lt;code&gt;MyClass&lt;/code&gt; 和 &lt;code&gt;MyClass.js&lt;/code&gt;。在 Node 中，
 不要那样做。而是使用文件名小写的方式：&lt;/p&gt;
@@ -101,7 +101,7 @@ Linux 不会。如果要编写可在这些平台移植的代码，你就需要�
 &lt;p&gt;译者：其实 Mac OSX 也可以设置文件系统 case-sensitive。&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&#34;5-cluster-你的应用:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;5. Cluster 你的应用&lt;/h2&gt;
+&lt;h2 id=&#34;5-cluster-你的应用&#34;&gt;5. Cluster 你的应用&lt;/h2&gt;
 
 &lt;p&gt;自从 node 运行时被限制在单核 CPU 和大约 1.5 GB 的内存之后，
 部署一个无 clustered 模式的 node 应用在一个大型服务器上是一个对资源巨大的浪费。&lt;/p&gt;
@@ -120,7 +120,7 @@ Linux 不会。如果要编写可在这些平台移植的代码，你就需要�
 &lt;code&gt;master&lt;/code&gt; 和 &lt;code&gt;worker&lt;/code&gt; 文件，可以试试 &lt;a href=&#34;https://www.npmjs.com/package/forky&#34;&gt;forky&lt;/a&gt;。 如果你更喜欢单个入口文件和函数的话，
 看看这个 &lt;a href=&#34;https://www.npmjs.com/package/throng&#34;&gt;throng&lt;/a&gt;。&lt;/p&gt;
 
-&lt;h2 id=&#34;6-有环境意识:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;6. 有环境意识&lt;/h2&gt;
+&lt;h2 id=&#34;6-有环境意识&#34;&gt;6. 有环境意识&lt;/h2&gt;
 
 &lt;p&gt;不要在你的项目中乱扔具体环境配置文件！而应该使用环境变量。&lt;/p&gt;
 
@@ -155,7 +155,7 @@ HTTP_TIMEOUT=10000
 &lt;p&gt;比起 &lt;code&gt;config/abby-dev.js&lt;/code&gt;、&lt;code&gt;config/brian-dev.js&lt;/code&gt;，&lt;code&gt;config/qa1.js&lt;/code&gt;、
 &lt;code&gt;config/qa2.js&lt;/code&gt;、&lt;code&gt;config/prod.js&lt;/code&gt;，这个更加简单灵活。&lt;/p&gt;
 
-&lt;h2 id=&#34;7-避免垃圾回收:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;7. 避免垃圾回收&lt;/h2&gt;
+&lt;h2 id=&#34;7-避免垃圾回收&#34;&gt;7. 避免垃圾回收&lt;/h2&gt;
 
 &lt;p&gt;Node（V8）使用一个懒惰、贪婪的垃圾回收。它默认被限制在大约 1.5 GB。
 在回收无用内存前，它有时会等待，直到它彻底回收这些无用内存。如果你的内存使用不断增加，
@@ -172,7 +172,7 @@ HTTP_TIMEOUT=10000
 &lt;pre&gt;&lt;code&gt;web: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server.js
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;8-把事情链接起来:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;8. 把事情链接起来&lt;/h2&gt;
+&lt;h2 id=&#34;8-把事情链接起来&#34;&gt;8. 把事情链接起来&lt;/h2&gt;
 
 &lt;p&gt;Npm 的&lt;a href=&#34;https://docs.npmjs.com/misc/scripts&#34;&gt;生命周期脚本&lt;/a&gt; 可以为自动化创建丰富的钩子。如果你需要在构建你的应用之前运行一些东西，
 你可以使用 &lt;code&gt;preinstall&lt;/code&gt; 脚本。如果想使用 grunt、gulp、browserify 或者 webpack 构建
@@ -200,7 +200,7 @@ assets 呢？那就使用 &lt;code&gt;postinstall&lt;/code&gt; 脚本。&lt;/p&g
 &lt;p&gt;由于 &lt;code&gt;./node_modules/.bin&lt;/code&gt; 会被自动添加到环境变量 &lt;code&gt;PATH&lt;/code&gt; 上，在 package.json 中的脚本
 会从上面去寻找，所以你可以直接执行它们，就像 &lt;code&gt;bower&lt;/code&gt; 或者 &lt;code&gt;wepack&lt;/code&gt;。&lt;/p&gt;
 
-&lt;h2 id=&#34;9-仅-git-重要的部分:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;9. 仅 git 重要的部分&lt;/h2&gt;
+&lt;h2 id=&#34;9-仅-git-重要的部分&#34;&gt;9. 仅 git 重要的部分&lt;/h2&gt;
 
 &lt;p&gt;大多数的应用是由必要的文件和生成文件组成。当使用一个版本控制系统像 git 时，你应该避免对生成的
 任何文件都进行追踪。&lt;/p&gt;
@@ -231,7 +231,7 @@ $ git commit -am &#39;ignore npm-debug&#39;
 &lt;p&gt;忽略了这些无用的文件，你的仓库将会更加的小，你的提交将会更加简单，
 并且你将避免合并这些因生成目录而导致的分歧。&lt;/p&gt;
 
-&lt;h2 id=&#34;10-简约:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;10. 简约&lt;/h2&gt;
+&lt;h2 id=&#34;10-简约&#34;&gt;10. 简约&lt;/h2&gt;
 
 &lt;p&gt;技术预测是不准确的，但我还是会预测下即将到来的一年，2016 将是 JavaScript 简化的一年。&lt;/p&gt;
 
@@ -248,7 +248,7 @@ Async-await 在 Node 中还不能用，但今天你可以借助牛逼的 &lt;a h
 
 &lt;p&gt;不要把看到那么多工具和框架一次性都挤进你的项目，试着去简化你的工作。&lt;/p&gt;
 
-&lt;h2 id=&#34;你的习惯是什么:ea9bff932f9bb2c44cceb6375aa9fa7a&#34;&gt;你的习惯是什么？&lt;/h2&gt;
+&lt;h2 id=&#34;你的习惯是什么&#34;&gt;你的习惯是什么？&lt;/h2&gt;
 
 &lt;p&gt;我试着在我的所有项目中遵从这些习惯。不管你是 &lt;a href=&#34;https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction&#34;&gt;node 新人&lt;/a&gt;还是服务端 JS 老手，我确定你会为
 自己开发一些技巧。我们非常欢迎听到它们！使用 &lt;a href=&#34;https://twitter.com/search?f=tweets&amp;amp;vertical=default&amp;amp;q=%23node_habits&amp;amp;src=typd&#34;&gt;#node_habits&lt;/a&gt; 标签，分享你的习惯！&lt;/p&gt;
@@ -269,7 +269,7 @@ Async-await 在 Node 中还不能用，但今天你可以借助牛逼的 &lt;a h
 
 &lt;p&gt;&lt;a href=&#34;https://medium.com/@fundon/using-docker-compose-in-node-js-project-65081953ce62#.3h17cxx5v&#34;&gt;Published on Medium&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;docker-到底有什么优点吸引我们&#34;&gt;Docker 到底有什么优点吸引我们？&lt;/h3&gt;
+&lt;h3 id=&#34;docker-到底有什么优点吸引我们:2afebb99e232edb93d9c714ead59fef5&#34;&gt;Docker 到底有什么优点吸引我们？&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Build&lt;/strong&gt;：允许自由组合各种服务来构建我们的应用，避免&lt;strong&gt;开发&lt;/strong&gt;和&lt;strong&gt;生产&lt;/strong&gt;之间的环境问题，并且不局限在任何平台和语言&lt;/li&gt;
@@ -277,11 +277,11 @@ Async-await 在 Node 中还不能用，但今天你可以借助牛逼的 &lt;a h
 &lt;li&gt;&lt;strong&gt;Run&lt;/strong&gt;：可以快捷地在多个平台，发布可扩展、安全、可靠的服务&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;use-it&#34;&gt;Use it!&lt;/h3&gt;
+&lt;h3 id=&#34;use-it:2afebb99e232edb93d9c714ead59fef5&#34;&gt;Use it!&lt;/h3&gt;
 
 &lt;p&gt;说了这么多，那就让我们玩起来！&lt;/p&gt;
 
-&lt;h4 id=&#34;0-install-docker-tools&#34;&gt;0. Install &lt;a href=&#34;https://docs.docker.com&#34;&gt;Docker&lt;/a&gt; Tools&lt;/h4&gt;
+&lt;h4 id=&#34;0-install-docker-tools:2afebb99e232edb93d9c714ead59fef5&#34;&gt;0. Install &lt;a href=&#34;https://docs.docker.com&#34;&gt;Docker&lt;/a&gt; Tools&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ brew install docker docker-machine docker-compose
 $ docker help
@@ -302,7 +302,7 @@ $ docker help
 &lt;li&gt;如果不喜欢 Docker CLI 工具，也可以安装 &lt;a href=&#34;https://docs.docker.com/kitematic/&#34;&gt;Kitematic&lt;/a&gt;，Kitematic 是 Docker 的 GUI 管理工具。&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h4 id=&#34;1-create-node-js-project&#34;&gt;1. Create Node.js Project&lt;/h4&gt;
+&lt;h4 id=&#34;1-create-node-js-project:2afebb99e232edb93d9c714ead59fef5&#34;&gt;1. Create Node.js Project&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ mkdir docker-express-mongoose-reis-example
 $ cd docker-express-mongoose-redis-example
@@ -414,7 +414,7 @@ mongoose.connect(`mongodb://${process.env.MONGO_PORT_27017_TCP_ADDR}`, (err) =&a
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;2-machine-在-virtualbox-中创建-docker-host&#34;&gt;2. &lt;a href=&#34;https://docs.docker.com/machine/&#34;&gt;Machine&lt;/a&gt;：在 virtualbox 中创建 Docker Host&lt;/h4&gt;
+&lt;h4 id=&#34;2-machine-在-virtualbox-中创建-docker-host:2afebb99e232edb93d9c714ead59fef5&#34;&gt;2. &lt;a href=&#34;https://docs.docker.com/machine/&#34;&gt;Machine&lt;/a&gt;：在 virtualbox 中创建 Docker Host&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ # 查看命令行帮助
 $ docker-machine
@@ -430,9 +430,9 @@ $ # 设置环境变量
 $ eval &amp;quot;$(docker-machine env dev)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;3-compose-定义及操作&#34;&gt;3. &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Compose&lt;/a&gt;：定义及操作&lt;/h4&gt;
+&lt;h4 id=&#34;3-compose-定义及操作:2afebb99e232edb93d9c714ead59fef5&#34;&gt;3. &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Compose&lt;/a&gt;：定义及操作&lt;/h4&gt;
 
-&lt;h5 id=&#34;为项目创建-dockerfile&#34;&gt;为项目创建 &lt;a href=&#34;https://docs.docker.com/reference/builder/&#34;&gt;Dockerfile&lt;/a&gt;&lt;/h5&gt;
+&lt;h5 id=&#34;为项目创建-dockerfile:2afebb99e232edb93d9c714ead59fef5&#34;&gt;为项目创建 &lt;a href=&#34;https://docs.docker.com/reference/builder/&#34;&gt;Dockerfile&lt;/a&gt;&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd docker-express-mongoose-redis-example
 $ touch Dockerfile
@@ -461,7 +461,7 @@ EXPOSE 3000
 CMD [&amp;quot;npm&amp;quot;, &amp;quot;start&amp;quot;]
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;创建-docker-compose-yml-来组合-node-js-redis-mongodb-服务&#34;&gt;创建 &lt;a href=&#34;https://docs.docker.com/compose/yml&#34;&gt;docker-compose.yml&lt;/a&gt; 来组合 Node.js, Redis, Mongodb 服务&lt;/h5&gt;
+&lt;h5 id=&#34;创建-docker-compose-yml-来组合-node-js-redis-mongodb-服务:2afebb99e232edb93d9c714ead59fef5&#34;&gt;创建 &lt;a href=&#34;https://docs.docker.com/compose/yml&#34;&gt;docker-compose.yml&lt;/a&gt; 来组合 Node.js, Redis, Mongodb 服务&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ cd docker-express-mongoose-redis-example
 $ touch docker-compose.yml
@@ -500,7 +500,7 @@ $ # 输出日志
 $ docker-compose logs
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h5 id=&#34;测试-访问我们的服务-rocket&#34;&gt;测试、访问我们的服务 :rocket:&lt;/h5&gt;
+&lt;h5 id=&#34;测试-访问我们的服务-rocket:2afebb99e232edb93d9c714ead59fef5&#34;&gt;测试、访问我们的服务 :rocket:&lt;/h5&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ open &amp;quot;http://$(docker-machine ip dev):3000&amp;quot;
 $ open &amp;quot;http://$(docker-machine ip dev):3000/redis&amp;quot;
@@ -511,7 +511,7 @@ $ open &amp;quot;http://$(docker-machine ip dev):3000/mongoose/set&amp;quot;
 $ open &amp;quot;http://$(docker-machine ip dev):3000/mongoose/get&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;关闭服务-休息下&#34;&gt;关闭服务，休息下&lt;/h4&gt;
+&lt;h4 id=&#34;关闭服务-休息下:2afebb99e232edb93d9c714ead59fef5&#34;&gt;关闭服务，休息下&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-sh&#34;&gt;$ docker-compose stop
 $ docker-machine stop dev
@@ -527,7 +527,7 @@ $ docker-machine stop dev
 &lt;li&gt;&lt;p&gt;&lt;strong&gt;如果 Node 项目比较大，依赖的模块较多，频繁改动，我们可以不需要创建 Node 项目本身的 Container，只需要创建启动其他服务即可。&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h3 id=&#34;其他工具&#34;&gt;其他工具&lt;/h3&gt;
+&lt;h3 id=&#34;其他工具:2afebb99e232edb93d9c714ead59fef5&#34;&gt;其他工具&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.vagrantup.com&#34;&gt;Vargant&lt;/a&gt; - 也是一款环境构建工具，比 Docker 还早&lt;/li&gt;
@@ -541,7 +541,7 @@ $ docker-machine stop dev
 
 &lt;p&gt;“自己动手，丰衣足食” － 不依赖环境构建工具，自己搭，时间精力充足的化，不妨一试，会收获更多。&lt;/p&gt;
 
-&lt;h3 id=&#34;最后&#34;&gt;最后&lt;/h3&gt;
+&lt;h3 id=&#34;最后:2afebb99e232edb93d9c714ead59fef5&#34;&gt;最后&lt;/h3&gt;
 
 &lt;p&gt;Docker 可玩的不仅仅如此，还可以打包、发布容器应用到线上，构建自己的 Paas(&lt;a href=&#34;https://github.com/progrium/dokku&#34;&gt;dokku&lt;/a&gt;) 服务等。&lt;/p&gt;
 
@@ -556,7 +556,7 @@ $ docker-machine stop dev
 }
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;relates&#34;&gt;Relates&lt;/h3&gt;
+&lt;h3 id=&#34;relates:2afebb99e232edb93d9c714ead59fef5&#34;&gt;Relates&lt;/h3&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://docs.docker.com/kitematic/&#34;&gt;https://docs.docker.com/kitematic/&lt;/a&gt;&lt;/li&gt;
@@ -577,50 +577,50 @@ $ docker-machine stop dev
       <guid>https://fundon.me/blog/ubuntu_setup/</guid>
       <description>
 
-&lt;h2 id=&#34;update-upgrade:90e40db340273043ba2c88723f9930ef&#34;&gt;Update &amp;amp; Upgrade&lt;/h2&gt;
+&lt;h2 id=&#34;update-upgrade&#34;&gt;Update &amp;amp; Upgrade&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;add-user:90e40db340273043ba2c88723f9930ef&#34;&gt;Add User&lt;/h2&gt;
+&lt;h2 id=&#34;add-user&#34;&gt;Add User&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# adduser fundon
 # usermod fundon -G sudo
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;package-search-and-show-package-info:90e40db340273043ba2c88723f9930ef&#34;&gt;Package Search and Show Package Info&lt;/h2&gt;
+&lt;h2 id=&#34;package-search-and-show-package-info&#34;&gt;Package Search and Show Package Info&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ apt-cache search golang
 $ aptitude search golang
 $ aptitude show golang
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;packages-install:90e40db340273043ba2c88723f9930ef&#34;&gt;Packages Install&lt;/h2&gt;
+&lt;h2 id=&#34;packages-install&#34;&gt;Packages Install&lt;/h2&gt;
 
-&lt;h3 id=&#34;git:90e40db340273043ba2c88723f9930ef&#34;&gt;Git&lt;/h3&gt;
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install git
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;golang:90e40db340273043ba2c88723f9930ef&#34;&gt;Golang&lt;/h3&gt;
+&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install golang
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;docker:90e40db340273043ba2c88723f9930ef&#34;&gt;Docker&lt;/h3&gt;
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install docker.io
 $ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;node-js:90e40db340273043ba2c88723f9930ef&#34;&gt;Node.js&lt;/h2&gt;
+&lt;h2 id=&#34;node-js&#34;&gt;Node.js&lt;/h2&gt;
 
-&lt;h3 id=&#34;ppa:90e40db340273043ba2c88723f9930ef&#34;&gt;PPA&lt;/h3&gt;
+&lt;h3 id=&#34;ppa&#34;&gt;PPA&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://launchpad.net/~chris-lea/+archive/node.js&#34;&gt;https://launchpad.net/~chris-lea/+archive/node.js&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;source:90e40db340273043ba2c88723f9930ef&#34;&gt;Source&lt;/h3&gt;
+&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install build-essential
 $ sudo apt-get install libssl-dev
@@ -838,7 +838,7 @@ UsePAM no
       <guid>https://fundon.me/blog/install-go-on-ubuntu/</guid>
       <description>
 
-&lt;h2 id=&#34;installation:5538edb85bf163c81357354aa48d4993&#34;&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;VERSION=&amp;quot;1.3.3&amp;quot;
 wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz

@@ -98,7 +98,7 @@
 <p>这 10 个习惯很适合即将进入 2016 的 Node.js 黑客。
 它们真对的是应用开发者，而不是模块作者，因为这些群体有不同的目标和约束：</p>
 
-<h2 id="1-使用-npm-init-开始每个新项目:ea9bff932f9bb2c44cceb6375aa9fa7a">1. 使用 <code>npm init</code> 开始每个新项目</h2>
+<h2 id="1-使用-npm-init-开始每个新项目">1. 使用 <code>npm init</code> 开始每个新项目</h2>
 
 <p>NPM <code>init</code> 命令将为你的项目生成一个有效的 <code>package.json</code> 文件，
 从工作目录中自动推到出一些常见属性。</p>
@@ -116,7 +116,7 @@ $ npm init --yes
 }
 </code></pre>
 
-<h2 id="2-使用一个智能的-npmrc-配置:ea9bff932f9bb2c44cceb6375aa9fa7a">2. 使用一个智能的 <code>.npmrc</code> 配置</h2>
+<h2 id="2-使用一个智能的-npmrc-配置">2. 使用一个智能的 <code>.npmrc</code> 配置</h2>
 
 <p>默认地，npm 不会保存已经安装的依赖到 package.json（所以你总是需要追踪你的依赖！）。</p>
 
@@ -143,7 +143,7 @@ $ cat ~/.npmrc
 生成 <a href="https://docs.npmjs.com/cli/shrinkwrap">npm&rsquo;s shrinkwrap</a> 到你的工作流中。这需要花费更多的精力，但是还是很多好处的，保持
 准确的版本的嵌套依赖关系。</p>
 
-<h2 id="3-快跳上-es6-火车吧:ea9bff932f9bb2c44cceb6375aa9fa7a">3. 快跳上 ES6 火车吧！</h2>
+<h2 id="3-快跳上-es6-火车吧">3. 快跳上 ES6 火车吧！</h2>
 
 <p>Node 4+ 携带了一个 <a href="https://nodejs.org/en/blog/release/v4.0.0/">V8 引擎的更新</a>，拥有几个有用的 <a href="https://nodejs.org/en/docs/es6/">ES6 特性</a>。
 不要害怕，并不是一些复杂的东西，你可以轻松学习它。有许多简单的改进，让人满意。</p>
@@ -153,7 +153,7 @@ $ cat ~/.npmrc
 console.log(`Hello, ${ user.name }!`);
 </code></pre>
 
-<h2 id="4-坚持使用小写:ea9bff932f9bb2c44cceb6375aa9fa7a">4. 坚持使用小写</h2>
+<h2 id="4-坚持使用小写">4. 坚持使用小写</h2>
 
 <p>一些语言鼓励文件名匹配类名，比如 <code>MyClass</code> 和 <code>MyClass.js</code>。在 Node 中，
 不要那样做。而是使用文件名小写的方式：</p>
@@ -172,7 +172,7 @@ Linux 不会。如果要编写可在这些平台移植的代码，你就需要�
 <p>译者：其实 Mac OSX 也可以设置文件系统 case-sensitive。</p>
 </blockquote>
 
-<h2 id="5-cluster-你的应用:ea9bff932f9bb2c44cceb6375aa9fa7a">5. Cluster 你的应用</h2>
+<h2 id="5-cluster-你的应用">5. Cluster 你的应用</h2>
 
 <p>自从 node 运行时被限制在单核 CPU 和大约 1.5 GB 的内存之后，
 部署一个无 clustered 模式的 node 应用在一个大型服务器上是一个对资源巨大的浪费。</p>
@@ -191,7 +191,7 @@ Linux 不会。如果要编写可在这些平台移植的代码，你就需要�
 <code>master</code> 和 <code>worker</code> 文件，可以试试 <a href="https://www.npmjs.com/package/forky">forky</a>。 如果你更喜欢单个入口文件和函数的话，
 看看这个 <a href="https://www.npmjs.com/package/throng">throng</a>。</p>
 
-<h2 id="6-有环境意识:ea9bff932f9bb2c44cceb6375aa9fa7a">6. 有环境意识</h2>
+<h2 id="6-有环境意识">6. 有环境意识</h2>
 
 <p>不要在你的项目中乱扔具体环境配置文件！而应该使用环境变量。</p>
 
@@ -226,7 +226,7 @@ HTTP_TIMEOUT=10000
 <p>比起 <code>config/abby-dev.js</code>、<code>config/brian-dev.js</code>，<code>config/qa1.js</code>、
 <code>config/qa2.js</code>、<code>config/prod.js</code>，这个更加简单灵活。</p>
 
-<h2 id="7-避免垃圾回收:ea9bff932f9bb2c44cceb6375aa9fa7a">7. 避免垃圾回收</h2>
+<h2 id="7-避免垃圾回收">7. 避免垃圾回收</h2>
 
 <p>Node（V8）使用一个懒惰、贪婪的垃圾回收。它默认被限制在大约 1.5 GB。
 在回收无用内存前，它有时会等待，直到它彻底回收这些无用内存。如果你的内存使用不断增加，
@@ -243,7 +243,7 @@ HTTP_TIMEOUT=10000
 <pre><code>web: node --optimize_for_size --max_old_space_size=460 --gc_interval=100 server.js
 </code></pre>
 
-<h2 id="8-把事情链接起来:ea9bff932f9bb2c44cceb6375aa9fa7a">8. 把事情链接起来</h2>
+<h2 id="8-把事情链接起来">8. 把事情链接起来</h2>
 
 <p>Npm 的<a href="https://docs.npmjs.com/misc/scripts">生命周期脚本</a> 可以为自动化创建丰富的钩子。如果你需要在构建你的应用之前运行一些东西，
 你可以使用 <code>preinstall</code> 脚本。如果想使用 grunt、gulp、browserify 或者 webpack 构建
@@ -271,7 +271,7 @@ assets 呢？那就使用 <code>postinstall</code> 脚本。</p>
 <p>由于 <code>./node_modules/.bin</code> 会被自动添加到环境变量 <code>PATH</code> 上，在 package.json 中的脚本
 会从上面去寻找，所以你可以直接执行它们，就像 <code>bower</code> 或者 <code>wepack</code>。</p>
 
-<h2 id="9-仅-git-重要的部分:ea9bff932f9bb2c44cceb6375aa9fa7a">9. 仅 git 重要的部分</h2>
+<h2 id="9-仅-git-重要的部分">9. 仅 git 重要的部分</h2>
 
 <p>大多数的应用是由必要的文件和生成文件组成。当使用一个版本控制系统像 git 时，你应该避免对生成的
 任何文件都进行追踪。</p>
@@ -302,7 +302,7 @@ $ git commit -am 'ignore npm-debug'
 <p>忽略了这些无用的文件，你的仓库将会更加的小，你的提交将会更加简单，
 并且你将避免合并这些因生成目录而导致的分歧。</p>
 
-<h2 id="10-简约:ea9bff932f9bb2c44cceb6375aa9fa7a">10. 简约</h2>
+<h2 id="10-简约">10. 简约</h2>
 
 <p>技术预测是不准确的，但我还是会预测下即将到来的一年，2016 将是 JavaScript 简化的一年。</p>
 
@@ -319,7 +319,7 @@ Async-await 在 Node 中还不能用，但今天你可以借助牛逼的 <a href
 
 <p>不要把看到那么多工具和框架一次性都挤进你的项目，试着去简化你的工作。</p>
 
-<h2 id="你的习惯是什么:ea9bff932f9bb2c44cceb6375aa9fa7a">你的习惯是什么？</h2>
+<h2 id="你的习惯是什么">你的习惯是什么？</h2>
 
 <p>我试着在我的所有项目中遵从这些习惯。不管你是 <a href="https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction">node 新人</a>还是服务端 JS 老手，我确定你会为
 自己开发一些技巧。我们非常欢迎听到它们！使用 <a href="https://twitter.com/search?f=tweets&amp;vertical=default&amp;q=%23node_habits&amp;src=typd">#node_habits</a> 标签，分享你的习惯！</p>

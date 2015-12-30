@@ -214,7 +214,7 @@ UsePAM no
       <guid>https://fundon.me/blog/install-go-on-ubuntu/</guid>
       <description>
 
-&lt;h2 id=&#34;installation:5538edb85bf163c81357354aa48d4993&#34;&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;VERSION=&amp;quot;1.3.3&amp;quot;
 wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz

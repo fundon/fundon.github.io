@@ -79,7 +79,7 @@
 
 <p><a href="https://medium.com/@fundon/using-docker-compose-in-node-js-project-65081953ce62#.3h17cxx5v">Published on Medium</a>.</p>
 
-<h3 id="docker-到底有什么优点吸引我们">Docker 到底有什么优点吸引我们？</h3>
+<h3 id="docker-到底有什么优点吸引我们:2afebb99e232edb93d9c714ead59fef5">Docker 到底有什么优点吸引我们？</h3>
 
 <ul>
 <li><strong>Build</strong>：允许自由组合各种服务来构建我们的应用，避免<strong>开发</strong>和<strong>生产</strong>之间的环境问题，并且不局限在任何平台和语言</li>
@@ -87,11 +87,11 @@
 <li><strong>Run</strong>：可以快捷地在多个平台，发布可扩展、安全、可靠的服务</li>
 </ul>
 
-<h3 id="use-it">Use it!</h3>
+<h3 id="use-it:2afebb99e232edb93d9c714ead59fef5">Use it!</h3>
 
 <p>说了这么多，那就让我们玩起来！</p>
 
-<h4 id="0-install-docker-tools">0. Install <a href="https://docs.docker.com">Docker</a> Tools</h4>
+<h4 id="0-install-docker-tools:2afebb99e232edb93d9c714ead59fef5">0. Install <a href="https://docs.docker.com">Docker</a> Tools</h4>
 
 <pre><code class="language-sh">$ brew install docker docker-machine docker-compose
 $ docker help
@@ -112,7 +112,7 @@ $ docker help
 <li>如果不喜欢 Docker CLI 工具，也可以安装 <a href="https://docs.docker.com/kitematic/">Kitematic</a>，Kitematic 是 Docker 的 GUI 管理工具。</li>
 </ul>
 
-<h4 id="1-create-node-js-project">1. Create Node.js Project</h4>
+<h4 id="1-create-node-js-project:2afebb99e232edb93d9c714ead59fef5">1. Create Node.js Project</h4>
 
 <pre><code class="language-sh">$ mkdir docker-express-mongoose-reis-example
 $ cd docker-express-mongoose-redis-example
@@ -224,7 +224,7 @@ mongoose.connect(`mongodb://${process.env.MONGO_PORT_27017_TCP_ADDR}`, (err) =&g
 }
 </code></pre>
 
-<h4 id="2-machine-在-virtualbox-中创建-docker-host">2. <a href="https://docs.docker.com/machine/">Machine</a>：在 virtualbox 中创建 Docker Host</h4>
+<h4 id="2-machine-在-virtualbox-中创建-docker-host:2afebb99e232edb93d9c714ead59fef5">2. <a href="https://docs.docker.com/machine/">Machine</a>：在 virtualbox 中创建 Docker Host</h4>
 
 <pre><code class="language-sh">$ # 查看命令行帮助
 $ docker-machine
@@ -240,9 +240,9 @@ $ # 设置环境变量
 $ eval &quot;$(docker-machine env dev)&quot;
 </code></pre>
 
-<h4 id="3-compose-定义及操作">3. <a href="https://docs.docker.com/compose/">Compose</a>：定义及操作</h4>
+<h4 id="3-compose-定义及操作:2afebb99e232edb93d9c714ead59fef5">3. <a href="https://docs.docker.com/compose/">Compose</a>：定义及操作</h4>
 
-<h5 id="为项目创建-dockerfile">为项目创建 <a href="https://docs.docker.com/reference/builder/">Dockerfile</a></h5>
+<h5 id="为项目创建-dockerfile:2afebb99e232edb93d9c714ead59fef5">为项目创建 <a href="https://docs.docker.com/reference/builder/">Dockerfile</a></h5>
 
 <pre><code class="language-sh">$ cd docker-express-mongoose-redis-example
 $ touch Dockerfile
@@ -271,7 +271,7 @@ EXPOSE 3000
 CMD [&quot;npm&quot;, &quot;start&quot;]
 </code></pre>
 
-<h5 id="创建-docker-compose-yml-来组合-node-js-redis-mongodb-服务">创建 <a href="https://docs.docker.com/compose/yml">docker-compose.yml</a> 来组合 Node.js, Redis, Mongodb 服务</h5>
+<h5 id="创建-docker-compose-yml-来组合-node-js-redis-mongodb-服务:2afebb99e232edb93d9c714ead59fef5">创建 <a href="https://docs.docker.com/compose/yml">docker-compose.yml</a> 来组合 Node.js, Redis, Mongodb 服务</h5>
 
 <pre><code class="language-sh">$ cd docker-express-mongoose-redis-example
 $ touch docker-compose.yml
@@ -310,7 +310,7 @@ $ # 输出日志
 $ docker-compose logs
 </code></pre>
 
-<h5 id="测试-访问我们的服务-rocket">测试、访问我们的服务 :rocket:</h5>
+<h5 id="测试-访问我们的服务-rocket:2afebb99e232edb93d9c714ead59fef5">测试、访问我们的服务 :rocket:</h5>
 
 <pre><code class="language-sh">$ open &quot;http://$(docker-machine ip dev):3000&quot;
 $ open &quot;http://$(docker-machine ip dev):3000/redis&quot;
@@ -321,7 +321,7 @@ $ open &quot;http://$(docker-machine ip dev):3000/mongoose/set&quot;
 $ open &quot;http://$(docker-machine ip dev):3000/mongoose/get&quot;
 </code></pre>
 
-<h4 id="关闭服务-休息下">关闭服务，休息下</h4>
+<h4 id="关闭服务-休息下:2afebb99e232edb93d9c714ead59fef5">关闭服务，休息下</h4>
 
 <pre><code class="language-sh">$ docker-compose stop
 $ docker-machine stop dev
@@ -337,7 +337,7 @@ $ docker-machine stop dev
 <li><p><strong>如果 Node 项目比较大，依赖的模块较多，频繁改动，我们可以不需要创建 Node 项目本身的 Container，只需要创建启动其他服务即可。</strong></p></li>
 </ul>
 
-<h3 id="其他工具">其他工具</h3>
+<h3 id="其他工具:2afebb99e232edb93d9c714ead59fef5">其他工具</h3>
 
 <ul>
 <li><a href="https://www.vagrantup.com">Vargant</a> - 也是一款环境构建工具，比 Docker 还早</li>
@@ -351,7 +351,7 @@ $ docker-machine stop dev
 
 <p>“自己动手，丰衣足食” － 不依赖环境构建工具，自己搭，时间精力充足的化，不妨一试，会收获更多。</p>
 
-<h3 id="最后">最后</h3>
+<h3 id="最后:2afebb99e232edb93d9c714ead59fef5">最后</h3>
 
 <p>Docker 可玩的不仅仅如此，还可以打包、发布容器应用到线上，构建自己的 Paas(<a href="https://github.com/progrium/dokku">dokku</a>) 服务等。</p>
 
@@ -366,7 +366,7 @@ $ docker-machine stop dev
 }
 </code></pre>
 
-<h3 id="relates">Relates</h3>
+<h3 id="relates:2afebb99e232edb93d9c714ead59fef5">Relates</h3>
 
 <ul>
 <li><a href="https://docs.docker.com/kitematic/">https://docs.docker.com/kitematic/</a></li>
