@@ -7,8 +7,1529 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright (c) 2015, Fangdun Cai; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 12 Dec 2015 22:22:46 +0800</lastBuildDate>
+    <lastBuildDate>Thu, 15 Sep 2016 00:15:46 +0800</lastBuildDate>
     <atom:link href="https://fundon.me/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ES6 QuickStart and Tips</title>
+      <link>https://fundon.me/blog/ES6-QuickStart-and-Tips/</link>
+      <pubDate>Thu, 15 Sep 2016 00:15:46 +0800</pubDate>
+      
+      <guid>https://fundon.me/blog/ES6-QuickStart-and-Tips/</guid>
+      <description>
+
+&lt;h1 id=&#34;es6-quickstart-and-tips&#34;&gt;ES6: QuickStart and Tips&lt;/h1&gt;
+
+&lt;p&gt;ES6: 快速体验，及实用小贴士&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;2016 年是 ES6 大力推广和普及的黄金时期，也是今年的流行趋势，
+就一个 &lt;a href=&#34;https://github.com/search?o=desc&amp;amp;q=ES6&amp;amp;s=stars&amp;amp;type=Repositories&amp;amp;utf8=✓&#34;&gt;ES6&lt;/a&gt; 关键词，
+在 GitHub 上就有这么多搜索结果。（赶紧跟上大部队！）&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://github.com/fundon/ES6-QuickStart-and-Tips/blob/master/images/github-search-results.png?raw=true&#34; alt=&#34;It&#39;s very hot!&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;简介&#34;&gt;简介&lt;/h2&gt;
+
+&lt;p&gt;ES6 是 &lt;strong&gt;ECMAScript 6&lt;/strong&gt; 的简称，是 &lt;a href=&#34;http://www.ecma-international.org/ecma-262/6.0/index.html&#34;&gt;ECMA-262 的第 6 版本&lt;/a&gt;。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ES5、ES2015 / ES6、ES2016 / ES7、ES2017 / ES8 这些关键词具体代表什么？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_5_support_in_Mozilla&#34;&gt;ES5&lt;/a&gt; 发布于 2009 年。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla&#34;&gt;ES6&lt;/a&gt;，比起 ES5，是第一个大版本更新，在 2015-06 发布，所以又称 ES2015。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_Next_support_in_Mozilla&#34;&gt;ES7 和 ES8&lt;/a&gt; 统称为 ECMAScript Next。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* [ES7] 在 2016-06 发布，又称 ES2016。
+
+* ES8 在 2017-06 发布，又称 ES2017。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;ECMAScript 与 JavaScript 有什么关系？&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;前者是后者的语言标准，后者是前者的一个实现。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;ES6 在浏览器，Node.js 支持如何，适不适合开发，生产？&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;浏览器： &lt;a href=&#34;http://kangax.github.io/compat-table/es6/&#34;&gt;ECMAScript 兼容列表&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Node.js：&lt;a href=&#34;http://node.green&#34;&gt;ES2015 Support&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;工具：使用一些转换工具，可以把 ES6 =&amp;gt; ES5&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;为什么要学习新语法？&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;当前很多库、框架、工具都在使用 &lt;strong&gt;ES6+&lt;/strong&gt; 进行开发，典型的就是 React 和 Vue，使用新语法特性的优势进行快速开发，然后使用转换构建工具部署生产代码。&lt;/p&gt;
+
+&lt;h2 id=&#34;es6-新特性&#34;&gt;ES6 新特性&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Arrows and Lexical This&lt;/p&gt;
+
+&lt;p&gt;「箭头」函数（&lt;code&gt;=&amp;gt;&lt;/code&gt;）和 &lt;code&gt;this&lt;/code&gt;：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;使用「箭头」函数我们可以体验函数式编程的”美”，高效、简洁，当然也要注意上下文 &lt;code&gt;this&lt;/code&gt;。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  var sum = function (a, b) { return a + b }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  var sum = (a, b) =&amp;gt; a + b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;a.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var PI = 3.14
+
+var c = r =&amp;gt; 2 * PI * r
+
+// c(2) = ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;b.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var PI = 3.14
+
+var circle = {
+  PI: 3.14159,
+  c: r =&amp;gt; 2 * this.PI * r
+}
+
+// circle.c(2) = ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;c.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var PI = 3.14
+
+var circle = {
+  PI: 3.14159,
+  c (r) {
+    return 2 * this.PI * r
+  }
+}
+
+// circle.c(2) = ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Classes&lt;/p&gt;
+
+&lt;p&gt;类：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;基于原型链的语法糖，简单、清晰；面向对象编程更加轻松。&lt;br /&gt;
+再也不会被其他语言吐槽了！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  function Cat () {
+    this.voice = &#39;miao&#39;
+  }
+  Cat.prototype.speak = function () {
+    console.log(this.voice)
+  }
+
+  function Lion () {
+    this.voice = &#39;roar&#39;
+  }
+
+  Lion.prototype = Cat.prototype
+
+  var c = new Cat()
+  var l = new Lion()
+  c.speak()
+  l.speak()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  class Cat {
+    constructor () {
+      this.voice = &#39;miao&#39;
+    }
+
+    speak () {
+      console.log(this.voice)
+    }
+  }
+
+  class Lion extends Cat {
+    constructor () {
+      super()
+
+      this.voice = &#39;roar&#39;
+    }
+  }
+  var c = new Cat()
+  var l = new Lion()
+  c.speak()
+  l.speak()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;cat.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;class Cat {
+  constructor () {
+    this.voice = &#39;miao&#39;
+  }
+
+  speak () {
+    console.log(this.voice)
+  }
+
+  static type () {
+    return Cat.name.toLowercase()
+  }
+}
+
+// Cat.prototype= ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;getters-setters.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;class Cat {
+  constructor (options) {
+    this.voice = &#39;miao&#39;
+    this.options = options || {}
+  }
+
+  speak () {
+    console.log(this.voice)
+  }
+
+  get name () {
+    return this.options.name
+  }
+
+  set name (name) {
+    this.options.name = name
+  }
+}
+
+var a = new Cat({ name: &#39;Garfield&#39; })
+// a.name ?
+// a.name = &#39;Tom&#39;
+// a.name ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes&#34;&gt;mixins.js&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var CalculatorMixin = Base =&amp;gt; class extends Base {
+  calc() { }
+}
+
+var RandomizerMixin = Base =&amp;gt; class extends Base {
+  randomize() { }
+}
+
+class Foo { }
+class Bar extends CalculatorMixin(RandomizerMixin(Foo)) { }
+
+// Bar.prototype ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Enhanced Object Literals&lt;/p&gt;
+
+&lt;p&gt;改进对象声明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;大大减少了代码量，创建对象更加简洁。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;属性缩写&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;函数缩写&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;属性名计算&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  var a = 1
+  var b = 2
+  var c = 3
+
+  var o = {
+    a: a,
+    b: b
+    c: c,
+    d: function () {
+      return this.a + this.b + this.c
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  var o = {
+    a,
+    b,
+    c,
+    d () {
+      return this.a + this.b + this.c
+    }
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;returns.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var generate = (name, age) =&amp;gt; ({ name, age })
+
+// generate(&#39;github&#39;, 5) ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;cumputed-properties.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var create = (path, verb) =&amp;gt; {
+  return {
+    path,
+    verb,
+    [&#39;is&#39; + verb[0].toUpperCase() + verb.substring(1)]: true
+  }
+}
+
+// create(&#39;/&#39;, &#39;get&#39;) ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;complicated.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var path = &#39;/&#39;
+var verb = &#39;get&#39;
+var root = {
+  path,
+  verb
+}
+
+var route = {
+  root
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Template Strings&lt;/p&gt;
+
+&lt;p&gt;模板字符串：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;终于可以舒服的写多行字符串了，这功能等到花儿都谢了！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;支持多行&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;支持变量绑定&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;也支持对字符串不转义，不解析&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  var first = 1
+  var second = 2
+  var third = 3
+
+  var str = &#39;No.&#39; + first + &#39;\n&#39; +
+    &#39;No.&#39; + second +&#39;\n&#39; +
+    &#39;No.&#39; + third
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  var first = 1
+  var second = 2
+  var third = 3
+
+  var str = `No. ${first}
+  No. ${second}
+  No. ${third}
+  `
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;raw-tag.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var t0 = `In ES5 &amp;quot;\n&amp;quot; is a line-feed.`
+var t1 = String.raw`In ES5 &amp;quot;\n&amp;quot; is a line-feed.`
+
+// console.log(t0)
+// console.log(t1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;expression.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var a = 5
+var b = 10
+
+// console.log(&amp;quot;Fifteen is &amp;quot; + (a + b) + &amp;quot; and\nnot &amp;quot; + (2 * a + b) + &amp;quot;.&amp;quot;)
+// console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;custom-tag.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var generatePath = (strings, ...values) =&amp;gt; {
+  return strings[0] + values.reduce((prev, curr) =&amp;gt; `${prev}/${curr}`, &#39;&#39;)
+}
+
+var user = &#39;user&#39;
+var id = &#39;233&#39;
+var profile = &#39;profile&#39;
+// generatePath`GET: ${user}${id}${profile}`
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Destructuring&lt;/p&gt;
+
+&lt;p&gt;解析赋值&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;可以轻松获取对象、数组等的元素，并赋值到指定变量&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Array ArrayLike Object 等，具有迭代器接口的对象&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  var arr = [1, 2, 3, 4]
+
+  var a0 = arr[0]
+  var a1 = arr[1]
+  var a2 = arr[2]
+
+  var obj = {
+    name: &#39;github&#39;,
+    age: 5
+  }
+
+  var name = obj.name
+  var age = obj.age
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  var arr = [1, 2, 3, 4]
+
+  var [a0, a1, a2] = arr
+
+  var obj = {
+    name: &#39;github&#39;,
+    age: 5
+  }
+
+  var { name, age } = obj
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;print.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var print = ({ name, age }) =&amp;gt; console.log(name, age)
+
+// print({ name: &#39;ES6&#39;, age: 2015 }) ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;alias.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var js = { name: &#39;ES6&#39;, age: 2015 }
+
+var { name: es, age } = js
+// name, es, age?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;defaults.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var js = { name: &#39;ES6&#39;, age: 2015 }
+var date = [2015, 9, 14]
+
+var { version = &#39;6&#39; } = js
+// version ?
+
+var { fullname: f = &#39;ECMAScript 6&#39; } = js
+// fullname, f ?
+
+var [y, m, d, h = 9] = date
+// y, m, d, h ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Default + Rest + Spread&lt;/p&gt;
+
+&lt;p&gt;默认值、余下参数（Rest），数组展开（Spread）&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;默认值： 减少了对输入参数的检查的代码量，即可读又简洁&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Rest：对参数数组操作更加灵活&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Spread：可以看作是 Rest 的反操作，更加方便对数组的操作&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  function bar (a) {
+    a = a || 5
+  }
+
+  function sum (a) {
+    a = a || 5
+    var l = arguments.length
+    var i = 1
+    for (; i &amp;lt; l; ++i) {
+      a += arguments[i]
+    }
+    return a
+  }
+
+  function apply () {
+    function fn () {}
+    var l = arguments.length
+    var args = new Array(l)
+    for (var i = 0; i &amp;lt; l; ++i) {
+      args[i] = arguments[i]
+    }
+    fn.apply(null, args)
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  function bar(a = 5) {
+  }
+
+  function sum (a = 5, ...args) {
+    var l = args.length
+    var i = 0
+    for (; i &amp;lt; l; ++i) {
+      a += args[i]
+    }
+    return a
+  }
+
+  function apply (...args) {
+    function fn () {}
+    fn.apply(null, args)
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;string.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var str = &#39;1234567890&#39;
+
+// [...str] ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;concat.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var a = [1, 2, 3]
+var b = [6, 5, 4]
+
+var c = [...a, ...b]
+// c ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;parse-args.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;/**
+ * 解析参数，返回特定格式
+ *
+ * @return {Array} [arr, options, cb]
+ */
+
+function parseArgs (...args) {
+  const last = args[args.length - 1]
+  const type = typeof last
+  let opts
+  let cb
+
+  if (&#39;function&#39; === type) {
+    cb = args.pop()
+    if (&#39;object&#39; === typeof args[args.length - 1]) {
+      opts = args.pop()
+    }
+  } else if (&#39;object&#39; === type &amp;amp;&amp;amp; !Array.isArray(last)) {
+    opts = args.pop()
+  } else if (&#39;undefined&#39; === type) {
+    args.pop()
+    return parseArgs(...args)
+  }
+
+  if (Array.isArray(args[0])) {
+    args = args[0]
+  }
+  return [args, opts || {}, cb]
+}
+
+// parseArgs(&#39;users&#39;) ?
+// parseArgs(&#39;users&#39;, {}) ?
+// parseArgs(&#39;users&#39;, () =&amp;gt; {}) ?
+// parseArgs(&#39;users&#39;, {}, () =&amp;gt; {}) ?
+// parseArgs(&#39;users&#39;, &#39;books&#39;) ?
+// parseArgs([&#39;users&#39;, &#39;books&#39;]) ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Let + Const&lt;/p&gt;
+
+&lt;p&gt;变量、常量定义声明：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;当满世界都是 &lt;code&gt;var&lt;/code&gt; 的时候，变量管理是个神坑！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;块级作用域&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;const: 一次性声明&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  // 函数作用域下覆盖全局作用域
+  var bar = 1
+  var bar = 3
+  function method () {
+    console.log(bar) // undefined
+    var bar = 2
+  }
+
+  // 变量泄漏
+  var s = &#39;hello&#39;;
+  for (var i = 0; i &amp;lt; s.length; i++) {
+    console.log(s[i]);
+  }
+  console.log(i); // 5
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  let bar0 = 1
+  let bar1 = 3
+
+  function method () {
+    console.log(bar0)
+    let bar3 = 2
+  }
+
+  var s = &#39;hello&#39;;
+  for (let i = 0; i &amp;lt; s.length; i++) {
+    console.log(s[i]);
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;global.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var a = 1
+let b = 2
+const c = 3
+
+// this.a ?
+// this.b ?
+// this.c ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;for.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var s = &#39;hello&#39;;
+for (let i = 0; i &amp;lt; s.length; i++) {
+  console.log(s[i]);
+}
+console.log(i); // ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Iterators + For..Of&lt;/p&gt;
+
+&lt;p&gt;迭代器和 &lt;code&gt;for..of&lt;/code&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;像 &lt;code&gt;[...arr]&lt;/code&gt; 就是迭代器一个很好的例子。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;可迭代协议：ES6 定义了一套统一的标准，允许对 JavaScript 对象自定义它们的迭代行为。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;内置可迭代类型有 String，Array，TypedArray，Map，Set，因为在它们的原型对象上已经有了 &lt;code&gt;[Symbol.iterator]&lt;/code&gt; 方法。&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  var arr = [1, 2, 3]
+
+  for (let i in arr) {
+    console.log(i)
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  var arr = [1, 2, 3]
+
+  for (let i of arr) {
+    console.log(i)
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;for-loops.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;Array.prototype.arrCustom = function () {}
+var arr = [1, 2, 3]
+arr.isArray = true
+
+for (let i in arr) {
+  console.log(i) // ?
+}
+
+for (let i of arr) {
+  console.log(i) // ?
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;iterable.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var iterable = {
+  [Symbol.iterator]() {
+    return {
+      i: 0,
+      next () {
+        return {
+          done: this.i === 10,
+          value: this.i++
+        }
+      }
+    }
+  }
+}
+
+for (const i of iterable) {
+  console.log(i) // ?
+}
+
+// [...iterable] ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;iterator.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;var iterable = {
+  [Symbol.iterator]() {
+    return {
+      i: 0,
+      next () {
+        const done = this.i === 10
+        const value = done ? undefined : this.i++
+        return { done, value }
+      }
+    }
+  }
+}
+
+const iterator = iterable[Symbol.iterator]()
+
+iterator.next() // ?
+iterator.next() // ?
+iterator.next() // ?
+// ...
+
+const iterator2 = iterable[Symbol.iterator]()
+
+iterator2.next() // ?
+iterator2.next() // ?
+iterator2.next() // ?
+// ...
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Generators&lt;/p&gt;
+
+&lt;p&gt;生成器：&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;生成器大杀器！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterable&#34;&gt;可迭代&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterator&#34;&gt;遵循迭代器协议&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;可在单个函数内 &lt;code&gt;GeneratorFunction&lt;/code&gt; 自定义迭代逻辑，可以替代迭代器，功能更强大&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;可中断&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  var iterable = {
+    [Symbol.iterator]() {
+      return {
+        i: 0,
+        next () {
+          const done = this.i === 10
+          const value = done ? undefined : this.i++
+          return { done, value }
+        }
+      }
+    }
+  }
+  const iterator = iterable[Symbol.iterator]()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  function* generatable () {
+    for (let i = 0, l = 10; i &amp;lt; l; ++i) {
+      yield i
+    }
+  }
+  const iterator = generatable()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;generatable.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function* generatable () {
+  for (let i = 0, l = 10; i &amp;lt; l; ++i) {
+    yield i
+  }
+}
+const iterator = generatable()
+
+for (const i of generatable()) {
+  console.log(i) // ?
+}
+// [...generatable()] ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;next.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function* range(min = 0, max = 10, step = 1) {
+  for (; min &amp;lt; max; min += step) {
+    let rest = yield min
+    if (rest) min = step * -1
+  }
+}
+
+const iterator = range()
+
+iterator.next() // ?
+iterator.next() // ?
+iterator.next() // ?
+iterator.next(true) // ?
+iterator.next() // ?
+iterator.next() // ?
+iterator.next() // ?
+
+const iterator2 = range(0, 100, 2)
+
+[...iterator2] // ?
+iterator.next() // ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;return.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function* range(min = 0, max = 10, step = 1) {
+  for (; min &amp;lt; max; min += step) {
+    let rest = yield min
+    if (rest) min = step * -1
+  }
+}
+
+const iterator = range()
+iterator.next()
+iterator.next(true)
+iterator.next()
+iterator.return() // ?
+iterator.next() // ?
+iterator.return(1) // ?
+iterator.next() // ?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;yield.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function* g() {
+  yield 1
+  yield 2
+  yield 3
+  yield* [4, 5, 6]
+  yield* &#39;Hello World!&#39;
+  yield 7
+}
+
+[...g()] // ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Unicode&lt;/p&gt;
+
+&lt;p&gt;Unicode&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;加强对 Unicode 的支持，并且扩展了字符串对象&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // same as ES5.1
+  &amp;quot;𠮷&amp;quot;.length == 2
+
+  // new RegExp behaviour, opt-in ‘u’
+  &amp;quot;𠮷&amp;quot;.match(/./u)[0].length == 2
+
+  // new form
+  &amp;quot;\u{20BB7}&amp;quot; == &amp;quot;𠮷&amp;quot; == &amp;quot;\uD842\uDFB7&amp;quot;
+
+  // new String ops
+  &amp;quot;𠮷&amp;quot;.codePointAt(0) == 0x20BB7
+
+  // for-of iterates code points
+  for(var c of &amp;quot;𠮷&amp;quot;) {
+    console.log(c);
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Modules ?&lt;/p&gt;
+
+&lt;p&gt;模块话系统目前还未实现！&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Subclassable Built-ins&lt;/p&gt;
+
+&lt;p&gt;子类可继承自内置数据类型&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;真的太方便了，比如想对 Array 进行扩展，现在无需修改 &lt;code&gt;Array.prototype&lt;/code&gt;，&lt;code&gt;extends Array&lt;/code&gt; 就可以了。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Array Boolean String Number Map Set Error RegExp Function Promise&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;e.g.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  // This is danger.
+  Array.prototype.sum = function () {
+    return this.reduce((t, curr) =&amp;gt; t + curr, 0)
+  }
+
+  var a = [1, 2, 3]
+  a.sum()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  class CustomArray extends Array {
+    constructor (...args) {
+      super(...args)
+    }
+
+    sum () {
+      return this.reduce((t, curr) =&amp;gt; t + curr, 0)
+    }
+  }
+
+  var a = CustomArray.from([1, 2, 3])
+  a.sum()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&#34;https://github.com/trekjs/middleware&#34;&gt;middleware.js&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const SYMBOL_ITERATOR = Symbol.iterator
+
+class Middleware extends Array {
+
+  [SYMBOL_ITERATOR] () {
+    return this
+  }
+
+  next (i = 0, context, nextFunc) {
+    const fn = this[i] || nextFunc
+
+    return {
+      done: i === this.length,
+      value: fn &amp;amp;&amp;amp; fn(context, () =&amp;gt; {
+        return this.next(i + 1, context, nextFunc).value
+      })
+    }
+  }
+
+  compose (context, nextFunc) {
+    return this[SYMBOL_ITERATOR]().next(0, context, nextFunc).value
+  }
+
+}
+
+const middleware = new Middleware()
+
+middleware.push((ctx, next) =&amp;gt; {
+  ctx.arr.push(1)
+  next()
+  ctx.arr.push(6)
+})
+
+middleware.push((ctx, next) =&amp;gt; {
+  ctx.arr.push(2)
+  next()
+  ctx.arr.push(5)
+})
+
+middleware.push((ctx, next) =&amp;gt; {
+  ctx.arr.push(3)
+  next()
+  ctx.arr.push(4)
+})
+
+const ctx = { arr: [] }
+middleware.compose(ctx)
+console.log(ctx.arr) // ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Map + Set + WeakMap + WeakSet&lt;/p&gt;
+
+&lt;p&gt;新增 &lt;code&gt;Map&lt;/code&gt; &lt;code&gt;Set&lt;/code&gt; &lt;code&gt;WeakMap&lt;/code&gt; &lt;code&gt;WeakSet&lt;/code&gt; 几种高效的数据类型&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // Sets
+  var s = new Set();
+  s.add(&amp;quot;hello&amp;quot;).add(&amp;quot;goodbye&amp;quot;).add(&amp;quot;hello&amp;quot;);
+  s.size === 2;
+  s.has(&amp;quot;hello&amp;quot;) === true;
+
+  // Maps
+  var m = new Map();
+  m.set(&amp;quot;hello&amp;quot;, 42);
+  m.set(s, 34);
+  m.get(s) == 34;
+
+  // Weak Maps
+  var wm = new WeakMap();
+  wm.set(s, { extra: 42 });
+  wm.size === undefined
+
+  // Weak Sets
+  var ws = new WeakSet();
+  ws.add({ data: 42 });
+  // Because the added object has no other references, it will not be held in the set
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Proxies&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;当我们不想把对象暴露出来，不想直接操作它们，想增加一层校验时，&lt;code&gt;Proxies&lt;/code&gt; 是一个最佳方案。&lt;br /&gt;
+但当增加了 &lt;code&gt;Proxies&lt;/code&gt; 这一层，对性能还是会有影响的。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  const inner = {
+    name: &#39;ES6&#39;
+  }
+
+  var outer = {
+    inner,
+    get name () {
+      return this.inner.name
+    },
+    set name (name) {
+      this.inner.name = name
+    }
+  }
+
+  // outer.name
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  const inner = {
+    name: &#39;ES6&#39;
+  }
+
+  var p = new Proxy(inner, {
+    get (target, name) {
+      return target[name]
+    },
+
+    set (target, name, value) {
+      if (&#39;string&#39; !== typeof value) throw new TypeError(&#39;value must be String!&#39;)
+      target[name] = value
+    }
+  })
+
+  p.name
+  p.name = 2
+  p.name = &#39;ES2015&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;&lt;a href=&#34;https://github.com/fundon/delegate-proxy&#34;&gt;delegate-proxy.js&lt;/a&gt;&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function delegateProxy (target, origin) {
+  return new Proxy(target, {
+    get (target, key, receiver) {
+      if (key in target) return Reflect.get(target, key, receiver)
+      const value = origin[key]
+      return &#39;function&#39; === typeof value ? function method () {
+        return value.apply(origin, arguments)
+      } : value
+    },
+    set (target, key, value, receiver) {
+      if (key in target) return Reflect.set(target, key, value, receiver)
+      origin[key] = value
+      return true
+    }
+  })
+}
+
+const bar = {
+  n: 1,
+
+  add (i) {
+    this.n += i
+  }
+}
+
+const foo = {
+
+  set (n) {
+    this.n = n | 0
+  },
+
+  sub (i) {
+    this.n -= i
+  }
+
+}
+
+const p = delegateProxy(foo, bar)
+
+bar
+foo
+p
+
+p.n       // ?
+p.add(1)
+p.n       // ?
+
+p.sub(2)
+p.n       // ?
+
+p.set(1)
+p.n       // ?
+
+p.n = 233
+p.n       // ?
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol&#34;&gt;Symbols&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;符号：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;唯一性&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;不可变&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;不列入对象的 &lt;code&gt;Object.getOwnPropertyNames(obj)&lt;/code&gt; 和 &lt;code&gt;Object.keys(obj)&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;想给对象打一个暗号，再也不难了！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  let obj = {
+    id: 1
+  }
+
+  obj.id      // 1
+  obj.id = 2
+  obj.id      // 2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  let obj = {
+    [Symbol(&#39;id&#39;)]: 1
+  }
+
+  obj[Symbol(&#39;id&#39;)]      // undefined
+  obj[Symbol(&#39;id&#39;)] = 2
+  obj[Symbol(&#39;id&#39;)]      // undefined
+
+  for (const k of Object.getOwnPropertySymbols(obj)) {
+    console.log(obj[k])
+  }
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Math + Number + String + Array + Object APIs&lt;/p&gt;
+
+&lt;p&gt;新增 APIs，数据操作更加方便。&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  Number.EPSILON
+  Number.isInteger(Infinity) // false
+  Number.isNaN(&amp;quot;NaN&amp;quot;) // false
+
+  Math.acosh(3) // 1.762747174039086
+  Math.hypot(3, 4) // 5
+  Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
+
+  &amp;quot;abcde&amp;quot;.includes(&amp;quot;cd&amp;quot;) // true
+  &amp;quot;abc&amp;quot;.repeat(3) // &amp;quot;abcabcabc&amp;quot;
+
+  Array.from(document.querySelectorAll(&amp;quot;*&amp;quot;)) // Returns a real Array
+  Array.of(1, 2, 3) // Similar to new Array(...), but without special one-arg behavior
+  [0, 0, 0].fill(7, 1) // [0,7,7]
+  [1,2,3].findIndex(x =&amp;gt; x == 2) // 1
+  [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;].entries() // iterator [0, &amp;quot;a&amp;quot;], [1,&amp;quot;b&amp;quot;], [2,&amp;quot;c&amp;quot;]
+  [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;].keys() // iterator 0, 1, 2
+  [&amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;].values() // iterator &amp;quot;a&amp;quot;, &amp;quot;b&amp;quot;, &amp;quot;c&amp;quot;
+
+  Object.assign(Point, { origin: new Point(0,0) })
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Binary and Octal Literals&lt;/p&gt;
+
+&lt;p&gt;二进制 &lt;code&gt;b&lt;/code&gt;，八进制 &lt;code&gt;o&lt;/code&gt; 字面量&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  0b111110111 === 503 // true
+  0o767 === 503 // true
+  0x1f7 === 503 // true
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Promises&lt;/p&gt;
+
+&lt;p&gt;Promises：更加优雅的异步编程方式。想更加清晰了解 &lt;code&gt;Promise&lt;/code&gt; 的执行过程，可以看这个可视化工具 &lt;a href=&#34;https://github.com/bevacqua/promisees&#34;&gt;promisees&lt;/a&gt;。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;面对异步编程，&lt;code&gt;callback-hell&lt;/code&gt; 就是 JavaScript 给人的最大诟病！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // old
+  getProfileById(233, (err, res) =&amp;gt; {
+    if (err) throw err
+    getFollowing(233, (err, following) =&amp;gt; {
+      if (err) throw err
+      getFollowers(233, (err, followers) =&amp;gt; {
+        if (err) throw err
+        getStarred(233, (err, starred) =&amp;gt; {
+          if (err) throw err
+          // ....
+        })
+      })
+    })
+  })
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  // new
+  getProfileById(233)
+    .then(res =&amp;gt; getFollowing(233))
+    .then(res =&amp;gt; getFollowers(233))
+    .then(res =&amp;gt; getStarred(233))
+    .catch(err =&amp;gt; console.log(err))
+    // ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;猜猜猜&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;simple-promise.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function loadImage (url) {
+  return new Promise((resolve, reject) =&amp;gt; {
+    const img = new Image()
+
+    img.onload = function () {
+      resolve(img)
+    }
+
+    img.onerror = function () {
+      reject(new Error(&#39;Could not load image at &#39; + url))
+    }
+
+    img.url = url
+  })
+}
+
+loadImage(&#39;https://nodejs.org/static/images/logo-header.png&#39;)
+  .then(img =&amp;gt; document.body.appendChild(img))
+  .catch(err =&amp;gt; console.log(err))
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;all.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function delay(value, duration = 0) {
+  return new Promise((resolve, reject) =&amp;gt; {
+    setTimeout(() =&amp;gt; resolve(value), duration)
+  })
+}
+
+let res = Promise.all([
+  delay(10, 1),
+  delay(8, 2),
+  delay(6, 3),
+  delay(4, 4),
+  delay(2, 5),
+  delay(0, 6),
+])
+
+res.then(arr =&amp;gt; {
+  console.log(arr) // ?
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;race.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;function delay(value, duration = 0) {
+  return new Promise((resolve, reject) =&amp;gt; {
+    setTimeout(() =&amp;gt; resolve(value), duration)
+  })
+}
+
+let res = Promise.race([
+  delay(10, 1),
+  delay(8, 2),
+  delay(6, 3),
+  delay(4, 4),
+  delay(2, 5),
+  delay(0, 6),
+])
+
+res.then(arr =&amp;gt; {
+  console.log(arr) // ?
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;em&gt;reduce.js&lt;/em&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;const reduce = (arr, cb, initialValue = 0) =&amp;gt; {
+  return arr.reduce(cb, Promise.resolve(initialValue))
+}
+
+const cb = (prev, curr) =&amp;gt; prev.then(v =&amp;gt; v + curr)
+
+reduce([1, 2, 3, 4, 5, 6, 7, 8, 9], cb)
+  .then(res =&amp;gt; {
+    console.log(res) // ?
+  })
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect&#34;&gt;Reflect API&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;反射 API：公开了对象的元操作，效果跟 Proxy API 相反&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;e.g.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;  var O = {a: 1};
+  Object.defineProperty(O, &#39;b&#39;, {value: 2});
+  O[Symbol(&#39;c&#39;)] = 3;
+
+  Reflect.ownKeys(O); // [&#39;a&#39;, &#39;b&#39;, Symbol(c)]
+
+  function C(a, b){
+    this.c = a + b;
+  }
+  var instance = Reflect.construct(C, [20, 22]);
+  instance.c; // 42
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Tail Calls&lt;/p&gt;
+
+&lt;p&gt;优化了尾递归算法，保证栈不会无限增长，使得尾递归算法安全。&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;快速体验&#34;&gt;快速体验&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;对以上新特性，快速体验一番，环境包括 浏览器 和 Node.js&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;高级应用&#34;&gt;高级应用&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;深入学习特性，应用生产&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;兼容-代码转换&#34;&gt;兼容，代码转换&lt;/h2&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;使用转换工具，对 ES6+ 的代码进行转换，适配浏览器或者 Node &amp;lt; v6&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;其他&#34;&gt;其他&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://es6.ruanyifeng.com&#34;&gt;http://es6.ruanyifeng.com&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/lukehoban/es6features&#34;&gt;https://github.com/lukehoban/es6features&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://babeljs.io/docs/learn-es2015/&#34;&gt;https://babeljs.io/docs/learn-es2015/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://ponyfoo.com/articles/tagged/es6-in-depth&#34;&gt;https://ponyfoo.com/articles/tagged/es6-in-depth&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/bevacqua/es6&#34;&gt;https://github.com/bevacqua/es6&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/DrkSephy/es6-cheatsheet&#34;&gt;https://github.com/DrkSephy/es6-cheatsheet&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/ericdouglas/ES6-Learning&#34;&gt;https://github.com/ericdouglas/ES6-Learning&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/addyosmani/es6-tools&#34;&gt;https://github.com/addyosmani/es6-tools&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://github.com/bevacqua/promisees&#34;&gt;https://github.com/bevacqua/promisees&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;license&#34;&gt;License&lt;/h2&gt;
+
+&lt;p&gt;授权：&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34;&gt;署名-非商业性使用&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://fundon.me&#34;&gt;fundon.me&lt;/a&gt; &amp;nbsp;&amp;middot;&amp;nbsp;
+GitHub &lt;a href=&#34;https://github.com/fundon&#34;&gt;@fundon&lt;/a&gt; &amp;nbsp;&amp;middot;&amp;nbsp;
+Twitter &lt;a href=&#34;https://twitter.com/_fundon&#34;&gt;@_fundon&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</description>
+    </item>
     
     <item>
       <title>10 Habits of a Happy Node Hacker 2016</title>
@@ -267,50 +1788,50 @@ Async-await 在 Node 中还不能用，但今天你可以借助牛逼的 &lt;a h
       <guid>https://fundon.me/blog/ubuntu_setup/</guid>
       <description>
 
-&lt;h2 id=&#34;update-upgrade:90e40db340273043ba2c88723f9930ef&#34;&gt;Update &amp;amp; Upgrade&lt;/h2&gt;
+&lt;h2 id=&#34;update-upgrade&#34;&gt;Update &amp;amp; Upgrade&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get update
 $ sudo apt-get upgrade
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;add-user:90e40db340273043ba2c88723f9930ef&#34;&gt;Add User&lt;/h2&gt;
+&lt;h2 id=&#34;add-user&#34;&gt;Add User&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# adduser fundon
 # usermod fundon -G sudo
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;package-search-and-show-package-info:90e40db340273043ba2c88723f9930ef&#34;&gt;Package Search and Show Package Info&lt;/h2&gt;
+&lt;h2 id=&#34;package-search-and-show-package-info&#34;&gt;Package Search and Show Package Info&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ apt-cache search golang
 $ aptitude search golang
 $ aptitude show golang
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;packages-install:90e40db340273043ba2c88723f9930ef&#34;&gt;Packages Install&lt;/h2&gt;
+&lt;h2 id=&#34;packages-install&#34;&gt;Packages Install&lt;/h2&gt;
 
-&lt;h3 id=&#34;git:90e40db340273043ba2c88723f9930ef&#34;&gt;Git&lt;/h3&gt;
+&lt;h3 id=&#34;git&#34;&gt;Git&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install git
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;golang:90e40db340273043ba2c88723f9930ef&#34;&gt;Golang&lt;/h3&gt;
+&lt;h3 id=&#34;golang&#34;&gt;Golang&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install golang
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;docker:90e40db340273043ba2c88723f9930ef&#34;&gt;Docker&lt;/h3&gt;
+&lt;h3 id=&#34;docker&#34;&gt;Docker&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install docker.io
 $ sudo ln -sf /usr/bin/docker.io /usr/local/bin/docker
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;node-js:90e40db340273043ba2c88723f9930ef&#34;&gt;Node.js&lt;/h2&gt;
+&lt;h2 id=&#34;node-js&#34;&gt;Node.js&lt;/h2&gt;
 
-&lt;h3 id=&#34;ppa:90e40db340273043ba2c88723f9930ef&#34;&gt;PPA&lt;/h3&gt;
+&lt;h3 id=&#34;ppa&#34;&gt;PPA&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://launchpad.net/~chris-lea/+archive/node.js&#34;&gt;https://launchpad.net/~chris-lea/+archive/node.js&lt;/a&gt;&lt;/p&gt;
 
-&lt;h3 id=&#34;source:90e40db340273043ba2c88723f9930ef&#34;&gt;Source&lt;/h3&gt;
+&lt;h3 id=&#34;source&#34;&gt;Source&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo apt-get install build-essential
 $ sudo apt-get install libssl-dev
@@ -343,7 +1864,7 @@ Start up a hosted continuous integration service for yourself or your team.&lt;/
       <guid>https://fundon.me/blog/install-gogs-on-mac/</guid>
       <description>
 
-&lt;h2 id=&#34;dependences:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Dependences&lt;/h2&gt;
+&lt;h2 id=&#34;dependences&#34;&gt;Dependences&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://brew.sh&#34;&gt;homebrew&lt;/a&gt;&lt;/li&gt;
@@ -353,34 +1874,34 @@ Start up a hosted continuous integration service for yourself or your team.&lt;/
 &lt;li&gt;&lt;a href=&#34;http://gopm.io&#34;&gt;gopm&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;installation:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
-&lt;h3 id=&#34;homebrew:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Homebrew&lt;/h3&gt;
+&lt;h3 id=&#34;homebrew&#34;&gt;Homebrew&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;git:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;git&lt;/h3&gt;
+&lt;h3 id=&#34;git&#34;&gt;git&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install git
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;postgresql:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;postgresql&lt;/h3&gt;
+&lt;h3 id=&#34;postgresql&#34;&gt;postgresql&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install postgresql
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;go:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;go&lt;/h3&gt;
+&lt;h3 id=&#34;go&#34;&gt;go&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ brew install go
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gopm:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gopm&lt;/h3&gt;
+&lt;h3 id=&#34;gopm&#34;&gt;gopm&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ go get -u github.com/gpmgo/gopm
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gogs:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gogs&lt;/h3&gt;
+&lt;h3 id=&#34;gogs&#34;&gt;gogs&lt;/h3&gt;
 
 &lt;p&gt;Build from dev source.&lt;/p&gt;
 
@@ -391,18 +1912,18 @@ $ cd gogs
 $ gopm build
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;configuration:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Configuration&lt;/h2&gt;
+&lt;h2 id=&#34;configuration&#34;&gt;Configuration&lt;/h2&gt;
 
-&lt;h3 id=&#34;postgresql-1:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;postgresql&lt;/h3&gt;
+&lt;h3 id=&#34;postgresql-1&#34;&gt;postgresql&lt;/h3&gt;
 
-&lt;h4 id=&#34;init-postgresql:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Init postgresql&lt;/h4&gt;
+&lt;h4 id=&#34;init-postgresql&#34;&gt;Init postgresql&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ createdb
 $ psql --command &amp;quot;CREATE USER root WITH SUPERUSER PASSWORD &#39;THE_DB_PASSWORD&#39;;&amp;quot;
 $ createdb -O root gogs
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4 id=&#34;start-postgresql-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Start postgresql server&lt;/h4&gt;
+&lt;h4 id=&#34;start-postgresql-server&#34;&gt;Start postgresql server&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents/
 $ launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
@@ -414,9 +1935,9 @@ $ launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ postgres -D /usr/local/var/postgres
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;gogs-1:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;gogs&lt;/h3&gt;
+&lt;h3 id=&#34;gogs-1&#34;&gt;gogs&lt;/h3&gt;
 
-&lt;h4 id=&#34;custom-conf-app-ini:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;custom/conf/app.ini&lt;/h4&gt;
+&lt;h4 id=&#34;custom-conf-app-ini&#34;&gt;custom/conf/app.ini&lt;/h4&gt;
 
 &lt;p&gt;You can add git user or use currently logged in user.&lt;br /&gt;
 If you want to add git user to run gogs.&lt;br /&gt;
@@ -449,7 +1970,7 @@ SECRET_KEY = YOU_MUST_CHANGE
 ...
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;run-gogs-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Run gogs server&lt;/h2&gt;
+&lt;h2 id=&#34;run-gogs-server&#34;&gt;Run gogs server&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ cd ~/services/gogs
 $ ./gogs web
@@ -483,9 +2004,9 @@ $ # open 127.0.0.0:3000
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ launchctl load ~/Library/LaunchAgents/io.gogs.web.plist
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;ssh-remote:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;SSH Remote&lt;/h2&gt;
+&lt;h2 id=&#34;ssh-remote&#34;&gt;SSH Remote&lt;/h2&gt;
 
-&lt;h3 id=&#34;setting-ssh-config-etc-sshd-config:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Setting SSH config &lt;code&gt;/etc/sshd_config&lt;/code&gt;&lt;/h3&gt;
+&lt;h3 id=&#34;setting-ssh-config-etc-sshd-config&#34;&gt;Setting SSH config &lt;code&gt;/etc/sshd_config&lt;/code&gt;&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo cp /etc/sshd_config /etc/sshd_config~previous
 $ sudo vi /etc/sshd_config
@@ -501,18 +2022,18 @@ PubkeyAuthentication yes
 UsePAM no
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;start-ssh-server:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Start SSH Server&lt;/h3&gt;
+&lt;h3 id=&#34;start-ssh-server&#34;&gt;Start SSH Server&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;Open System Preferences &amp;gt; Sharing &amp;gt; Remote Login
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;other-ssh-articles:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Other SSH Articles&lt;/h3&gt;
+&lt;h3 id=&#34;other-ssh-articles&#34;&gt;Other SSH Articles&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://help.github.com/categories/ssh/&#34;&gt;https://help.github.com/categories/ssh/&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&#34;3-enjoy:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;&amp;lt;3 Enjoy!&lt;/h2&gt;
+&lt;h2 id=&#34;3-enjoy&#34;&gt;&amp;lt;3 Enjoy!&lt;/h2&gt;
 
-&lt;h2 id=&#34;other:a980d2687ee25fbe161e675aa93e86d1&#34;&gt;Other&lt;/h2&gt;
+&lt;h2 id=&#34;other&#34;&gt;Other&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;http://gogs.io/docs/intro/&#34;&gt;http://gogs.io/docs/intro/&lt;/a&gt;&lt;/li&gt;
@@ -528,7 +2049,7 @@ UsePAM no
       <guid>https://fundon.me/blog/install-go-on-ubuntu/</guid>
       <description>
 
-&lt;h2 id=&#34;installation:5538edb85bf163c81357354aa48d4993&#34;&gt;Installation&lt;/h2&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;VERSION=&amp;quot;1.3.3&amp;quot;
 wget http://golang.org/dl/go$VERSION.linux-amd64.tar.gz

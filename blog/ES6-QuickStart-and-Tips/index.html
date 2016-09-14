@@ -1,0 +1,1631 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width,initial-scale=1" name="viewport">
+  <title>Fangdun Cai</title>
+  <meta name="author" content="fundon" />
+  <meta name="description" content="Fundon&#39;s Moving Castle" />
+  <link rel="canonical" href="https://fundon.me/blog/ES6-QuickStart-and-Tips/">
+  <link rel="alternate" type="application/rss+xml" href="" title="Fangdun Cai" />
+  <link rel="stylesheet" type="text/css" href="https://fundon.me/css/main.css" />
+  <link rel="stylesheet" type="text/css" href="https://fundon.me/css/water.css" />
+
+</head>
+<body>
+  <a href="https://github.com/fundon/fundon.github.io" class="github-corner"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <nav class="main">
+  <a class="logo" href="https://fundon.me/"></a>
+
+  <ul class="topic-nav">
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/tags">All Topics</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/design">Design</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/web">Web</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/ios">iOS</a>
+    </li>
+    
+    <li class="topic-nav-item">
+      <a href="https://fundon.me/index.xml">Feed</a>
+    </li>
+    
+  </ul>
+</nav>
+
+
+  <section class="container">
+    <section id="posts">
+      <article class="post text" data-url="https://fundon.me/blog/ES6-QuickStart-and-Tips/" role="main">
+  <header>
+    <h1 class="title">ES6 QuickStart and Tips</h1>
+    <div class="meta">
+      <div class="meta-author">
+        <a href="https://twitter.com/_fundon">Fangdun Cai</a>
+      </div>
+      <time class="meta-date" datetime="2016-09-15 00:15:46 &#43;0800 CST">
+        Sep 15, 2016
+      </time>
+      <ul class="meta-tag-list">
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/node">node</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/es6">es6</a>
+        </li>
+        
+        <li class="meta-tag-item">
+          <a href="https://fundon.me/tags/javascript">javascript</a>
+        </li>
+        
+      </ul>
+    </div>
+  </header>
+  <div class="post-body" style="position: relative;">
+    
+
+<h1 id="es6-quickstart-and-tips">ES6: QuickStart and Tips</h1>
+
+<p>ES6: 快速体验，及实用小贴士</p>
+
+<blockquote>
+<p>2016 年是 ES6 大力推广和普及的黄金时期，也是今年的流行趋势，
+就一个 <a href="https://github.com/search?o=desc&amp;q=ES6&amp;s=stars&amp;type=Repositories&amp;utf8=✓">ES6</a> 关键词，
+在 GitHub 上就有这么多搜索结果。（赶紧跟上大部队！）</p>
+</blockquote>
+
+<p><img src="https://github.com/fundon/ES6-QuickStart-and-Tips/blob/master/images/github-search-results.png?raw=true" alt="It's very hot!" /></p>
+
+<h2 id="简介">简介</h2>
+
+<p>ES6 是 <strong>ECMAScript 6</strong> 的简称，是 <a href="http://www.ecma-international.org/ecma-262/6.0/index.html">ECMA-262 的第 6 版本</a>。</p>
+
+<ul>
+<li>ES5、ES2015 / ES6、ES2016 / ES7、ES2017 / ES8 这些关键词具体代表什么？</li>
+</ul>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_5_support_in_Mozilla">ES5</a> 发布于 2009 年。</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_6_support_in_Mozilla">ES6</a>，比起 ES5，是第一个大版本更新，在 2015-06 发布，所以又称 ES2015。</p>
+
+<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_Next_support_in_Mozilla">ES7 和 ES8</a> 统称为 ECMAScript Next。</p>
+
+<pre><code>* [ES7] 在 2016-06 发布，又称 ES2016。
+
+* ES8 在 2017-06 发布，又称 ES2017。
+</code></pre>
+
+<ul>
+<li>ECMAScript 与 JavaScript 有什么关系？</li>
+</ul>
+
+<p>前者是后者的语言标准，后者是前者的一个实现。</p>
+
+<ul>
+<li><p>ES6 在浏览器，Node.js 支持如何，适不适合开发，生产？</p>
+
+<ul>
+<li><p>浏览器： <a href="http://kangax.github.io/compat-table/es6/">ECMAScript 兼容列表</a></p></li>
+
+<li><p>Node.js：<a href="http://node.green">ES2015 Support</a></p></li>
+
+<li><p>工具：使用一些转换工具，可以把 ES6 =&gt; ES5</p></li>
+</ul></li>
+
+<li><p>为什么要学习新语法？</p></li>
+</ul>
+
+<p>当前很多库、框架、工具都在使用 <strong>ES6+</strong> 进行开发，典型的就是 React 和 Vue，使用新语法特性的优势进行快速开发，然后使用转换构建工具部署生产代码。</p>
+
+<h2 id="es6-新特性">ES6 新特性</h2>
+
+<ul>
+<li><p>Arrows and Lexical This</p>
+
+<p>「箭头」函数（<code>=&gt;</code>）和 <code>this</code>：</p>
+
+<blockquote>
+<p>使用「箭头」函数我们可以体验函数式编程的”美”，高效、简洁，当然也要注意上下文 <code>this</code>。</p>
+</blockquote>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  // old
+  var sum = function (a, b) { return a + b }
+</code></pre>
+
+<pre><code class="language-js">  // new
+  var sum = (a, b) =&gt; a + b
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>a.js</em></li>
+</ol>
+
+<pre><code class="language-js">var PI = 3.14
+
+var c = r =&gt; 2 * PI * r
+
+// c(2) = ?
+</code></pre>
+
+<ol>
+<li><em>b.js</em></li>
+</ol>
+
+<pre><code class="language-js">var PI = 3.14
+
+var circle = {
+  PI: 3.14159,
+  c: r =&gt; 2 * this.PI * r
+}
+
+// circle.c(2) = ?
+</code></pre>
+
+<ol>
+<li><em>c.js</em></li>
+</ol>
+
+<pre><code class="language-js">var PI = 3.14
+
+var circle = {
+  PI: 3.14159,
+  c (r) {
+    return 2 * this.PI * r
+  }
+}
+
+// circle.c(2) = ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Classes</p>
+
+<p>类：</p>
+
+<blockquote>
+<p>基于原型链的语法糖，简单、清晰；面向对象编程更加轻松。<br />
+再也不会被其他语言吐槽了！</p>
+</blockquote>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  // old
+  function Cat () {
+    this.voice = 'miao'
+  }
+  Cat.prototype.speak = function () {
+    console.log(this.voice)
+  }
+
+  function Lion () {
+    this.voice = 'roar'
+  }
+
+  Lion.prototype = Cat.prototype
+
+  var c = new Cat()
+  var l = new Lion()
+  c.speak()
+  l.speak()
+</code></pre>
+
+<pre><code class="language-js">  // new
+  class Cat {
+    constructor () {
+      this.voice = 'miao'
+    }
+
+    speak () {
+      console.log(this.voice)
+    }
+  }
+
+  class Lion extends Cat {
+    constructor () {
+      super()
+
+      this.voice = 'roar'
+    }
+  }
+  var c = new Cat()
+  var l = new Lion()
+  c.speak()
+  l.speak()
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>cat.js</em></li>
+</ol>
+
+<pre><code class="language-js">class Cat {
+  constructor () {
+    this.voice = 'miao'
+  }
+
+  speak () {
+    console.log(this.voice)
+  }
+
+  static type () {
+    return Cat.name.toLowercase()
+  }
+}
+
+// Cat.prototype= ?
+</code></pre>
+
+<ol>
+<li><em>getters-setters.js</em></li>
+</ol>
+
+<pre><code class="language-js">class Cat {
+  constructor (options) {
+    this.voice = 'miao'
+    this.options = options || {}
+  }
+
+  speak () {
+    console.log(this.voice)
+  }
+
+  get name () {
+    return this.options.name
+  }
+
+  set name (name) {
+    this.options.name = name
+  }
+}
+
+var a = new Cat({ name: 'Garfield' })
+// a.name ?
+// a.name = 'Tom'
+// a.name ?
+</code></pre>
+
+<ol>
+<li><em><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">mixins.js</a></em></li>
+</ol>
+
+<pre><code class="language-js">var CalculatorMixin = Base =&gt; class extends Base {
+  calc() { }
+}
+
+var RandomizerMixin = Base =&gt; class extends Base {
+  randomize() { }
+}
+
+class Foo { }
+class Bar extends CalculatorMixin(RandomizerMixin(Foo)) { }
+
+// Bar.prototype ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Enhanced Object Literals</p>
+
+<p>改进对象声明：</p>
+
+<blockquote>
+<p>大大减少了代码量，创建对象更加简洁。</p>
+</blockquote>
+
+<ul>
+<li><p>属性缩写</p></li>
+
+<li><p>函数缩写</p></li>
+
+<li><p>属性名计算</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  var a = 1
+  var b = 2
+  var c = 3
+
+  var o = {
+    a: a,
+    b: b
+    c: c,
+    d: function () {
+      return this.a + this.b + this.c
+    }
+  }
+</code></pre>
+
+<pre><code class="language-js">  // new
+  var o = {
+    a,
+    b,
+    c,
+    d () {
+      return this.a + this.b + this.c
+    }
+  }
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>returns.js</em></li>
+</ol>
+
+<pre><code class="language-js">var generate = (name, age) =&gt; ({ name, age })
+
+// generate('github', 5) ?
+</code></pre>
+
+<ol>
+<li><em>cumputed-properties.js</em></li>
+</ol>
+
+<pre><code class="language-js">var create = (path, verb) =&gt; {
+  return {
+    path,
+    verb,
+    ['is' + verb[0].toUpperCase() + verb.substring(1)]: true
+  }
+}
+
+// create('/', 'get') ?
+</code></pre>
+
+<ol>
+<li><em>complicated.js</em></li>
+</ol>
+
+<pre><code class="language-js">var path = '/'
+var verb = 'get'
+var root = {
+  path,
+  verb
+}
+
+var route = {
+  root
+}
+</code></pre></li>
+</ul></li>
+
+<li><p>Template Strings</p>
+
+<p>模板字符串：</p>
+
+<blockquote>
+<p>终于可以舒服的写多行字符串了，这功能等到花儿都谢了！</p>
+</blockquote>
+
+<ul>
+<li><p>支持多行</p></li>
+
+<li><p>支持变量绑定</p></li>
+
+<li><p>也支持对字符串不转义，不解析</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  var first = 1
+  var second = 2
+  var third = 3
+
+  var str = 'No.' + first + '\n' +
+    'No.' + second +'\n' +
+    'No.' + third
+</code></pre>
+
+<pre><code class="language-js">  // new
+  var first = 1
+  var second = 2
+  var third = 3
+
+  var str = `No. ${first}
+  No. ${second}
+  No. ${third}
+  `
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>raw-tag.js</em></li>
+</ol>
+
+<pre><code class="language-js">var t0 = `In ES5 &quot;\n&quot; is a line-feed.`
+var t1 = String.raw`In ES5 &quot;\n&quot; is a line-feed.`
+
+// console.log(t0)
+// console.log(t1)
+</code></pre>
+
+<ol>
+<li><em>expression.js</em></li>
+</ol>
+
+<pre><code class="language-js">var a = 5
+var b = 10
+
+// console.log(&quot;Fifteen is &quot; + (a + b) + &quot; and\nnot &quot; + (2 * a + b) + &quot;.&quot;)
+// console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`)
+</code></pre>
+
+<ol>
+<li><em>custom-tag.js</em></li>
+</ol>
+
+<pre><code class="language-js">var generatePath = (strings, ...values) =&gt; {
+  return strings[0] + values.reduce((prev, curr) =&gt; `${prev}/${curr}`, '')
+}
+
+var user = 'user'
+var id = '233'
+var profile = 'profile'
+// generatePath`GET: ${user}${id}${profile}`
+</code></pre></li>
+</ul></li>
+
+<li><p>Destructuring</p>
+
+<p>解析赋值</p>
+
+<blockquote>
+<p>可以轻松获取对象、数组等的元素，并赋值到指定变量</p>
+</blockquote>
+
+<ul>
+<li><p>Array ArrayLike Object 等，具有迭代器接口的对象</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  var arr = [1, 2, 3, 4]
+
+  var a0 = arr[0]
+  var a1 = arr[1]
+  var a2 = arr[2]
+
+  var obj = {
+    name: 'github',
+    age: 5
+  }
+
+  var name = obj.name
+  var age = obj.age
+</code></pre>
+
+<pre><code class="language-js">  // new
+  var arr = [1, 2, 3, 4]
+
+  var [a0, a1, a2] = arr
+
+  var obj = {
+    name: 'github',
+    age: 5
+  }
+
+  var { name, age } = obj
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>print.js</em></li>
+</ol>
+
+<pre><code class="language-js">var print = ({ name, age }) =&gt; console.log(name, age)
+
+// print({ name: 'ES6', age: 2015 }) ?
+</code></pre>
+
+<ol>
+<li><em>alias.js</em></li>
+</ol>
+
+<pre><code class="language-js">var js = { name: 'ES6', age: 2015 }
+
+var { name: es, age } = js
+// name, es, age?
+</code></pre>
+
+<ol>
+<li><em>defaults.js</em></li>
+</ol>
+
+<pre><code class="language-js">var js = { name: 'ES6', age: 2015 }
+var date = [2015, 9, 14]
+
+var { version = '6' } = js
+// version ?
+
+var { fullname: f = 'ECMAScript 6' } = js
+// fullname, f ?
+
+var [y, m, d, h = 9] = date
+// y, m, d, h ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Default + Rest + Spread</p>
+
+<p>默认值、余下参数（Rest），数组展开（Spread）</p>
+
+<ul>
+<li><p>默认值： 减少了对输入参数的检查的代码量，即可读又简洁</p></li>
+
+<li><p>Rest：对参数数组操作更加灵活</p></li>
+
+<li><p>Spread：可以看作是 Rest 的反操作，更加方便对数组的操作</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  function bar (a) {
+    a = a || 5
+  }
+
+  function sum (a) {
+    a = a || 5
+    var l = arguments.length
+    var i = 1
+    for (; i &lt; l; ++i) {
+      a += arguments[i]
+    }
+    return a
+  }
+
+  function apply () {
+    function fn () {}
+    var l = arguments.length
+    var args = new Array(l)
+    for (var i = 0; i &lt; l; ++i) {
+      args[i] = arguments[i]
+    }
+    fn.apply(null, args)
+  }
+</code></pre>
+
+<pre><code class="language-js">  // new
+  function bar(a = 5) {
+  }
+
+  function sum (a = 5, ...args) {
+    var l = args.length
+    var i = 0
+    for (; i &lt; l; ++i) {
+      a += args[i]
+    }
+    return a
+  }
+
+  function apply (...args) {
+    function fn () {}
+    fn.apply(null, args)
+  }
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>string.js</em></li>
+</ol>
+
+<pre><code class="language-js">var str = '1234567890'
+
+// [...str] ?
+</code></pre>
+
+<ol>
+<li><em>concat.js</em></li>
+</ol>
+
+<pre><code class="language-js">var a = [1, 2, 3]
+var b = [6, 5, 4]
+
+var c = [...a, ...b]
+// c ?
+</code></pre>
+
+<ol>
+<li><em>parse-args.js</em></li>
+</ol>
+
+<pre><code class="language-js">/**
+ * 解析参数，返回特定格式
+ *
+ * @return {Array} [arr, options, cb]
+ */
+
+function parseArgs (...args) {
+  const last = args[args.length - 1]
+  const type = typeof last
+  let opts
+  let cb
+
+  if ('function' === type) {
+    cb = args.pop()
+    if ('object' === typeof args[args.length - 1]) {
+      opts = args.pop()
+    }
+  } else if ('object' === type &amp;&amp; !Array.isArray(last)) {
+    opts = args.pop()
+  } else if ('undefined' === type) {
+    args.pop()
+    return parseArgs(...args)
+  }
+
+  if (Array.isArray(args[0])) {
+    args = args[0]
+  }
+  return [args, opts || {}, cb]
+}
+
+// parseArgs('users') ?
+// parseArgs('users', {}) ?
+// parseArgs('users', () =&gt; {}) ?
+// parseArgs('users', {}, () =&gt; {}) ?
+// parseArgs('users', 'books') ?
+// parseArgs(['users', 'books']) ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Let + Const</p>
+
+<p>变量、常量定义声明：</p>
+
+<blockquote>
+<p>当满世界都是 <code>var</code> 的时候，变量管理是个神坑！</p>
+</blockquote>
+
+<ul>
+<li><p>块级作用域</p></li>
+
+<li><p>const: 一次性声明</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  // 函数作用域下覆盖全局作用域
+  var bar = 1
+  var bar = 3
+  function method () {
+    console.log(bar) // undefined
+    var bar = 2
+  }
+
+  // 变量泄漏
+  var s = 'hello';
+  for (var i = 0; i &lt; s.length; i++) {
+    console.log(s[i]);
+  }
+  console.log(i); // 5
+</code></pre>
+
+<pre><code class="language-js">  // new
+  let bar0 = 1
+  let bar1 = 3
+
+  function method () {
+    console.log(bar0)
+    let bar3 = 2
+  }
+
+  var s = 'hello';
+  for (let i = 0; i &lt; s.length; i++) {
+    console.log(s[i]);
+  }
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>global.js</em></li>
+</ol>
+
+<pre><code class="language-js">var a = 1
+let b = 2
+const c = 3
+
+// this.a ?
+// this.b ?
+// this.c ?
+</code></pre>
+
+<ol>
+<li><em>for.js</em></li>
+</ol>
+
+<pre><code class="language-js">var s = 'hello';
+for (let i = 0; i &lt; s.length; i++) {
+  console.log(s[i]);
+}
+console.log(i); // ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Iterators + For..Of</p>
+
+<p>迭代器和 <code>for..of</code></p>
+
+<blockquote>
+<p>像 <code>[...arr]</code> 就是迭代器一个很好的例子。</p>
+</blockquote>
+
+<ul>
+<li><p>可迭代协议：ES6 定义了一套统一的标准，允许对 JavaScript 对象自定义它们的迭代行为。</p></li>
+
+<li><p>内置可迭代类型有 String，Array，TypedArray，Map，Set，因为在它们的原型对象上已经有了 <code>[Symbol.iterator]</code> 方法。</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  var arr = [1, 2, 3]
+
+  for (let i in arr) {
+    console.log(i)
+  }
+</code></pre>
+
+<pre><code class="language-js">  // new
+  var arr = [1, 2, 3]
+
+  for (let i of arr) {
+    console.log(i)
+  }
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>for-loops.js</em></li>
+</ol>
+
+<pre><code class="language-js">Array.prototype.arrCustom = function () {}
+var arr = [1, 2, 3]
+arr.isArray = true
+
+for (let i in arr) {
+  console.log(i) // ?
+}
+
+for (let i of arr) {
+  console.log(i) // ?
+}
+</code></pre>
+
+<ol>
+<li><em>iterable.js</em></li>
+</ol>
+
+<pre><code class="language-js">var iterable = {
+  [Symbol.iterator]() {
+    return {
+      i: 0,
+      next () {
+        return {
+          done: this.i === 10,
+          value: this.i++
+        }
+      }
+    }
+  }
+}
+
+for (const i of iterable) {
+  console.log(i) // ?
+}
+
+// [...iterable] ?
+</code></pre>
+
+<ol>
+<li><em>iterator.js</em></li>
+</ol>
+
+<pre><code class="language-js">var iterable = {
+  [Symbol.iterator]() {
+    return {
+      i: 0,
+      next () {
+        const done = this.i === 10
+        const value = done ? undefined : this.i++
+        return { done, value }
+      }
+    }
+  }
+}
+
+const iterator = iterable[Symbol.iterator]()
+
+iterator.next() // ?
+iterator.next() // ?
+iterator.next() // ?
+// ...
+
+const iterator2 = iterable[Symbol.iterator]()
+
+iterator2.next() // ?
+iterator2.next() // ?
+iterator2.next() // ?
+// ...
+</code></pre></li>
+</ul></li>
+
+<li><p>Generators</p>
+
+<p>生成器：</p>
+
+<blockquote>
+<p>生成器大杀器！</p>
+</blockquote>
+
+<ul>
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterable">可迭代</a></p></li>
+
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#iterator">遵循迭代器协议</a></p></li>
+
+<li><p>可在单个函数内 <code>GeneratorFunction</code> 自定义迭代逻辑，可以替代迭代器，功能更强大</p></li>
+
+<li><p>可中断</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  var iterable = {
+    [Symbol.iterator]() {
+      return {
+        i: 0,
+        next () {
+          const done = this.i === 10
+          const value = done ? undefined : this.i++
+          return { done, value }
+        }
+      }
+    }
+  }
+  const iterator = iterable[Symbol.iterator]()
+</code></pre>
+
+<pre><code class="language-js">  // new
+  function* generatable () {
+    for (let i = 0, l = 10; i &lt; l; ++i) {
+      yield i
+    }
+  }
+  const iterator = generatable()
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>generatable.js</em></li>
+</ol>
+
+<pre><code class="language-js">function* generatable () {
+  for (let i = 0, l = 10; i &lt; l; ++i) {
+    yield i
+  }
+}
+const iterator = generatable()
+
+for (const i of generatable()) {
+  console.log(i) // ?
+}
+// [...generatable()] ?
+</code></pre>
+
+<ol>
+<li><em>next.js</em></li>
+</ol>
+
+<pre><code class="language-js">function* range(min = 0, max = 10, step = 1) {
+  for (; min &lt; max; min += step) {
+    let rest = yield min
+    if (rest) min = step * -1
+  }
+}
+
+const iterator = range()
+
+iterator.next() // ?
+iterator.next() // ?
+iterator.next() // ?
+iterator.next(true) // ?
+iterator.next() // ?
+iterator.next() // ?
+iterator.next() // ?
+
+const iterator2 = range(0, 100, 2)
+
+[...iterator2] // ?
+iterator.next() // ?
+</code></pre>
+
+<ol>
+<li><em>return.js</em></li>
+</ol>
+
+<pre><code class="language-js">function* range(min = 0, max = 10, step = 1) {
+  for (; min &lt; max; min += step) {
+    let rest = yield min
+    if (rest) min = step * -1
+  }
+}
+
+const iterator = range()
+iterator.next()
+iterator.next(true)
+iterator.next()
+iterator.return() // ?
+iterator.next() // ?
+iterator.return(1) // ?
+iterator.next() // ?
+</code></pre>
+
+<ol>
+<li><em>yield.js</em></li>
+</ol>
+
+<pre><code class="language-js">function* g() {
+  yield 1
+  yield 2
+  yield 3
+  yield* [4, 5, 6]
+  yield* 'Hello World!'
+  yield 7
+}
+
+[...g()] // ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Unicode</p>
+
+<p>Unicode</p>
+
+<ul>
+<li><p>加强对 Unicode 的支持，并且扩展了字符串对象</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // same as ES5.1
+  &quot;𠮷&quot;.length == 2
+
+  // new RegExp behaviour, opt-in ‘u’
+  &quot;𠮷&quot;.match(/./u)[0].length == 2
+
+  // new form
+  &quot;\u{20BB7}&quot; == &quot;𠮷&quot; == &quot;\uD842\uDFB7&quot;
+
+  // new String ops
+  &quot;𠮷&quot;.codePointAt(0) == 0x20BB7
+
+  // for-of iterates code points
+  for(var c of &quot;𠮷&quot;) {
+    console.log(c);
+  }
+</code></pre></li>
+
+<li><p>Modules ?</p>
+
+<p>模块话系统目前还未实现！</p></li>
+
+<li><p>Subclassable Built-ins</p>
+
+<p>子类可继承自内置数据类型</p>
+
+<blockquote>
+<p>真的太方便了，比如想对 Array 进行扩展，现在无需修改 <code>Array.prototype</code>，<code>extends Array</code> 就可以了。</p>
+</blockquote>
+
+<ul>
+<li><p>Array Boolean String Number Map Set Error RegExp Function Promise</p></li>
+
+<li><p>e.g.</p></li>
+</ul>
+
+<pre><code class="language-js">  // old
+  // This is danger.
+  Array.prototype.sum = function () {
+    return this.reduce((t, curr) =&gt; t + curr, 0)
+  }
+
+  var a = [1, 2, 3]
+  a.sum()
+</code></pre>
+
+<pre><code class="language-js">  // new
+  class CustomArray extends Array {
+    constructor (...args) {
+      super(...args)
+    }
+
+    sum () {
+      return this.reduce((t, curr) =&gt; t + curr, 0)
+    }
+  }
+
+  var a = CustomArray.from([1, 2, 3])
+  a.sum()
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em><a href="https://github.com/trekjs/middleware">middleware.js</a></em></li>
+</ol>
+
+<pre><code class="language-js">const SYMBOL_ITERATOR = Symbol.iterator
+
+class Middleware extends Array {
+
+  [SYMBOL_ITERATOR] () {
+    return this
+  }
+
+  next (i = 0, context, nextFunc) {
+    const fn = this[i] || nextFunc
+
+    return {
+      done: i === this.length,
+      value: fn &amp;&amp; fn(context, () =&gt; {
+        return this.next(i + 1, context, nextFunc).value
+      })
+    }
+  }
+
+  compose (context, nextFunc) {
+    return this[SYMBOL_ITERATOR]().next(0, context, nextFunc).value
+  }
+
+}
+
+const middleware = new Middleware()
+
+middleware.push((ctx, next) =&gt; {
+  ctx.arr.push(1)
+  next()
+  ctx.arr.push(6)
+})
+
+middleware.push((ctx, next) =&gt; {
+  ctx.arr.push(2)
+  next()
+  ctx.arr.push(5)
+})
+
+middleware.push((ctx, next) =&gt; {
+  ctx.arr.push(3)
+  next()
+  ctx.arr.push(4)
+})
+
+const ctx = { arr: [] }
+middleware.compose(ctx)
+console.log(ctx.arr) // ?
+</code></pre></li>
+</ul></li>
+
+<li><p>Map + Set + WeakMap + WeakSet</p>
+
+<p>新增 <code>Map</code> <code>Set</code> <code>WeakMap</code> <code>WeakSet</code> 几种高效的数据类型</p>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  // Sets
+  var s = new Set();
+  s.add(&quot;hello&quot;).add(&quot;goodbye&quot;).add(&quot;hello&quot;);
+  s.size === 2;
+  s.has(&quot;hello&quot;) === true;
+
+  // Maps
+  var m = new Map();
+  m.set(&quot;hello&quot;, 42);
+  m.set(s, 34);
+  m.get(s) == 34;
+
+  // Weak Maps
+  var wm = new WeakMap();
+  wm.set(s, { extra: 42 });
+  wm.size === undefined
+
+  // Weak Sets
+  var ws = new WeakSet();
+  ws.add({ data: 42 });
+  // Because the added object has no other references, it will not be held in the set
+</code></pre></li>
+
+<li><p>Proxies</p>
+
+<blockquote>
+<p>当我们不想把对象暴露出来，不想直接操作它们，想增加一层校验时，<code>Proxies</code> 是一个最佳方案。<br />
+但当增加了 <code>Proxies</code> 这一层，对性能还是会有影响的。</p>
+</blockquote>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  // old
+  const inner = {
+    name: 'ES6'
+  }
+
+  var outer = {
+    inner,
+    get name () {
+      return this.inner.name
+    },
+    set name (name) {
+      this.inner.name = name
+    }
+  }
+
+  // outer.name
+</code></pre>
+
+<pre><code class="language-js">  // new
+  const inner = {
+    name: 'ES6'
+  }
+
+  var p = new Proxy(inner, {
+    get (target, name) {
+      return target[name]
+    },
+
+    set (target, name, value) {
+      if ('string' !== typeof value) throw new TypeError('value must be String!')
+      target[name] = value
+    }
+  })
+
+  p.name
+  p.name = 2
+  p.name = 'ES2015'
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em><a href="https://github.com/fundon/delegate-proxy">delegate-proxy.js</a></em></li>
+</ol>
+
+<pre><code class="language-js">function delegateProxy (target, origin) {
+  return new Proxy(target, {
+    get (target, key, receiver) {
+      if (key in target) return Reflect.get(target, key, receiver)
+      const value = origin[key]
+      return 'function' === typeof value ? function method () {
+        return value.apply(origin, arguments)
+      } : value
+    },
+    set (target, key, value, receiver) {
+      if (key in target) return Reflect.set(target, key, value, receiver)
+      origin[key] = value
+      return true
+    }
+  })
+}
+
+const bar = {
+  n: 1,
+
+  add (i) {
+    this.n += i
+  }
+}
+
+const foo = {
+
+  set (n) {
+    this.n = n | 0
+  },
+
+  sub (i) {
+    this.n -= i
+  }
+
+}
+
+const p = delegateProxy(foo, bar)
+
+bar
+foo
+p
+
+p.n       // ?
+p.add(1)
+p.n       // ?
+
+p.sub(2)
+p.n       // ?
+
+p.set(1)
+p.n       // ?
+
+p.n = 233
+p.n       // ?
+</code></pre></li>
+</ul></li>
+
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol">Symbols</a></p>
+
+<p>符号：</p>
+
+<ul>
+<li><p>唯一性</p></li>
+
+<li><p>不可变</p></li>
+
+<li><p>不列入对象的 <code>Object.getOwnPropertyNames(obj)</code> 和 <code>Object.keys(obj)</code></p></li>
+</ul>
+
+<blockquote>
+<p>想给对象打一个暗号，再也不难了！</p>
+</blockquote>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  // old
+  let obj = {
+    id: 1
+  }
+
+  obj.id      // 1
+  obj.id = 2
+  obj.id      // 2
+</code></pre>
+
+<pre><code class="language-js">  // new
+  let obj = {
+    [Symbol('id')]: 1
+  }
+
+  obj[Symbol('id')]      // undefined
+  obj[Symbol('id')] = 2
+  obj[Symbol('id')]      // undefined
+
+  for (const k of Object.getOwnPropertySymbols(obj)) {
+    console.log(obj[k])
+  }
+</code></pre></li>
+
+<li><p>Math + Number + String + Array + Object APIs</p>
+
+<p>新增 APIs，数据操作更加方便。</p>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  Number.EPSILON
+  Number.isInteger(Infinity) // false
+  Number.isNaN(&quot;NaN&quot;) // false
+
+  Math.acosh(3) // 1.762747174039086
+  Math.hypot(3, 4) // 5
+  Math.imul(Math.pow(2, 32) - 1, Math.pow(2, 32) - 2) // 2
+
+  &quot;abcde&quot;.includes(&quot;cd&quot;) // true
+  &quot;abc&quot;.repeat(3) // &quot;abcabcabc&quot;
+
+  Array.from(document.querySelectorAll(&quot;*&quot;)) // Returns a real Array
+  Array.of(1, 2, 3) // Similar to new Array(...), but without special one-arg behavior
+  [0, 0, 0].fill(7, 1) // [0,7,7]
+  [1,2,3].findIndex(x =&gt; x == 2) // 1
+  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].entries() // iterator [0, &quot;a&quot;], [1,&quot;b&quot;], [2,&quot;c&quot;]
+  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].keys() // iterator 0, 1, 2
+  [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;].values() // iterator &quot;a&quot;, &quot;b&quot;, &quot;c&quot;
+
+  Object.assign(Point, { origin: new Point(0,0) })
+</code></pre></li>
+
+<li><p>Binary and Octal Literals</p>
+
+<p>二进制 <code>b</code>，八进制 <code>o</code> 字面量</p>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  0b111110111 === 503 // true
+  0o767 === 503 // true
+  0x1f7 === 503 // true
+</code></pre></li>
+
+<li><p>Promises</p>
+
+<p>Promises：更加优雅的异步编程方式。想更加清晰了解 <code>Promise</code> 的执行过程，可以看这个可视化工具 <a href="https://github.com/bevacqua/promisees">promisees</a>。</p>
+
+<blockquote>
+<p>面对异步编程，<code>callback-hell</code> 就是 JavaScript 给人的最大诟病！</p>
+</blockquote>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  // old
+  getProfileById(233, (err, res) =&gt; {
+    if (err) throw err
+    getFollowing(233, (err, following) =&gt; {
+      if (err) throw err
+      getFollowers(233, (err, followers) =&gt; {
+        if (err) throw err
+        getStarred(233, (err, starred) =&gt; {
+          if (err) throw err
+          // ....
+        })
+      })
+    })
+  })
+</code></pre>
+
+<pre><code class="language-js">  // new
+  getProfileById(233)
+    .then(res =&gt; getFollowing(233))
+    .then(res =&gt; getFollowers(233))
+    .then(res =&gt; getStarred(233))
+    .catch(err =&gt; console.log(err))
+    // ...
+</code></pre>
+
+<ul>
+<li><p>猜猜猜</p>
+
+<ol>
+<li><em>simple-promise.js</em></li>
+</ol>
+
+<pre><code class="language-js">function loadImage (url) {
+  return new Promise((resolve, reject) =&gt; {
+    const img = new Image()
+
+    img.onload = function () {
+      resolve(img)
+    }
+
+    img.onerror = function () {
+      reject(new Error('Could not load image at ' + url))
+    }
+
+    img.url = url
+  })
+}
+
+loadImage('https://nodejs.org/static/images/logo-header.png')
+  .then(img =&gt; document.body.appendChild(img))
+  .catch(err =&gt; console.log(err))
+</code></pre>
+
+<ol>
+<li><em>all.js</em></li>
+</ol>
+
+<pre><code class="language-js">function delay(value, duration = 0) {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; resolve(value), duration)
+  })
+}
+
+let res = Promise.all([
+  delay(10, 1),
+  delay(8, 2),
+  delay(6, 3),
+  delay(4, 4),
+  delay(2, 5),
+  delay(0, 6),
+])
+
+res.then(arr =&gt; {
+  console.log(arr) // ?
+})
+</code></pre>
+
+<ol>
+<li><em>race.js</em></li>
+</ol>
+
+<pre><code class="language-js">function delay(value, duration = 0) {
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; resolve(value), duration)
+  })
+}
+
+let res = Promise.race([
+  delay(10, 1),
+  delay(8, 2),
+  delay(6, 3),
+  delay(4, 4),
+  delay(2, 5),
+  delay(0, 6),
+])
+
+res.then(arr =&gt; {
+  console.log(arr) // ?
+})
+</code></pre>
+
+<ol>
+<li><em>reduce.js</em></li>
+</ol>
+
+<pre><code class="language-js">const reduce = (arr, cb, initialValue = 0) =&gt; {
+  return arr.reduce(cb, Promise.resolve(initialValue))
+}
+
+const cb = (prev, curr) =&gt; prev.then(v =&gt; v + curr)
+
+reduce([1, 2, 3, 4, 5, 6, 7, 8, 9], cb)
+  .then(res =&gt; {
+    console.log(res) // ?
+  })
+</code></pre></li>
+</ul></li>
+
+<li><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect">Reflect API</a></p>
+
+<p>反射 API：公开了对象的元操作，效果跟 Proxy API 相反</p>
+
+<ul>
+<li>e.g.</li>
+</ul>
+
+<pre><code class="language-js">  var O = {a: 1};
+  Object.defineProperty(O, 'b', {value: 2});
+  O[Symbol('c')] = 3;
+
+  Reflect.ownKeys(O); // ['a', 'b', Symbol(c)]
+
+  function C(a, b){
+    this.c = a + b;
+  }
+  var instance = Reflect.construct(C, [20, 22]);
+  instance.c; // 42
+</code></pre></li>
+
+<li><p>Tail Calls</p>
+
+<p>优化了尾递归算法，保证栈不会无限增长，使得尾递归算法安全。</p></li>
+</ul>
+
+<h2 id="快速体验">快速体验</h2>
+
+<blockquote>
+<p>对以上新特性，快速体验一番，环境包括 浏览器 和 Node.js</p>
+</blockquote>
+
+<h2 id="高级应用">高级应用</h2>
+
+<blockquote>
+<p>深入学习特性，应用生产</p>
+</blockquote>
+
+<h2 id="兼容-代码转换">兼容，代码转换</h2>
+
+<blockquote>
+<p>使用转换工具，对 ES6+ 的代码进行转换，适配浏览器或者 Node &lt; v6</p>
+</blockquote>
+
+<h2 id="其他">其他</h2>
+
+<ul>
+<li><p><a href="http://es6.ruanyifeng.com">http://es6.ruanyifeng.com</a></p></li>
+
+<li><p><a href="https://github.com/lukehoban/es6features">https://github.com/lukehoban/es6features</a></p></li>
+
+<li><p><a href="https://babeljs.io/docs/learn-es2015/">https://babeljs.io/docs/learn-es2015/</a></p></li>
+
+<li><p><a href="https://ponyfoo.com/articles/tagged/es6-in-depth">https://ponyfoo.com/articles/tagged/es6-in-depth</a></p></li>
+
+<li><p><a href="https://github.com/bevacqua/es6">https://github.com/bevacqua/es6</a></p></li>
+
+<li><p><a href="https://github.com/DrkSephy/es6-cheatsheet">https://github.com/DrkSephy/es6-cheatsheet</a></p></li>
+
+<li><p><a href="https://github.com/ericdouglas/ES6-Learning">https://github.com/ericdouglas/ES6-Learning</a></p></li>
+
+<li><p><a href="https://github.com/addyosmani/es6-tools">https://github.com/addyosmani/es6-tools</a></p></li>
+
+<li><p><a href="https://github.com/bevacqua/promisees">https://github.com/bevacqua/promisees</a></p></li>
+</ul>
+
+<h2 id="license">License</h2>
+
+<p>授权：<a href="https://creativecommons.org/licenses/by-nc/4.0/">署名-非商业性使用</a></p>
+
+<hr />
+
+<blockquote>
+<p><a href="https://fundon.me">fundon.me</a> &nbsp;&middot;&nbsp;
+GitHub <a href="https://github.com/fundon">@fundon</a> &nbsp;&middot;&nbsp;
+Twitter <a href="https://twitter.com/_fundon">@_fundon</a></p>
+</blockquote>
+
+  </div>
+</article>
+
+    </section>
+  </section>
+
+  <script src="https://fundon.me/js/prism.js"></script>
+
+
+
+<footer>
+  <section id="universal-footer">
+    <div class="wrap">
+      <div class="footer-nav">
+        <ul>
+          <li class="title">
+            Open Source
+          </li>
+          <li>
+            <a href="https://github.com/trekjs">Trek.js</a>
+          </li>
+          <li>
+            <a href="https://github.com/transwarpjs">Transwarp.js</a>
+          </li>
+          <li>
+            <a href="https://github.com/atom-minimap">Atom Minimap</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</footer>
+
+<div id="copyright-footer" role="contentinfo">
+  <strong>© 2015 Fangdun Cai.</strong>
+</div>
+
+
+
+</body>
+</html>
