@@ -44,10 +44,9 @@
 
 &lt;p&gt;&lt;a href=&#34;https://developer.mozilla.org/en-US/docs/Web/JavaScript/New_in_JavaScript/ECMAScript_Next_support_in_Mozilla&#34;&gt;ES7 和 ES8&lt;/a&gt; 统称为 ECMAScript Next。&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;* [ES7] 在 2016-06 发布，又称 ES2016。
+&lt;p&gt;&lt;a href=&#34;http://www.ecma-international.org/ecma-262/7.0/index.html&#34;&gt;ES7&lt;/a&gt; 在 2016-06 发布，又称 ES2016。&lt;/p&gt;
 
-* ES8 在 2017-06 发布，又称 ES2017。
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;ES8 在 2017-06 发布，又称 ES2017。&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;ECMAScript 与 JavaScript 有什么关系？&lt;/li&gt;
