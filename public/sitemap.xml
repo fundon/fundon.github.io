@@ -24,6 +24,26 @@
         </url>
     
         <url>
+            <loc>https://fundon.me/tags/docker/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://fundon.me/tags/docker/page/1/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://fundon.me/tags/node/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://fundon.me/tags/node/page/1/</loc>
+            
+        </url>
+    
+        <url>
             <loc>https://fundon.me/tags/rust/</loc>
             
         </url>
@@ -40,6 +60,13 @@
     
         <url>
             <loc>https://fundon.me/tags/web/page/1/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://fundon.me/using-docker-compose-in-node-js-project/</loc>
+            
+                <lastmod>2015-11-26T02:42:34+08:00</lastmod>
             
         </url>
     

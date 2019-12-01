@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!-- <html class="dark-theme"> -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Fangdun Cai" />
+    <title> Using Docker Compose in Node.js Project - 锈出未来 </title>
+    <meta
+      name="description"
+      content="生命第 N 次练习，谢天地赐我逆境！"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/minireset.css@0.0.6/minireset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/firacode@2.0.0/distr/fira_code.css"
+    />
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;fundon.me&#x2F;index.css" />
+    <link rel='alternate' type='application/rss+xml' href="https:&#x2F;&#x2F;fundon.me&#x2F;rss.xml" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="logo" href="https:&#x2F;&#x2F;fundon.me">
+            <img src="https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;27926?s=400&amp;v=4" />
+          </a>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="https://github.com/fundon">
+               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub icon</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/_fundon">
+               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Twitter icon</title><path d="M23.954 4.569c-.885.389-1.83.654-2.825.775 1.014-.611 1.794-1.574 2.163-2.723-.951.555-2.005.959-3.127 1.184-.896-.959-2.173-1.559-3.591-1.559-2.717 0-4.92 2.203-4.92 4.917 0 .39.045.765.127 1.124C7.691 8.094 4.066 6.13 1.64 3.161c-.427.722-.666 1.561-.666 2.475 0 1.71.87 3.213 2.188 4.096-.807-.026-1.566-.248-2.228-.616v.061c0 2.385 1.693 4.374 3.946 4.827-.413.111-.849.171-1.296.171-.314 0-.615-.03-.916-.086.631 1.953 2.445 3.377 4.604 3.417-1.68 1.319-3.809 2.105-6.102 2.105-.39 0-.779-.023-1.17-.067 2.189 1.394 4.768 2.209 7.557 2.209 9.054 0 13.999-7.496 13.999-13.986 0-.209 0-.42-.015-.63.961-.689 1.8-1.56 2.46-2.548l-.047-.02z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.reddit.com/user/fundon">
+               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Reddit icon</title><path d="M2.204 14.049c-.06.276-.091.56-.091.847 0 3.443 4.402 6.249 9.814 6.249 5.41 0 9.812-2.804 9.812-6.249 0-.274-.029-.546-.082-.809l-.015-.032c-.021-.055-.029-.11-.029-.165-.302-1.175-1.117-2.241-2.296-3.103-.045-.016-.088-.039-.126-.07-.026-.02-.045-.042-.067-.064-1.792-1.234-4.356-2.008-7.196-2.008-2.815 0-5.354.759-7.146 1.971-.014.018-.029.033-.049.049-.039.033-.084.06-.13.075-1.206.862-2.042 1.937-2.354 3.123 0 .058-.014.114-.037.171l-.008.015zm9.773 5.441c-1.794 0-3.057-.389-3.863-1.197-.173-.174-.173-.457 0-.632.176-.165.46-.165.635 0 .63.629 1.685.943 3.228.943 1.542 0 2.591-.3 3.219-.929.165-.164.45-.164.629 0 .165.18.165.465 0 .645-.809.808-2.065 1.198-3.862 1.198l.014-.028zm-3.606-7.573c-.914 0-1.677.765-1.677 1.677 0 .91.763 1.65 1.677 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm7.233 0c-.914 0-1.678.765-1.678 1.677 0 .91.764 1.65 1.678 1.65s1.651-.74 1.651-1.65c0-.912-.739-1.677-1.651-1.677zm4.548-1.595c1.037.833 1.8 1.821 2.189 2.904.45-.336.719-.864.719-1.449 0-1.002-.815-1.816-1.818-1.816-.399 0-.778.129-1.09.363v-.002zM2.711 9.963c-1.003 0-1.817.816-1.817 1.818 0 .543.239 1.048.644 1.389.401-1.079 1.172-2.053 2.213-2.876-.302-.21-.663-.329-1.039-.329v-.002zm9.217 12.079c-5.906 0-10.709-3.205-10.709-7.142 0-.275.023-.544.068-.809C.494 13.598 0 12.729 0 11.777c0-1.496 1.227-2.713 2.725-2.713.674 0 1.303.246 1.797.682 1.856-1.191 4.357-1.941 7.112-1.992l1.812-5.524.404.095s.016 0 .016.002l4.223.993c.344-.798 1.138-1.36 2.065-1.36 1.229 0 2.231 1.004 2.231 2.234 0 1.232-1.003 2.234-2.231 2.234s-2.23-1.004-2.23-2.23l-3.851-.912-1.467 4.477c2.65.105 5.047.854 6.844 2.021.494-.464 1.144-.719 1.833-.719 1.498 0 2.718 1.213 2.718 2.711 0 .987-.54 1.886-1.378 2.365.029.255.059.494.059.749-.015 3.938-4.806 7.143-10.72 7.143l-.034.009zm8.179-19.187c-.74 0-1.34.599-1.34 1.338 0 .738.6 1.34 1.34 1.34.732 0 1.33-.6 1.33-1.334 0-.733-.598-1.332-1.347-1.332l.017-.012z"/></svg>
+            </a>
+          </li>
+          <li>
+            <a class="small" href="https:&#x2F;&#x2F;fundon.me&#x2F;rss.xml">
+               <svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>RSS icon</title><path d="M19.199 24C19.199 13.467 10.533 4.8 0 4.8V0c13.165 0 24 10.835 24 24h-4.801zM3.291 17.415c1.814 0 3.293 1.479 3.293 3.295 0 1.813-1.485 3.29-3.301 3.29C1.47 24 0 22.526 0 20.71s1.475-3.294 3.291-3.295zM15.909 24h-4.665c0-6.169-5.075-11.245-11.244-11.245V8.09c8.727 0 15.909 7.184 15.909 15.91z"/></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="header">
+      <h1 class="header-title">
+         Using Docker Compose in Node.js Project 
+      </h1>
+      <div class="header-meta">
+        <!-- <div class="header-meta-author">
+          <img
+            class="avatar"
+            src="https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;27926?s=400&amp;v=4"
+            height="30"
+            width="30"
+          />
+          <div class="name">
+            <span>Fangdun Cai</span>
+            <a
+              href="https://twitter.com/_fundon"
+              target="_blank"
+              rel="noopener noreferrer"
+              >@_fundon</a
+            >
+          </div>
+        </div> -->
+        <span class="header-meta-author">Fangdun Cai</span>
+         
+  <time class="header-meta-date">
+    November 26th, 2015
+  </time>
+  
+  <ul class="header-meta-tags">  
+    
+    <li>
+      <a href="https://fundon.me/tags/docker/">Docker</a>&nbsp;
+    </li>
+    
+    <li>
+      <a href="https://fundon.me/tags/node/">Node</a>&nbsp;
+    </li>
+    
+  </ul>
+  
+ 
+      </div>
+    </header>
+
+    <main class="content container">
+      
+<article class="post">
+  <div class="post-content">
+    <p class="post-description">
+      
+    </p>
+    <p><a href="https://medium.com/@fundon/using-docker-compose-in-node-js-project-65081953ce62#.3h17cxx5v">Published on Medium</a>.</p>
+<h3 id="docker-dao-di-you-shi-yao-you-dian-xi-yin-wo-men">Docker 到底有什么优点吸引我们？</h3>
+<ul>
+<li><strong>Build</strong>：允许自由组合各种服务来构建我们的应用，避免<strong>开发</strong>和<strong>生产</strong>之间的环境问题，并且不局限在任何平台和语言</li>
+<li><strong>Ship</strong>：通过统一的用户接口，管理，设计应用开发、测试、发布的生命周期</li>
+<li><strong>Run</strong>：可以快捷地在多个平台，发布可扩展、安全、可靠的服务</li>
+</ul>
+<h3 id="use-it">Use it!</h3>
+<p>说了这么多，那就让我们玩起来！</p>
+<h4 id="0-install-docker-tools">0. Install <a href="https://docs.docker.com">Docker</a> Tools</h4>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> brew install docker docker-machine docker-compose
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker help
+</span></pre>
+<ul>
+<li>
+<p><a href="https://docs.docker.com">Docker</a> - 开源的容器应用引擎</p>
+</li>
+<li>
+<p><a href="https://docs.docker.com/machine/">Machine</a> - 管理本地、云服务提供商中的 Docker 服务</p>
+</li>
+<li>
+<p><a href="https://docs.docker.com/compose/">Compose</a> - 定义，组合，运行多个容器应用</p>
+</li>
+</ul>
+<p><strong>NOTE</strong>:</p>
+<ul>
+<li>如果是 Mac OS X 用户，请先安装 Virtualbox <code>brew cask install virtualbox</code>。</li>
+<li>如果不喜欢 Docker CLI 工具，也可以安装 <a href="https://docs.docker.com/kitematic/">Kitematic</a>，Kitematic 是 Docker 的 GUI 管理工具。</li>
+</ul>
+<h4 id="1-create-node-js-project">1. Create Node.js Project</h4>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> mkdir docker-express-mongoose-reis-example
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cd docker-express-mongoose-redis-example
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> npm init
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> npm i express express-session connect-redis ioredis mongoose</span><span style="font-style:italic;color:#ffb86c;"> --save
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> touch server.js
+</span></pre>
+<p><strong><em>server.js</em></strong></p>
+<pre style="background-color:#282a36;">
+<span style="color:#6272a4;">// Import modules
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">express </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">require</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;express&#39;</span><span style="color:#f8f8f2;">)
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">session </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">require</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;express-session&#39;</span><span style="color:#f8f8f2;">)
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">ioredis </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">require</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;ioredis&#39;</span><span style="color:#f8f8f2;">)
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">RedisStore </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">require</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;connect-redis&#39;</span><span style="color:#f8f8f2;">)(</span><span style="color:#ffffff;">session</span><span style="color:#f8f8f2;">)
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">mongoose </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">require</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;mongoose&#39;</span><span style="color:#f8f8f2;">)
+
+</span><span style="color:#6272a4;">// Create App
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">app </span><span style="color:#ff79c6;">= </span><span style="color:#50fa7b;">express</span><span style="color:#f8f8f2;">()
+
+</span><span style="color:#6272a4;">// Redis Client
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">client </span><span style="color:#ff79c6;">= </span><span style="color:#ffffff;">ioredis</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">createClient</span><span style="color:#f8f8f2;">(</span><span style="color:#bd93f9;">6379</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#66d9ef;">process</span><span style="color:#ff79c6;">.</span><span style="font-style:italic;color:#66d9ef;">env</span><span style="color:#ff79c6;">.</span><span style="color:#f8f8f2;">REDIS_PORT_6379_TCP_ADDR)
+
+</span><span style="color:#6272a4;">// Compose Schema
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">ComposeSchema </span><span style="color:#ff79c6;">= new </span><span style="color:#ffffff;">mongoose</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">Schema</span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">{
+  </span><span style="color:#f8f8f2;">name: </span><span style="font-style:italic;color:#66d9ef;">String</span><span style="color:#f8f8f2;">,
+  build: </span><span style="font-style:italic;color:#66d9ef;">String</span><span style="color:#f8f8f2;">,
+  ports: [</span><span style="font-style:italic;color:#66d9ef;">String</span><span style="color:#f8f8f2;">]
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+
+</span><span style="color:#6272a4;">// Compose Model
+</span><span style="font-style:italic;color:#8be9fd;">const </span><span style="color:#ffffff;">Compose </span><span style="color:#ff79c6;">= </span><span style="color:#ffffff;">mongoose</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">model</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;Compose&#39;</span><span style="color:#f8f8f2;">, </span><span style="color:#ffffff;">ComposeSchema</span><span style="color:#f8f8f2;">)
+
+</span><span style="color:#6272a4;">// Create Session
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">use</span><span style="color:#f8f8f2;">(
+  </span><span style="color:#50fa7b;">session</span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">{
+    </span><span style="color:#f8f8f2;">store: </span><span style="color:#ff79c6;">new </span><span style="color:#f8f8f2;">RedisStore(</span><span style="color:#ffffff;">{ client }</span><span style="color:#f8f8f2;">),
+    secret: </span><span style="color:#f1fa8c;">&#39;Dream&#39;
+  </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+)
+
+</span><span style="color:#6272a4;">// Routes for redis
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;/redis&#39;</span><span style="color:#f8f8f2;">, (</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;Redis is live!&#39;</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;/redis/set&#39;</span><span style="color:#f8f8f2;">, (</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  client</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">set</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;key&#39;</span><span style="color:#f8f8f2;">, </span><span style="color:#f1fa8c;">&#39;Redis is live!&#39;</span><span style="color:#f8f8f2;">)
+  </span><span style="color:#ffffff;">res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">`It&#39;s redis.`</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;/redis/get&#39;</span><span style="color:#f8f8f2;">, (</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  client</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;key&#39;</span><span style="color:#f8f8f2;">)</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">then</span><span style="color:#f8f8f2;">(</span><span style="font-style:italic;color:#ffb86c;">result </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+    res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">result </span><span style="color:#ff79c6;">|| </span><span style="color:#f1fa8c;">&#39;Nothing!&#39;</span><span style="color:#f8f8f2;">)
+  </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+
+</span><span style="color:#6272a4;">// Routes for redis
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;/mongoose&#39;</span><span style="color:#f8f8f2;">, (</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;Mongoose is live!&#39;</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;/mongoose/set&#39;</span><span style="color:#f8f8f2;">, (</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  </span><span style="font-style:italic;color:#8be9fd;">var </span><span style="color:#ffffff;">c </span><span style="color:#ff79c6;">= new </span><span style="color:#f8f8f2;">Compose(</span><span style="color:#ffffff;">{
+    </span><span style="color:#f8f8f2;">name: </span><span style="color:#f1fa8c;">&#39;docker&#39;</span><span style="color:#f8f8f2;">,
+    build: </span><span style="color:#f1fa8c;">&#39;.&#39;</span><span style="color:#f8f8f2;">,
+    ports: [</span><span style="color:#f1fa8c;">&#39;3000:3000&#39;</span><span style="color:#f8f8f2;">]
+  </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+
+  </span><span style="color:#ffffff;">c</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">save</span><span style="color:#f8f8f2;">()</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">then</span><span style="color:#f8f8f2;">(() </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+    res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">`It&#39;s mongoose.`</span><span style="color:#f8f8f2;">)
+  </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;/mongoose/get&#39;</span><span style="color:#f8f8f2;">, (</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  </span><span style="font-style:italic;color:#66d9ef;">Compose</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">find</span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">{ </span><span style="color:#f8f8f2;">name: </span><span style="color:#f1fa8c;">&#39;docker&#39; </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">then</span><span style="color:#f8f8f2;">(</span><span style="font-style:italic;color:#ffb86c;">result </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+    res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">result</span><span style="color:#f8f8f2;">)
+  </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+
+</span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">use</span><span style="color:#f8f8f2;">((</span><span style="font-style:italic;color:#ffb86c;">req</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">res</span><span style="color:#f8f8f2;">) </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  res</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">send</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">&#39;Hello Docker, Express, Mongoose, Redis!&#39;</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+
+</span><span style="color:#ffffff;">mongoose</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">connect</span><span style="color:#f8f8f2;">(</span><span style="color:#f1fa8c;">`mongodb://</span><span style="color:#f8f8f2;">${</span><span style="font-style:italic;color:#66d9ef;">process</span><span style="color:#ff79c6;">.</span><span style="font-style:italic;color:#66d9ef;">env</span><span style="color:#ff79c6;">.</span><span style="color:#f8f8f2;">MONGO_PORT_27017_TCP_ADDR}</span><span style="color:#f1fa8c;">`</span><span style="color:#f8f8f2;">, </span><span style="font-style:italic;color:#ffb86c;">err </span><span style="font-style:italic;color:#8be9fd;">=&gt; </span><span style="color:#ffffff;">{
+  </span><span style="color:#ff79c6;">if </span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">err</span><span style="color:#f8f8f2;">) </span><span style="color:#ff79c6;">throw </span><span style="color:#ffffff;">err
+
+  </span><span style="color:#6272a4;">// Start App
+  </span><span style="color:#ffffff;">app</span><span style="color:#ff79c6;">.</span><span style="color:#50fa7b;">listen</span><span style="color:#f8f8f2;">(</span><span style="font-style:italic;color:#66d9ef;">process</span><span style="color:#ff79c6;">.</span><span style="font-style:italic;color:#66d9ef;">env</span><span style="color:#ff79c6;">.</span><span style="color:#f8f8f2;">PORT </span><span style="color:#ff79c6;">|| </span><span style="color:#bd93f9;">3000</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">)
+</span></pre>
+<p><strong><em>package.json</em></strong></p>
+<pre style="background-color:#282a36;">
+<span style="color:#ffffff;">{
+  </span><span style="color:#f1fa8c;">&quot;name&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;docker-express-mongoose-redis-example&quot;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;private&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#bd93f9;">true</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;version&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;1.0.0&quot;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;description&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;&quot;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;main&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;index.js&quot;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;scripts&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#ffffff;">{
+    </span><span style="color:#f1fa8c;">&quot;start&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;node server.js&quot;
+  </span><span style="color:#ffffff;">}</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;author&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;&quot;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;license&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;ISC&quot;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#f1fa8c;">&quot;dependencies&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#ffffff;">{
+    </span><span style="color:#f1fa8c;">&quot;connect-redis&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;^3.0.1&quot;</span><span style="color:#ff79c6;">,
+    </span><span style="color:#f1fa8c;">&quot;express&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;^4.13.3&quot;</span><span style="color:#ff79c6;">,
+    </span><span style="color:#f1fa8c;">&quot;express-session&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;^1.11.3&quot;</span><span style="color:#ff79c6;">,
+    </span><span style="color:#f1fa8c;">&quot;ioredis&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;^1.9.1&quot;</span><span style="color:#ff79c6;">,
+    </span><span style="color:#f1fa8c;">&quot;mongoose&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&quot;^4.2.0&quot;
+  </span><span style="color:#ffffff;">}
+}
+</span></pre><h4 id="2-machine-zai-virtualbox-zhong-chuang-jian-docker-host">2. <a href="https://docs.docker.com/machine/">Machine</a>：在 virtualbox 中创建 Docker Host</h4>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 查看命令行帮助
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-machine
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 创建 Docker Host
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-machine create</span><span style="font-style:italic;color:#ffb86c;"> -d</span><span style="color:#f8f8f2;"> virtualbox dev
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 启动
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-machine start dev
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 查看 dev IP
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-machine ip dev
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 查看 dev 环境变量
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-machine env dev
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 设置环境变量
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> eval </span><span style="color:#f1fa8c;">&quot;$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> env dev)&quot;
+</span></pre><h4 id="3-compose-ding-yi-ji-cao-zuo">3. <a href="https://docs.docker.com/compose/">Compose</a>：定义及操作</h4>
+<h5 id="wei-xiang-mu-chuang-jian-dockerfile">为项目创建 <a href="https://docs.docker.com/reference/builder/">Dockerfile</a></h5>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cd docker-express-mongoose-redis-example
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> touch Dockerfile
+</span></pre>
+<p><strong><em>Dockerfile</em></strong></p>
+<pre style="background-color:#282a36;">
+<span style="color:#f8f8f2;">FROM mhart/alpine-node
+# FROM mhart/alpine-node:base
+# FROM mhart/alpine-node:base-0.10
+
+WORKDIR /src
+ADD . .
+
+# If you have native dependencies, you&#39;ll need extra tools
+RUN apk add --update make gcc g++ python
+
+# If you need npm, don&#39;t use a base tag
+RUN npm install
+
+# If you had native dependencies you can now remove build tools
+RUN apk del make gcc g++ python &amp;&amp; \
+  rm -rf /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp
+
+EXPOSE 3000
+CMD [&quot;npm&quot;, &quot;start&quot;]
+</span></pre><h5 id="chuang-jian-docker-compose-yml-lai-zu-he-node-js-redis-mongodb-fu-wu">创建 <a href="https://docs.docker.com/compose/yml">docker-compose.yml</a> 来组合 Node.js, Redis, Mongodb 服务</h5>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cd docker-express-mongoose-redis-example
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> touch docker-compose.yml
+</span></pre>
+<p><strong><em>Dockerfile</em></strong></p>
+<pre style="background-color:#282a36;">
+<span style="color:#ff79c6;">app</span><span style="color:#f8f8f2;">:
+  </span><span style="color:#ff79c6;">build</span><span style="color:#f8f8f2;">: </span><span style="color:#bd93f9;">.
+  </span><span style="color:#ff79c6;">volumes</span><span style="color:#f8f8f2;">:
+    - </span><span style="color:#ff79c6;">.:/src
+  links</span><span style="color:#f8f8f2;">:
+    - </span><span style="color:#ff79c6;">mongo
+    </span><span style="color:#f8f8f2;">- </span><span style="color:#ff79c6;">redis
+  ports</span><span style="color:#f8f8f2;">:
+    - </span><span style="color:#ff79c6;">3000:3000
+
+redis</span><span style="color:#f8f8f2;">:
+  </span><span style="color:#ff79c6;">image</span><span style="color:#f8f8f2;">: </span><span style="color:#ff79c6;">redis
+
+mongo</span><span style="color:#f8f8f2;">:
+  </span><span style="color:#ff79c6;">image</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">mongo
+</span></pre><pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 查看命令行帮助
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 创建
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose build
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 启动 app, redis, mongo 等服务，特点是常驻前台
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose up
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 也可以通过 `start` 启动，特点是常驻在后台
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose start
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 停止服务
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose stop
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># 输出日志
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose logs
+</span></pre><h5 id="ce-shi-fang-wen-wo-men-de-fu-wu-rocket">测试、访问我们的服务 :rocket:</h5>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000/redis&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000/redis/set&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000/redis/get&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000/mongoose&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000/mongoose/set&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> open </span><span style="color:#f1fa8c;">&quot;http://$(</span><span style="color:#50fa7b;">docker-machine</span><span style="color:#f1fa8c;"> ip dev):3000/mongoose/get&quot;
+</span></pre><h4 id="guan-bi-fu-wu-xiu-xi-xia">关闭服务，休息下</h4>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-compose stop
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> docker-machine stop dev
+</span></pre>
+<p><strong>NOTE</strong>:</p>
+<ul>
+<li>
+<p>Compose 的前身是 <strong>fig</strong>。</p>
+</li>
+<li>
+<p><code>up</code> <code>start</code> <code>logs</code> <code>stop</code> <code>rm</code> 等 COMMANDs 可以针对某个 Container 使用 e.g: <code>$ docker-compose logs app</code></p>
+</li>
+<li>
+<p><strong>如果 Node 项目比较大，依赖的模块较多，频繁改动，我们可以不需要创建 Node 项目本身的 Container，只需要创建启动其他服务即可。</strong></p>
+</li>
+</ul>
+<h3 id="qi-ta-gong-ju">其他工具</h3>
+<ul>
+<li><a href="https://www.vagrantup.com">Vargant</a> - 也是一款环境构建工具，比 Docker 还早</li>
+</ul>
+<p>Vargant 是一款不错的工具，可以帮助我们快速搭建各种服务环境，也能团队之间进行分享，现在基于它的工具链也越来越丰富，感兴趣也可以一试。</p>
+<ul>
+<li>不用其他构建工具，我们自己搭</li>
+</ul>
+<p>“自己动手，丰衣足食” － 不依赖环境构建工具，自己搭，时间精力充足的化，不妨一试，会收获更多。</p>
+<h3 id="zui-hou">最后</h3>
+<p>Docker 可玩的不仅仅如此，还可以打包、发布容器应用到线上，构建自己的 Paas(<a href="https://github.com/progrium/dokku">dokku</a>) 服务等。</p>
+<p>Docker Compose 也可以有更高级玩法。</p>
+<p>Enjoy!</p>
+<pre style="background-color:#282a36;">
+<span style="color:#ffffff;">{
+  </span><span style="color:#f8f8f2;">github: </span><span style="color:#f1fa8c;">&#39;@fundon&#39;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#ffffff;">email</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&#39;cfddream#gmail.com&#39;</span><span style="color:#ff79c6;">,
+  </span><span style="color:#ffffff;">twitter</span><span style="color:#f8f8f2;">: </span><span style="color:#f1fa8c;">&#39;@_fundon&#39;
+</span><span style="color:#ffffff;">}
+</span></pre><h3 id="relates">Relates</h3>
+<ul>
+<li>https://docs.docker.com/kitematic/</li>
+<li>https://docs.docker.com/installation/mac/</li>
+<li>https://docs.docker.com/machine/install-machine/</li>
+<li>https://docs.docker.com/compose/install/</li>
+<li>https://github.com/mhart/alpine-node</li>
+<li>https://github.com/progrium/dokku</li>
+</ul>
+
+  </div>
+</article>
+
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
