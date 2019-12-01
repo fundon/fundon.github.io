@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>锈出未来</title>
+        <link>https://fundon.me</link>
+        <description>生命第 N 次练习，谢天地赐我逆境！</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://fundon.me/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Fri, 29 Nov 2019 08:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>Async-await on Rust</title>
+                <pubDate>Fri, 29 Nov 2019 08:00:00 +0000</pubDate>
+                <link>https://fundon.me/async-await-on-rust/</link>
+                <guid>https://fundon.me/async-await-on-rust/</guid>
+                <description>&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#f8f8f2;&quot;&gt;async &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;another_function&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;&#x2F;&#x2F; Create the future:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; future &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8be9fd;&quot;&gt;first_function&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;();
+
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;&#x2F;&#x2F; Await the future, which will execute it (and suspend
+    &#x2F;&#x2F; this function if we encounter a need to wait for I&#x2F;O):
+    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; result: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;u32 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; future&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;await;
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;...
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+            </item>
+        
+    </channel>
+</rss>

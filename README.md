@@ -1,0 +1,2 @@
+- https://www.getzola.org/
+- https://simpleicons.org/

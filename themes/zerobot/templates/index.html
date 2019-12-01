@@ -1,0 +1,42 @@
+{% extends "basic.html" %}
+
+{% block content %}
+{% if section %}
+<div class="post-list">
+  {% for page in section.pages %}
+  <div class="post">
+    <time class="post-date">
+      {{ page.date | date(format="%B %eth, %Y") }}
+    </time>
+
+    <h2 class="post-title">
+      <a href="{{ page.permalink }}">
+        <span>{{ page.title }}</span>
+      </a>
+    </h2>
+
+    {% if loop.index < 6 and page.description %}
+    <div class="post-teaser">
+      {{ page.description | safe }}
+    </div>
+    {% endif %}
+
+    <div class="post-footer">
+      <p class="post-more">
+        <a href="{{ page.permalink }}">Read more →</a>
+      </p>
+      {% if page.taxonomies.tags %}
+      <ul class="header-meta-tags">  
+        {% for tag in page.taxonomies.tags %}
+        <li>
+          <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>&nbsp;
+        </li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{% endblock content %}

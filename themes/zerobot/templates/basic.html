@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- <html class="dark-theme"> -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="{{ config.extra.author }}" />
+    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
+    <meta
+      name="description"
+      content="{% block description %}{{ config.description }}{% endblock description %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/minireset.css@0.0.6/minireset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/firacode@2.0.0/distr/fira_code.css"
+    />
+    <link rel="stylesheet" href="{{ get_url(path="index.css", trailing_slash=false) }}" />
+    <link rel='alternate' type='application/rss+xml' href="{{ get_url(path="rss.xml", trailing_slash=false)}}" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="logo" href="{{ config.base_url }}">
+            <img src="{{ config.extra.avatar }}" />
+          </a>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="https://github.com/{{ config.extra.github }}">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/github.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/{{ config.extra.twitter }}">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/twitter.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+          <li>
+            <a href="https://www.reddit.com/user/{{ config.extra.reddit }}">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/reddit.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+          <li>
+            <a class="small" href="{{ get_url(path="rss.xml", trailing_slash=false)}}">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/rss.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="header">
+      <h1 class="header-title">
+        {% block header_title %} {{ config.title }} {% endblock header_title %}
+      </h1>
+      <div class="header-meta">
+        <!-- <div class="header-meta-author">
+          <img
+            class="avatar"
+            src="{{ config.extra.avatar }}"
+            height="30"
+            width="30"
+          />
+          <div class="name">
+            <span>{{ config.extra.author }}</span>
+            <a
+              href="https://twitter.com/{{ config.extra.twitter }}"
+              target="_blank"
+              rel="noopener noreferrer"
+              >@{{ config.extra.twitter }}</a
+            >
+          </div>
+        </div> -->
+        <span class="header-meta-author">{{ config.extra.author }}</span>
+        {% block header_date %}{% endblock header_date %} {% if not page %}
+        <p class="header-meta-description">{{ config.description }}</p>
+        {% endif %}
+      </div>
+    </header>
+
+    <main class="content container">
+      {% block content %}
+      {% endblock content %}
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

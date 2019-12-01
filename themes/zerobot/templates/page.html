@@ -1,0 +1,30 @@
+{% extends "basic.html" %}
+
+{% block title %} {{ page.title }} - {{ super() }} {% endblock title %}
+
+{% block header_title %} {{ page.title  }} {% endblock header_title %}
+{% block header_date %} 
+  <time class="header-meta-date">
+    {{ page.date | date(format="%B %eth, %Y") }}
+  </time>
+  {% if page.taxonomies.tags %}
+  <ul class="header-meta-tags">  
+    {% for tag in page.taxonomies.tags %}
+    <li>
+      <a href="{{ get_taxonomy_url(kind="tags", name=tag) | safe }}">{{ tag }}</a>&nbsp;
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+{% endblock header_date %}
+
+{% block content %}
+<article class="post">
+  <div class="post-content">
+    <p class="post-description">
+      {{ page.description | safe }}
+    </p>
+    {{ page.content | safe }}
+  </div>
+</article>
+{% endblock content %}

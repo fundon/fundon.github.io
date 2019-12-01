@@ -1,0 +1,44 @@
+{% extends "basic.html" %}
+
+{% block title %}
+  {% set title = "All Topics" %}
+  {{ title }} - {{ super() }}
+{% endblock title %}
+
+{% block header_title %} 
+  {% set title = "All Topics" %}
+  {{ title  }}
+{% endblock header_title %}
+
+{% block content %}
+
+{% set_global oc = "" %}
+<dl>
+{% for tag in terms | sort(attribute="name") %}
+  {% set nc = tag.name | truncate(length=1, end="") | upper %}
+  {% if nc != oc %}
+    {% set_global oc = nc %}
+
+    {% if not loop.first %}
+    </div>
+    {% endif %}
+
+    <dt class="tags-list-heading">
+      {{ nc }}
+    </dt>
+
+    <div class="tags-list">
+  {% endif %}
+
+    <dd>
+      <a class="tags-list-link" href="{{ tag.permalink }}">{{ tag.name }}</a>
+    </dd>
+
+    {% if loop.last %}
+    </div>
+    {% endif %}
+
+{% endfor %}
+</dl>
+
+{% endblock content %}
