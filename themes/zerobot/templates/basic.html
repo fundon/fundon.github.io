@@ -79,6 +79,15 @@
       {% endblock content %}
     </main>
 
-    <footer></footer>
+    <footer class="footer">
+      <div class="container">
+        <div class="heart">
+          Made with&nbsp;&nbsp;{% set icon = load_data(path="themes/" ~ config.theme ~ "/static/icons/heart-fill.svg") %} {{ icon | safe }}
+        </div>
+        <div class="power">
+          Powered By <a href="https://www.getzola.org/">Zola</a> & <a href="https://zeit.co/">Zeit</a> & <a href="https://zeit.co/design">Design</a>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
