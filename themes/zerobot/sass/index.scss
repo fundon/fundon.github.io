@@ -110,6 +110,11 @@
   --themed-fg: var(--geist-foreground);
 }
 
+::selection {
+  background-color: #79ffe1;
+  color: var(--geist-foreground);
+}
+
 html,
 body {
   background-color: var(--geist-background);
@@ -189,35 +194,28 @@ h2 {
     align-items: center;
 
     li {
-      margin-right: 12px;
+      margin-left: 12px;
     }
 
     a {
-      display: inline-block;
-      width: 24px;
-      height: 24px;
-      overflow: hidden;
+      align-items: center;
+      display: flex;
 
       svg {
         color: var(--geist-foreground);
-        fill: currentColor;
-      }
-
-      &.small {
-        width: 20px;
-        height: 20px;
+        width: 18px;
+        height: 18px;
       }
     }
   }
 }
 
 .header {
-  margin-top: calc(2 * var(--geist-gap));
   border-bottom: 1px solid var(--accents-2);
-  padding: 50px 0px 40px;
+  padding: 25px 0px 20px;
   transition: background 200ms ease 0s;
   text-align: center;
-  min-height: 215px;
+  min-height: 256px;
 
   &-title {
     color: var(--geist-foreground);
@@ -231,6 +229,11 @@ h2 {
   }
 
   &-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.25em auto;
+
     &-author {
       display: inline-flex;
       margin-left: 10px;
@@ -318,8 +321,8 @@ h2 {
   width: 1040px;
   max-width: 100%;
   // margin: 0px auto;
-  margin: calc(var(--geist-gap) * 1.25) auto;
-  padding: 0 calc(var(--geist-gap) * 1.25);
+  margin: calc(var(--geist-gap) * 1) auto;
+  padding: 0 calc(var(--geist-gap) * 1);
 }
 
 .post {
@@ -330,6 +333,10 @@ h2 {
 
   &:not(:first-child) {
     margin-top: calc(var(--geist-gap) * 1.25);
+  }
+
+  &-title {
+    margin: 15px 0px;
   }
 
   &-date {
@@ -464,14 +471,20 @@ h2 {
       padding: 0.5rem 0.75rem;
       border-radius: var(--geist-radius);
       border: 1px solid var(--accents-2);
+      overflow-x: auto;
     }
 
     code,
     pre {
-      color: #f81ce5;
+      color: var(--geist-code);
       font-family: var(--font-mono);
       font-size: 0.9rem;
       white-space: pre-wrap;
+    }
+
+    code:before,
+    code:after {
+      content: '`';
     }
 
     @supports (font-variation-settings: normal) {

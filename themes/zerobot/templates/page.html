@@ -7,6 +7,8 @@
   <time class="header-meta-date">
     {{ page.date | date(format="%B %eth, %Y") }}
   </time>
+{% endblock header_date %}
+{% block header_tags %} 
   {% if page.taxonomies.tags %}
   <ul class="header-meta-tags">  
     {% for tag in page.taxonomies.tags %}
@@ -16,7 +18,7 @@
     {% endfor %}
   </ul>
   {% endif %}
-{% endblock header_date %}
+{% endblock header_tags %}
 
 {% block content %}
 <article class="post">

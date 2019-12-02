@@ -1,2 +1,4 @@
 - https://www.getzola.org/
 - https://simpleicons.org/
+- https://feathericons.com/
+- https://zeit.co/design/

@@ -18,8 +18,8 @@
       rel="stylesheet"
       href="https://unpkg.com/firacode@2.0.0/distr/fira_code.css"
     />
-    <link rel="stylesheet" href="{{ get_url(path="index.css", trailing_slash=false) }}" />
-    <link rel='alternate' type='application/rss+xml' href="{{ get_url(path="rss.xml", trailing_slash=false)}}" />
+    <link rel="stylesheet" href="{{ get_url(path="index.css") }}" />
+    <link rel='alternate' type='application/rss+xml' href="{{ get_url(path="rss.xml")}}" />
   </head>
   <body>
     <nav class="navbar">
@@ -43,13 +43,13 @@
             </a>
           </li>
           <li>
-            <a href="https://www.reddit.com/user/{{ config.extra.reddit }}">
+            <a href="{{ get_url(path="tags", trailing_slash=true) }}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/reddit.svg") %} {{ icon | safe }}
+              "/static/icons/tag.svg") %} {{ icon | safe }}
             </a>
           </li>
           <li>
-            <a class="small" href="{{ get_url(path="rss.xml", trailing_slash=false)}}">
+            <a href="{{ get_url(path="rss.xml", trailing_slash=false)}}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
               "/static/icons/rss.svg") %} {{ icon | safe }}
             </a>
@@ -59,29 +59,16 @@
     </nav>
 
     <header class="header">
-      <h1 class="header-title">
-        {% block header_title %} {{ config.title }} {% endblock header_title %}
-      </h1>
-      <div class="header-meta">
-        <!-- <div class="header-meta-author">
-          <img
-            class="avatar"
-            src="{{ config.extra.avatar }}"
-            height="30"
-            width="30"
-          />
-          <div class="name">
-            <span>{{ config.extra.author }}</span>
-            <a
-              href="https://twitter.com/{{ config.extra.twitter }}"
-              target="_blank"
-              rel="noopener noreferrer"
-              >@{{ config.extra.twitter }}</a
-            >
-          </div>
-        </div> -->
-        <span class="header-meta-author">{{ config.extra.author }}</span>
-        {% block header_date %}{% endblock header_date %} {% if not page %}
+      <div class="container">
+        <h1 class="header-title">
+          {% block header_title %} {{ config.title }} {% endblock header_title %}
+        </h1>
+        <div class="header-meta">
+          <span class="header-meta-author">{{ config.extra.author }}</span>
+          {% block header_date %}{% endblock header_date %}
+        </div>
+        {% block header_tags %}{% endblock header_tags %}
+        {% if not page %}
         <p class="header-meta-description">{{ config.description }}</p>
         {% endif %}
       </div>
