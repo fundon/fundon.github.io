@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- <html class="dark-theme"> -->
 <html>
   <head>
     <meta charset="utf-8" />
@@ -22,6 +21,22 @@
     <link rel='alternate' type='application/rss+xml' href="https:&#x2F;&#x2F;fundon.me&#x2F;rss.xml" />
   </head>
   <body>
+  <script async="">
+      window.isDark = false
+      function toggle() {
+        if (document.querySelector('html').classList.toggle('dark-theme')) {
+          localStorage.setItem('dark-mode', true)
+        } else {
+          localStorage.removeItem('dark-mode')
+        }
+      }
+      try {
+        if (localStorage.getItem('dark-mode')) {
+          toggle()
+          window.isDark = true
+        }
+      } catch (e) {}
+    </script>
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
@@ -60,6 +75,28 @@
   <circle cx="5" cy="19" r="1"/>
 </svg>
             </a>
+          </li>
+          <li>
+            <button class="toggle">
+              <span class="sun">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <circle cx="12" cy="12" r="5"/>
+  <path d="M12 1v2"/>
+  <path d="M12 21v2"/>
+  <path d="M4.22 4.22l1.42 1.42"/>
+  <path d="M18.36 18.36l1.42 1.42"/>
+  <path d="M1 12h2"/>
+  <path d="M21 12h2"/>
+  <path d="M4.22 19.78l1.42-1.42"/>
+  <path d="M18.36 5.64l1.42-1.42"/>
+</svg>
+              </span>
+              <span class="moon">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+</svg>
+              </span>
+            </button>
           </li>
         </ul>
       </div>
@@ -132,5 +169,9 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document.querySelector('button.toggle').onclick = toggle
+    </script>
   </body>
 </html>

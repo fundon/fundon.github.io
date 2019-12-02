@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<!-- <html class="dark-theme"> -->
 <html>
   <head>
     <meta charset="utf-8" />
@@ -22,6 +21,22 @@
     <link rel='alternate' type='application/rss+xml' href="{{ get_url(path="rss.xml")}}" />
   </head>
   <body>
+  <script async="">
+      window.isDark = false
+      function toggle() {
+        if (document.querySelector('html').classList.toggle('dark-theme')) {
+          localStorage.setItem('dark-mode', true)
+        } else {
+          localStorage.removeItem('dark-mode')
+        }
+      }
+      try {
+        if (localStorage.getItem('dark-mode')) {
+          toggle()
+          window.isDark = true
+        }
+      } catch (e) {}
+    </script>
     <nav class="navbar">
       <div class="container">
         <div class="navbar-brand">
@@ -53,6 +68,18 @@
               {% set icon = load_data(path="themes/" ~ config.theme ~
               "/static/icons/rss.svg") %} {{ icon | safe }}
             </a>
+          </li>
+          <li>
+            <button class="toggle">
+              <span class="sun">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/sun.svg") %} {{ icon | safe }}
+              </span>
+              <span class="moon">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/moon.svg") %} {{ icon | safe }}
+              </span>
+            </button>
           </li>
         </ul>
       </div>
@@ -89,5 +116,9 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document.querySelector('button.toggle').onclick = toggle
+    </script>
   </body>
 </html>

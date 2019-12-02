@@ -200,12 +200,40 @@ h2 {
     a {
       align-items: center;
       display: flex;
+    }
 
-      svg {
-        color: var(--geist-foreground);
-        width: 18px;
-        height: 18px;
-      }
+    svg {
+      color: var(--geist-foreground);
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  .toggle {
+    background: transparent;
+    border: 0;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    cursor: pointer;
+
+    .sun {
+      display: flex;
+    }
+
+    .moon {
+      display: none;
+    }
+  }
+}
+
+.dark-theme {
+  .toggle {
+    .sun {
+      display: none;
+    }
+    .moon {
+      display: flex;
     }
   }
 }
