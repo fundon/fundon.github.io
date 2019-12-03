@@ -58,6 +58,12 @@
             </a>
           </li>
           <li>
+            <a href="mailto:{{ config.extra.email }}">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/mail.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+          <li>
             <a href="{{ get_url(path="tags", trailing_slash=true) }}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
               "/static/icons/tag.svg") %} {{ icon | safe }}
