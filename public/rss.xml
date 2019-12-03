@@ -14,17 +14,71 @@
                 <pubDate>Fri, 29 Nov 2019 08:00:00 +0000</pubDate>
                 <link>https://fundon.me/async-await-on-rust/</link>
                 <guid>https://fundon.me/async-await-on-rust/</guid>
-                <description>&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
-&lt;span style=&quot;color:#f8f8f2;&quot;&gt;async &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;another_function&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
-    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;&#x2F;&#x2F; Create the future:
-    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; future &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8be9fd;&quot;&gt;first_function&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;();
-
-    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#6272a4;&quot;&gt;&#x2F;&#x2F; Await the future, which will execute it (and suspend
-    &#x2F;&#x2F; this function if we encounter a need to wait for I&#x2F;O):
-    &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; result: &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;u32 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;=&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; future&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;await;
-    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;...
+                <description>&lt;p&gt;异步操作，对 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 开发者来说已经属于日常操作，家常便饭。
+从 &lt;code&gt;Callback&lt;&#x2F;code&gt; 到 &lt;code&gt;Promise&lt;&#x2F;code&gt; 再到 &lt;code&gt;Async-await&lt;&#x2F;code&gt;，一路摆脱了 &lt;code&gt;Callback Hell&lt;&#x2F;code&gt;、&lt;code&gt;Promise Chain&lt;&#x2F;code&gt;，
+&lt;code&gt;Async-await&lt;&#x2F;code&gt; 为工程开发带来了极大便利，简直是神兵利器。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Rust&lt;&#x2F;strong&gt; 在 &lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.rust-lang.org&#x2F;2019&#x2F;11&#x2F;07&#x2F;Rust-1.39.0.html&quot;&gt;1.39.0&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; 稳定版中引入了期待已久的 &lt;code&gt;Async-await&lt;&#x2F;code&gt; 语法糖，这是一个伟大的里程碑，🦀 终于可以愉快地爬行了。&lt;&#x2F;p&gt;
+&lt;p&gt;不管是 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 版还是 &lt;strong&gt;Rust&lt;&#x2F;strong&gt; 版本，两则在设计上还是很多相似之处，可以探索一番。&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Global_Objects&#x2F;AsyncFunction&quot;&gt;AsyncFunction&lt;&#x2F;a&gt;：用来创建新的异步函数对象&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;developer.mozilla.org&#x2F;zh-CN&#x2F;docs&#x2F;Web&#x2F;JavaScript&#x2F;Reference&#x2F;Global_Objects&#x2F;Promise&quot;&gt;Promise&lt;&#x2F;a&gt;：对象用于表示一个异步操作的最终完成 (或失败)，及其结果值&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;pending&lt;&#x2F;code&gt;：初始状态，既不是成功，也不是失败状态&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;fulfilled&lt;&#x2F;code&gt;：意味着操作成功完成&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;rejected&lt;&#x2F;code&gt;：意味着操作失败&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;可以通过 &lt;code&gt;async function&lt;&#x2F;code&gt; 来声明一个 &lt;code&gt;AsyncFunction&lt;&#x2F;code&gt;，当执行这个 &lt;code&gt;AsyncFunction()&lt;&#x2F;code&gt; 时，
+会返回一个 &lt;code&gt;Promise&lt;&#x2F;code&gt;，然后再执行 &lt;code&gt;await Promise&lt;&#x2F;code&gt; 操作，经过计算后，就可以获得最终结果。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;async function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;#39;Hello Async-await&amp;#39;
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
-&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;async function &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;let &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;result &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;= await &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;()
+  &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;console&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8be9fd;&quot;&gt;log&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;result&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;)
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;()
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;rust&quot;&gt;Rust&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;std&#x2F;future&#x2F;trait.Future.html&quot;&gt;Future&lt;&#x2F;a&gt;：用来表示一个异步计算&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;beta&#x2F;std&#x2F;task&#x2F;enum.Poll.html&quot;&gt;Poll&lt;&#x2F;a&gt;：类似 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 中的 &lt;code&gt;Promise&lt;&#x2F;code&gt;，它是一个枚举类型&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Ready&amp;lt;T&amp;gt;&lt;&#x2F;code&gt;：表示结果已经计算完毕，准备妥当，可以立刻返回&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;code&gt;Pending&lt;&#x2F;code&gt;：等待状态，任务进行中，还在计算，结果准备中&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;可以通过 &lt;code&gt;async fn&lt;&#x2F;code&gt;，声明一个异步方法，当执行这个异步方法 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，会返回一个 &lt;code&gt;Future&lt;&#x2F;code&gt;，然后在执行 &lt;code&gt;Future.await&lt;&#x2F;code&gt; 操作，
+创建一个新任务，此时内部真正执行的是 &lt;code&gt;Future.poll()&lt;&#x2F;code&gt;，它会返回一个 &lt;code&gt;Poll&lt;&#x2F;code&gt;，经过计算后，就可以获得最终结果。&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;注意&lt;&#x2F;strong&gt;：如果一个异步方法有返回结果 &lt;code&gt;T&lt;&#x2F;code&gt;，则相应的，执行 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，返回的是 &lt;code&gt;Future&amp;lt;Outout = T&amp;gt;&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#ff79c6;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#66d9ef;&quot;&gt;async_std&lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#ff79c6;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;task;
+
+async &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;-&amp;gt; String &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;Hello Async-await&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#8be9fd;&quot;&gt;to_owned&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;()
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+
+&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;fn &lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
+    &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#66d9ef;&quot;&gt;task&lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#ff79c6;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;block_on(async &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;{
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&quot;&gt;let&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; result &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;color:#8be9fd;&quot;&gt;get&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;()&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;.&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;await;
+        println!(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;{}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;, result);
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;);
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;zong-jie&quot;&gt;总结&lt;&#x2F;h3&gt;
+&lt;p&gt;以上分析两种语言在 &lt;code&gt;Async-await&lt;&#x2F;code&gt; 的设计、执行流程，在实现上有很多相识之处，如果之前有 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 开发经验，则可以轻松地过渡到 &lt;strong&gt;Rust&lt;&#x2F;strong&gt; 中。&lt;&#x2F;p&gt;
+&lt;p&gt;总之让我们 🦀 愉快的爬起来。&lt;&#x2F;p&gt;
+</description>
             </item>
         
             <item>
@@ -2159,6 +2213,85 @@ See http:&#x2F;&#x2F;wiki.freegeek.org&#x2F;index.php&#x2F;Mac_OSX_adduser_scrip
 &lt;h2 id=&quot;other&quot;&gt;Other&lt;&#x2F;h2&gt;
 &lt;ul&gt;
 &lt;li&gt;http:&#x2F;&#x2F;gogs.io&#x2F;docs&#x2F;intro&#x2F;&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+</description>
+            </item>
+        
+            <item>
+                <title>Resume</title>
+                <pubDate>Sun, 24 Oct 1024 00:00:00 +0000</pubDate>
+                <link>https://fundon.me/resume/</link>
+                <guid>https://fundon.me/resume/</guid>
+                <description>&lt;h3 id=&quot;ji-ben-xin-xi&quot;&gt;基本信息&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;姓名&lt;&#x2F;strong&gt;：蔡芳敦&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;性别&lt;&#x2F;strong&gt;：男&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;出生&lt;&#x2F;strong&gt;：1986.10.17&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;学历&lt;&#x2F;strong&gt;：福建闽南师范大学，计算机与科学系，大二退学&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;she-jiao-xin-xi&quot;&gt;社交信息&lt;&#x2F;h3&gt;
+&lt;p&gt;&lt;strong&gt;邮箱&lt;&#x2F;strong&gt;：cfddream@gmail.com&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;博客&lt;&#x2F;strong&gt;：&lt;a href=&quot;https::&#x2F;&#x2F;fundon.me&quot;&gt;fundon.me&lt;&#x2F;a&gt; &lt;em&gt;可能打不开，最近在重新整理&lt;&#x2F;em&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub&lt;&#x2F;strong&gt;：https:&#x2F;&#x2F;github.com&#x2F;fundon&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Twitter&lt;&#x2F;strong&gt;：https:&#x2F;&#x2F;twitter.com&#x2F;_fundon&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;Dev.to&lt;&#x2F;strong&gt;：https:&#x2F;&#x2F;dev.to&#x2F;fundon&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;gong-zuo-jing-li-dao-xu&quot;&gt;工作经历(倒序)&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;2016 ~ 2019.10&lt;&#x2F;em&gt; 自由职业者：创建了一个 4 人的开发小团队，接受后台数据监控、网站、小程序开发，一点点手机 APP 开发&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;2015 ~ 2016&lt;&#x2F;em&gt; &lt;a href=&quot;http:&#x2F;&#x2F;www.modouwifi.com&quot;&gt;魔豆路由器&lt;&#x2F;a&gt;：Web 工程师&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;2014 ~ 2015&lt;&#x2F;em&gt; Exfe：Web 工程师&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;em&gt;2013 ~ 2014&lt;&#x2F;em&gt; &lt;a href=&quot;http:&#x2F;&#x2F;www.pps.tv&#x2F;&quot;&gt;PPS&lt;&#x2F;a&gt;: 全栈工程师，后端 PHP，前端 JavaScript&lt;&#x2F;li&gt;
+&lt;li&gt;上海墨子科技：机顶盒，Web 工程师&lt;&#x2F;li&gt;
+&lt;li&gt;&lt;a href=&quot;https:&#x2F;&#x2F;www.1hai.cn&#x2F;&quot;&gt;一嗨汽车&lt;&#x2F;a&gt;：前端工程师&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;ji-zhu-te-dian-ji-xing-qu&quot;&gt;技术特点及兴趣&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;JavaScript&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Vanillajs &amp;amp; React.js &amp;amp; Vue.js &amp;amp; Svelte.js&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;WebAssembly &amp;amp; WASI&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Weapp: Taro.js、 Wepy&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Node.js&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;PostgreSQL&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Mongodb&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Rust&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Linux &amp;amp; Unix &amp;amp; Freebsd &amp;amp; MacOS&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;PHP&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;Data Visualization: D3.js &amp;amp; Three.js&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;h3 id=&quot;kai-yuan-xiang-mu&quot;&gt;开源项目&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;trek-rs&quot;&gt;trek-rs&lt;&#x2F;a&gt;：Fast, effective, minimalist web framework for Rust&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;vue-bulma&#x2F;vue-admin&quot;&gt;vue-admin&lt;&#x2F;a&gt;: 9.4k stars&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;atom-minimap&#x2F;minimap&quot;&gt;atom-minimap&lt;&#x2F;a&gt;: 604 stars&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;trekjs&quot;&gt;trek-js&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
 </description>
             </item>

@@ -149,17 +149,71 @@
     <p class="post-description">
       在异步世界中探索
     </p>
-    <pre style="background-color:#282a36;">
-<span style="color:#f8f8f2;">async </span><span style="font-style:italic;color:#8be9fd;">fn </span><span style="color:#50fa7b;">another_function</span><span style="color:#f8f8f2;">() </span><span style="color:#ffffff;">{
-    </span><span style="color:#6272a4;">// Create the future:
-    </span><span style="font-style:italic;color:#8be9fd;">let</span><span style="color:#f8f8f2;"> future </span><span style="color:#ff79c6;">= </span><span style="color:#8be9fd;">first_function</span><span style="color:#f8f8f2;">();
-
-    </span><span style="color:#6272a4;">// Await the future, which will execute it (and suspend
-    // this function if we encounter a need to wait for I/O):
-    </span><span style="font-style:italic;color:#8be9fd;">let</span><span style="color:#f8f8f2;"> result: </span><span style="font-style:italic;color:#8be9fd;">u32 </span><span style="color:#ff79c6;">=</span><span style="color:#f8f8f2;"> future</span><span style="color:#ff79c6;">.</span><span style="color:#f8f8f2;">await;
-    </span><span style="color:#ff79c6;">...
+    <p>异步操作，对 <strong>JavaScript</strong> 开发者来说已经属于日常操作，家常便饭。
+从 <code>Callback</code> 到 <code>Promise</code> 再到 <code>Async-await</code>，一路摆脱了 <code>Callback Hell</code>、<code>Promise Chain</code>，
+<code>Async-await</code> 为工程开发带来了极大便利，简直是神兵利器。</p>
+<p><strong>Rust</strong> 在 <strong><a href="https://blog.rust-lang.org/2019/11/07/Rust-1.39.0.html">1.39.0</a></strong> 稳定版中引入了期待已久的 <code>Async-await</code> 语法糖，这是一个伟大的里程碑，🦀 终于可以愉快地爬行了。</p>
+<p>不管是 <strong>JavaScript</strong> 版还是 <strong>Rust</strong> 版本，两则在设计上还是很多相似之处，可以探索一番。</p>
+<h3 id="javascript">JavaScript</h3>
+<ul>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction">AsyncFunction</a>：用来创建新的异步函数对象</p>
+</li>
+<li>
+<p><a href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a>：对象用于表示一个异步操作的最终完成 (或失败)，及其结果值</p>
+<ul>
+<li><code>pending</code>：初始状态，既不是成功，也不是失败状态</li>
+<li><code>fulfilled</code>：意味着操作成功完成</li>
+<li><code>rejected</code>：意味着操作失败</li>
+</ul>
+</li>
+</ul>
+<p>可以通过 <code>async function</code> 来声明一个 <code>AsyncFunction</code>，当执行这个 <code>AsyncFunction()</code> 时，
+会返回一个 <code>Promise</code>，然后再执行 <code>await Promise</code> 操作，经过计算后，就可以获得最终结果。</p>
+<pre style="background-color:#282a36;">
+<span style="font-style:italic;color:#8be9fd;">async function </span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">() </span><span style="color:#ffffff;">{
+  </span><span style="color:#ff79c6;">return </span><span style="color:#f1fa8c;">&#39;Hello Async-await&#39;
 </span><span style="color:#ffffff;">}
-</span></pre>
+
+</span><span style="font-style:italic;color:#8be9fd;">async function </span><span style="color:#50fa7b;">main</span><span style="color:#f8f8f2;">() </span><span style="color:#ffffff;">{
+  </span><span style="font-style:italic;color:#8be9fd;">let </span><span style="color:#ffffff;">result </span><span style="color:#ff79c6;">= await </span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">()
+  </span><span style="font-style:italic;color:#66d9ef;">console</span><span style="color:#ff79c6;">.</span><span style="color:#8be9fd;">log</span><span style="color:#f8f8f2;">(</span><span style="color:#ffffff;">result</span><span style="color:#f8f8f2;">)
+</span><span style="color:#ffffff;">}
+
+</span><span style="color:#50fa7b;">main</span><span style="color:#f8f8f2;">()
+</span></pre><h3 id="rust">Rust</h3>
+<ul>
+<li>
+<p><a href="https://doc.rust-lang.org/std/future/trait.Future.html">Future</a>：用来表示一个异步计算</p>
+</li>
+<li>
+<p><a href="https://doc.rust-lang.org/beta/std/task/enum.Poll.html">Poll</a>：类似 <strong>JavaScript</strong> 中的 <code>Promise</code>，它是一个枚举类型</p>
+<ul>
+<li><code>Ready&lt;T&gt;</code>：表示结果已经计算完毕，准备妥当，可以立刻返回</li>
+<li><code>Pending</code>：等待状态，任务进行中，还在计算，结果准备中</li>
+</ul>
+</li>
+</ul>
+<p>可以通过 <code>async fn</code>，声明一个异步方法，当执行这个异步方法 <code>fn()</code> 时，会返回一个 <code>Future</code>，然后在执行 <code>Future.await</code> 操作，
+创建一个新任务，此时内部真正执行的是 <code>Future.poll()</code>，它会返回一个 <code>Poll</code>，经过计算后，就可以获得最终结果。</p>
+<p><strong>注意</strong>：如果一个异步方法有返回结果 <code>T</code>，则相应的，执行 <code>fn()</code> 时，返回的是 <code>Future&lt;Outout = T&gt;</code>。</p>
+<pre style="background-color:#282a36;">
+<span style="color:#ff79c6;">use </span><span style="text-decoration:underline;color:#66d9ef;">async_std</span><span style="text-decoration:underline;color:#ff79c6;">::</span><span style="color:#f8f8f2;">task;
+
+async </span><span style="font-style:italic;color:#8be9fd;">fn </span><span style="color:#50fa7b;">get</span><span style="color:#f8f8f2;">() </span><span style="color:#ff79c6;">-&gt; String </span><span style="color:#ffffff;">{
+    </span><span style="color:#f1fa8c;">&quot;Hello Async-await&quot;</span><span style="color:#ff79c6;">.</span><span style="color:#8be9fd;">to_owned</span><span style="color:#f8f8f2;">()
+</span><span style="color:#ffffff;">}
+
+</span><span style="font-style:italic;color:#8be9fd;">fn </span><span style="color:#50fa7b;">main</span><span style="color:#f8f8f2;">() </span><span style="color:#ffffff;">{
+    </span><span style="text-decoration:underline;color:#66d9ef;">task</span><span style="text-decoration:underline;color:#ff79c6;">::</span><span style="color:#f8f8f2;">block_on(async </span><span style="color:#ffffff;">{
+        </span><span style="font-style:italic;color:#8be9fd;">let</span><span style="color:#f8f8f2;"> result </span><span style="color:#ff79c6;">= </span><span style="color:#8be9fd;">get</span><span style="color:#f8f8f2;">()</span><span style="color:#ff79c6;">.</span><span style="color:#f8f8f2;">await;
+        println!(</span><span style="color:#f1fa8c;">&quot;</span><span style="color:#bd93f9;">{}</span><span style="color:#f1fa8c;">&quot;</span><span style="color:#f8f8f2;">, result);
+    </span><span style="color:#ffffff;">}</span><span style="color:#f8f8f2;">);
+</span><span style="color:#ffffff;">}
+</span></pre><h3 id="zong-jie">总结</h3>
+<p>以上分析两种语言在 <code>Async-await</code> 的设计、执行流程，在实现上有很多相识之处，如果之前有 <strong>JavaScript</strong> 开发经验，则可以轻松地过渡到 <strong>Rust</strong> 中。</p>
+<p>总之让我们 🦀 愉快的爬起来。</p>
+
   </div>
 </article>
 

@@ -1,7 +1,8 @@
 +++
 title = "Resume"
-date = 2019-11-11T08:00:00Z
-draft = true
+date = 1024-10-24
+draft = false
+list_on_index = false
 +++
 
 ### 基本信息

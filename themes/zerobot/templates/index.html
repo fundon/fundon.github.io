@@ -3,7 +3,7 @@
 {% block content %}
 {% if section %}
 <div class="post-list">
-  {% for page in section.pages | sort(attribute="date") | reverse %}
+  {% for page in section.pages %}
   <div class="post">
     <time class="post-date">
       {{ page.date | date(format="%B %eth, %Y") }}

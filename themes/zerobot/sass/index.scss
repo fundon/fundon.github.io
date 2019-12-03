@@ -447,25 +447,25 @@ h2 {
       font-size: 3rem;
       letter-spacing: -0.066875rem;
       font-weight: 700;
+      margin: 0px;
     }
 
     h2 {
       font-family: var(--font-sans);
       color: var(--themed-fg);
       line-height: 1.5;
-      font-size: 2rem;
-      letter-spacing: -0.020625rem;
+      font-size: 2.25rem;
+      letter-spacing: -0.049375rem;
       font-weight: 600;
+      margin: 0px;
     }
 
     h3 {
-      margin-top: var(--geist-gap-double);
-      margin-bottom: 0;
       color: inherit;
       line-height: 1.5;
       font-size: 1.5rem;
       letter-spacing: -0.029375rem;
-      font-weight: 500;
+      font-weight: 600;
     }
 
     h4 {
@@ -474,17 +474,28 @@ h2 {
       line-height: 1.5;
       font-size: 1.25rem;
       letter-spacing: -0.020625rem;
-      font-weight: 400;
+      font-weight: 600;
       margin: 0px;
     }
 
-    h4 {
+    h5 {
       font-family: var(--font-sans);
       color: inherit;
       line-height: 1.5;
       font-size: 1rem;
-      letter-spacing: -0.020625rem;
-      font-weight: 300;
+      letter-spacing: -0.01125rem;
+      font-weight: 600;
+      margin: 0px;
+    }
+
+    h6 {
+      font-family: var(--font-sans);
+      color: inherit;
+      line-height: 1.5;
+      font-size: 0.875rem;
+      letter-spacing: -0.005625rem;
+      font-weight: 600;
+      margin: 0px;
     }
 
     a {
