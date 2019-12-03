@@ -61,7 +61,16 @@
 &lt;&#x2F;ul&gt;
 &lt;p&gt;可以通过 &lt;code&gt;async fn&lt;&#x2F;code&gt;，声明一个异步方法，当执行这个异步方法 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，会返回一个 &lt;code&gt;Future&lt;&#x2F;code&gt;，然后在执行 &lt;code&gt;Future.await&lt;&#x2F;code&gt; 操作，
 创建一个新任务，此时内部真正执行的是 &lt;code&gt;Future.poll()&lt;&#x2F;code&gt;，它会返回一个 &lt;code&gt;Poll&lt;&#x2F;code&gt;，经过计算后，就可以获得最终结果。&lt;&#x2F;p&gt;
-&lt;p&gt;&lt;strong&gt;注意&lt;&#x2F;strong&gt;：如果一个异步方法有返回结果 &lt;code&gt;T&lt;&#x2F;code&gt;，则相应的，执行 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，返回的是 &lt;code&gt;Future&amp;lt;Outout = T&amp;gt;&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;xiao-tie-shi&quot;&gt;小贴士&lt;&#x2F;h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果一个异步方法有返回结果 &lt;code&gt;T&lt;&#x2F;code&gt;，则相应的，执行 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，返回的是 &lt;code&gt;Future&amp;lt;Outout = T&amp;gt;&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;li&gt;
+&lt;p&gt;因为返回结果 &lt;code&gt;T&lt;&#x2F;code&gt; 是一个范型，可以在 &lt;code&gt;Future.await&lt;&#x2F;code&gt; 后面加上 &lt;code&gt;?&lt;&#x2F;code&gt; 操作符，&lt;code&gt;Future.await?&lt;&#x2F;code&gt;，它会把结果转化成 &lt;code&gt;Result&amp;lt;T, E&amp;gt;&lt;&#x2F;code&gt;，
+此时我们就可以轻松判断成功或失败，这就与 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 中的 &lt;code&gt;Promise#fulfilled&lt;&#x2F;code&gt; 和 &lt;code&gt;Promise#rejected&lt;&#x2F;code&gt; 异曲同工。&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
 &lt;pre style=&quot;background-color:#282a36;&quot;&gt;
 &lt;span style=&quot;color:#ff79c6;&quot;&gt;use &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#66d9ef;&quot;&gt;async_std&lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#ff79c6;&quot;&gt;::&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;task;
 

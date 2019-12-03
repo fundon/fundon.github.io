@@ -53,7 +53,12 @@ main()
 可以通过 `async fn`，声明一个异步方法，当执行这个异步方法 `fn()` 时，会返回一个 `Future`，然后在执行 `Future.await` 操作，
 创建一个新任务，此时内部真正执行的是 `Future.poll()`，它会返回一个 `Poll`，经过计算后，就可以获得最终结果。
 
-**注意**：如果一个异步方法有返回结果 `T`，则相应的，执行 `fn()` 时，返回的是 `Future<Outout = T>`。
+#### 小贴士
+
+- 如果一个异步方法有返回结果 `T`，则相应的，执行 `fn()` 时，返回的是 `Future<Outout = T>`。
+
+- 因为返回结果 `T` 是一个范型，可以在 `Future.await` 后面加上 `?` 操作符，`Future.await?`，它会把结果转化成 `Result<T, E>`，
+  此时我们就可以轻松判断成功或失败，这就与 **JavaScript** 中的 `Promise#fulfilled` 和 `Promise#rejected` 异曲同工。
 
 ```rust
 use async_std::task;
