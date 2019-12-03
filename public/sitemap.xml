@@ -16,7 +16,7 @@
         <url>
             <loc>https://fundon.me/async-await-on-rust/</loc>
             
-                <lastmod>2019-11-29T08:00:00Z</lastmod>
+                <lastmod>2019-12-04T08:00:00Z</lastmod>
             
         </url>
     
@@ -43,6 +43,16 @@
     
         <url>
             <loc>https://fundon.me/tags/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://fundon.me/tags/async-await/</loc>
+            
+        </url>
+    
+        <url>
+            <loc>https://fundon.me/tags/async-await/page/1/</loc>
             
         </url>
     

@@ -7,11 +7,11 @@
         <generator>Zola</generator>
         <language>en</language>
         <atom:link href="https://fundon.me/tags/web/rss.xml" rel="self" type="application/rss+xml"/>
-        <lastBuildDate>Fri, 29 Nov 2019 08:00:00 +0000</lastBuildDate>
+        <lastBuildDate>Wed, 04 Dec 2019 08:00:00 +0000</lastBuildDate>
         
             <item>
                 <title>Async-await on Rust</title>
-                <pubDate>Fri, 29 Nov 2019 08:00:00 +0000</pubDate>
+                <pubDate>Wed, 04 Dec 2019 08:00:00 +0000</pubDate>
                 <link>https://fundon.me/async-await-on-rust/</link>
                 <guid>https://fundon.me/async-await-on-rust/</guid>
                 <description>&lt;p&gt;异步操作，对 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 开发者来说已经属于日常操作，家常便饭。

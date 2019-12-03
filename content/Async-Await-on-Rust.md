@@ -1,10 +1,10 @@
 +++
 title = "Async-await on Rust"
-date = 2019-11-29T08:00:00Z
+date = 2019-12-04T08:00:00Z
 description = "在异步世界中探索"
 
 [taxonomies]
-tags = ["Rust", "Web"]
+tags = ["Async-await", "Rust", "JavaScript", "Web"]
 +++
 
 异步操作，对 **JavaScript** 开发者来说已经属于日常操作，家常便饭。
