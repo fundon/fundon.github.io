@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>锈出未来</title>
+        <link>https://fundon.me</link>
+        <description>生命第 N 次练习，谢天地赐我逆境！</description>
+        <generator>Zola</generator>
+        <language>en</language>
+        <atom:link href="https://fundon.me/tags/linux/rss.xml" rel="self" type="application/rss+xml"/>
+        <lastBuildDate>Wed, 21 Jan 2015 00:00:00 +0000</lastBuildDate>
+        
+            <item>
+                <title>Ubuntu Setup</title>
+                <pubDate>Wed, 21 Jan 2015 00:00:00 +0000</pubDate>
+                <link>https://fundon.me/ubuntu-setup/</link>
+                <guid>https://fundon.me/ubuntu-setup/</guid>
+                <description>&lt;h2 id=&quot;update-upgrade&quot;&gt;Update &amp;amp; Upgrade&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get update
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get upgrade
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;add-user&quot;&gt;Add User&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#6272a4;&quot;&gt;# adduser fundon
+# usermod fundon -G sudo
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;package-search-and-show-package-info&quot;&gt;Package Search and Show Package Info&lt;&#x2F;h2&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; apt-cache search golang
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; aptitude search golang
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; aptitude show golang
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;packages-install&quot;&gt;Packages Install&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;git&quot;&gt;Git&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get install git
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;golang&quot;&gt;Golang&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get install golang
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;docker&quot;&gt;Docker&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get install docker.io
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo ln&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -sf&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; &#x2F;usr&#x2F;bin&#x2F;docker.io &#x2F;usr&#x2F;local&#x2F;bin&#x2F;docker
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h2 id=&quot;node-js&quot;&gt;Node.js&lt;&#x2F;h2&gt;
+&lt;h3 id=&quot;ppa&quot;&gt;PPA&lt;&#x2F;h3&gt;
+&lt;p&gt;https:&#x2F;&#x2F;launchpad.net&#x2F;~chris-lea&#x2F;+archive&#x2F;node.js&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;source&quot;&gt;Source&lt;&#x2F;h3&gt;
+&lt;pre style=&quot;background-color:#282a36;&quot;&gt;
+&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get install build-essential
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo apt-get install libssl-dev
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$
+$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; sudo su fundon
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; git clone https:&#x2F;&#x2F;github.com&#x2F;creationix&#x2F;nvm.git &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;&#x2F;.nvm
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; echo &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f1fa8c;&quot;&gt;&amp;#39;source ~&#x2F;.nvm&#x2F;nvm.sh&amp;#39; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ff79c6;&quot;&gt;&amp;gt;&amp;gt; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#bd93f9;&quot;&gt;~&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;&#x2F;.bashrc
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; nvm install&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; 0.10.29
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#50fa7b;&quot;&gt;$&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; nvm install&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#ffb86c;&quot;&gt; -s&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; 0.11.13
+&lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;</description>
+            </item>
+        
+    </channel>
+</rss>

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Fangdun Cai" />
+    <title> Install Gogs on macOS - 锈出未来 </title>
+    <meta
+      name="description"
+      content="生命第 N 次练习，谢天地赐我逆境！"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/minireset.css@0.0.6/minireset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/firacode@2.0.0/distr/fira_code.css"
+    />
+    <link rel="stylesheet" href="https:&#x2F;&#x2F;fundon.me&#x2F;index.css" />
+    <link rel='alternate' type='application/rss+xml' href="https:&#x2F;&#x2F;fundon.me&#x2F;rss.xml" />
+  </head>
+  <body>
+  <script async="">
+      window.isDark = false
+      function toggle() {
+        if (document.querySelector('html').classList.toggle('dark-theme')) {
+          localStorage.setItem('dark-mode', true)
+        } else {
+          localStorage.removeItem('dark-mode')
+        }
+      }
+      try {
+        if (localStorage.getItem('dark-mode')) {
+          toggle()
+          window.isDark = true
+        }
+      } catch (e) {}
+    </script>
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <a class="logo" href="https:&#x2F;&#x2F;fundon.me">
+            <img src="https:&#x2F;&#x2F;avatars2.githubusercontent.com&#x2F;u&#x2F;27926?s=400&amp;v=4" />
+          </a>
+        </div>
+        <ul class="social">
+          <li>
+            <a href="https://github.com/fundon">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+</svg>
+            </a>
+          </li>
+          <li>
+            <a href="https://twitter.com/_fundon">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/>
+</svg>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:cfddream@gmail.com">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+  <path d="M22 6l-10 7L2 6"/>
+</svg>
+            </a>
+          </li>
+          <li>
+            <a href="https:&#x2F;&#x2F;fundon.me&#x2F;tags&#x2F;">
+               <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"/>
+  <path d="M7 7h.01"/>
+</svg>
+            </a>
+          </li>
+          <li>
+            <a href="https:&#x2F;&#x2F;fundon.me&#x2F;rss.xml">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M4 11a9 9 0 019 9"/>
+  <path d="M4 4a16 16 0 0116 16"/>
+  <circle cx="5" cy="19" r="1"/>
+</svg>
+            </a>
+          </li>
+          <li>
+            <button class="toggle">
+              <span class="sun">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <circle cx="12" cy="12" r="5"/>
+  <path d="M12 1v2"/>
+  <path d="M12 21v2"/>
+  <path d="M4.22 4.22l1.42 1.42"/>
+  <path d="M18.36 18.36l1.42 1.42"/>
+  <path d="M1 12h2"/>
+  <path d="M21 12h2"/>
+  <path d="M4.22 19.78l1.42-1.42"/>
+  <path d="M18.36 5.64l1.42-1.42"/>
+</svg>
+              </span>
+              <span class="moon">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
+</svg>
+              </span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <header class="header">
+      <div class="container">
+        <h1 class="header-title">
+           Install Gogs on macOS 
+        </h1>
+        <div class="header-meta">
+          <span class="header-meta-author">Fangdun Cai</span>
+           
+  <time class="header-meta-date">
+    October 10th, 2014
+  </time>
+
+        </div>
+         
+  
+  <ul class="header-meta-tags">  
+    
+    <li>
+      <a href="https://fundon.me/tags/git/">Git</a>&nbsp;
+    </li>
+    
+    <li>
+      <a href="https://fundon.me/tags/go/">Go</a>&nbsp;
+    </li>
+    
+  </ul>
+  
+
+        
+      </div>
+    </header>
+
+    <main class="content container">
+      
+<article class="post">
+  <div class="post-content">
+    <p class="post-description">
+      
+    </p>
+    <h2 id="dependences">Dependences</h2>
+<ul>
+<li><a href="http://brew.sh">homebrew</a></li>
+<li><a href="http://git-scm.com">git</a></li>
+<li><a href="http://www.postgresql.org">postgresql</a></li>
+<li><a href="http://golang.org">go</a></li>
+<li><a href="http://gopm.io">gopm</a></li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="homebrew">Homebrew</h3>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> ruby</span><span style="font-style:italic;color:#ffb86c;"> -e </span><span style="color:#f1fa8c;">&quot;$(</span><span style="color:#50fa7b;">curl</span><span style="font-style:italic;color:#ffb86c;"> -fsSL</span><span style="color:#f1fa8c;"> https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</span></pre><h3 id="git">git</h3>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> brew install git
+</span></pre><h3 id="postgresql">postgresql</h3>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> brew install postgresql
+</span></pre><h3 id="go">go</h3>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> brew install go
+</span></pre><h3 id="gopm">gopm</h3>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> go get</span><span style="font-style:italic;color:#ffb86c;"> -u</span><span style="color:#f8f8f2;"> github.com/gpmgo/gopm
+</span></pre><h3 id="gogs">gogs</h3>
+<p>Build from dev source.</p>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> go get</span><span style="font-style:italic;color:#ffb86c;"> -u</span><span style="color:#f8f8f2;"> github.com/gogits/gogs
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> mkdir</span><span style="font-style:italic;color:#ffb86c;"> -p </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/services </span><span style="color:#ff79c6;">&amp;&amp; </span><span style="color:#8be9fd;">cd </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/services
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> git clone</span><span style="font-style:italic;color:#ffb86c;"> --branch</span><span style="color:#ff79c6;">=</span><span style="color:#f8f8f2;">dev file:///$</span><span style="color:#ffffff;">GOPATH</span><span style="color:#f8f8f2;">/src/github.com/gogits/gogs
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cd gogs
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> gopm build
+</span></pre><h2 id="configuration">Configuration</h2>
+<h3 id="postgresql-1">postgresql</h3>
+<h4 id="init-postgresql">Init postgresql</h4>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> createdb
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> psql</span><span style="font-style:italic;color:#ffb86c;"> --command </span><span style="color:#f1fa8c;">&quot;CREATE USER root WITH SUPERUSER PASSWORD &#39;THE_DB_PASSWORD&#39;;&quot;
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> createdb</span><span style="font-style:italic;color:#ffb86c;"> -O</span><span style="color:#f8f8f2;"> root gogs
+</span></pre><h4 id="start-postgresql-server">Start postgresql server</h4>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cp /usr/local/opt/postgresql/homebrew.mxcl.postgresql.plist </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/Library/LaunchAgents/
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> launchctl unload </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> launchctl load </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+</span></pre>
+<p>Or just run</p>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> postgres</span><span style="font-style:italic;color:#ffb86c;"> -D</span><span style="color:#f8f8f2;"> /usr/local/var/postgres
+</span></pre><h3 id="gogs-1">gogs</h3>
+<h4 id="custom-conf-app-ini">custom/conf/app.ini</h4>
+<p>You can add git user or use currently logged in user.<br />
+If you want to add git user to run gogs.<br />
+See http://wiki.freegeek.org/index.php/Mac_OSX_adduser_script.</p>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># Create custom folder
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> mkdir</span><span style="font-style:italic;color:#ffb86c;"> -p</span><span style="color:#f8f8f2;"> custom/conf
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cp conf/app.ini custom/conf
+</span></pre><pre style="background-color:#282a36;">
+<span style="color:#ff79c6;">...
+
+</span><span style="font-style:italic;color:#ffb86c;">RUN_USER </span><span style="color:#ff79c6;">=</span><span style="color:#f8f8f2;"> git
+</span><span style="font-style:italic;color:#8be9fd;">
+[server]
+</span><span style="color:#6be5fd;">SSH_PORT </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">22
+
+</span><span style="color:#ff79c6;">...
+</span><span style="font-style:italic;color:#8be9fd;">
+[database]
+</span><span style="color:#6be5fd;">DB_TYPE </span><span style="color:#ff79c6;">=</span><span style="color:#f8f8f2;"> postgres
+</span><span style="color:#6be5fd;">HOST </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">127.0.0.1:5432
+
+</span><span style="color:#ff79c6;">...
+</span><span style="font-style:italic;color:#8be9fd;">
+[security]
+</span><span style="color:#6be5fd;">INSTALL_LOCK </span><span style="color:#ff79c6;">= </span><span style="color:#bd93f9;">true
+</span><span style="color:#6be5fd;">SECRET_KEY </span><span style="color:#ff79c6;">= </span><span style="color:#6be5fd;">YOU_MUST_CHANGE
+
+</span><span style="color:#ff79c6;">...
+</span></pre><h2 id="run-gogs-server">Run gogs server</h2>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> cd </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/services/gogs
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> ./gogs web
+</span><span style="color:#50fa7b;">$ </span><span style="color:#6272a4;"># open 127.0.0.0:3000
+</span></pre>
+<p>Or add launchd plist file to <code>~/Library/LaunchAgents/io.gogs.web.plist</code></p>
+<pre style="background-color:#282a36;">
+<span style="color:#f8f8f2;">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple Computer//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+  &lt;key&gt;Label&lt;/key&gt;
+  &lt;string&gt;io.gogs.web&lt;/string&gt;
+  &lt;key&gt;ProgramArguments&lt;/key&gt;
+  &lt;array&gt;
+    &lt;string&gt;sh&lt;/string&gt;
+    &lt;string&gt;-c&lt;/string&gt;
+    &lt;string&gt;cd /Users/fundon/services/gogs; ./gogs web&lt;/string&gt;
+  &lt;/array&gt;
+  &lt;key&gt;RunAtLoad&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;KeepAlive&lt;/key&gt;
+  &lt;true/&gt;
+  &lt;key&gt;WorkingDirectory&lt;/key&gt;
+  &lt;string&gt;/Users/fundon/services/gogs&lt;/string&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</span></pre><pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> launchctl load </span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">/Library/LaunchAgents/io.gogs.web.plist
+</span></pre><h2 id="ssh-remote">SSH Remote</h2>
+<h3 id="setting-ssh-config-etc-sshd-config">Setting SSH config <code>/etc/sshd_config</code></h3>
+<pre style="background-color:#282a36;">
+<span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> sudo cp /etc/sshd_config /etc/sshd_config</span><span style="color:#bd93f9;">~</span><span style="color:#f8f8f2;">previous
+</span><span style="color:#50fa7b;">$</span><span style="color:#f8f8f2;"> sudo vi /etc/sshd_config
+</span></pre>
+<p>Edit <code>/etc/sshd_config</code></p>
+<pre style="background-color:#282a36;">
+<span style="font-style:italic;color:#ffb86c;">PermitRootLogin </span><span style="color:#bd93f9;">no
+
+</span><span style="font-style:italic;color:#ffb86c;">RSAAuthentication </span><span style="color:#bd93f9;">yes
+</span><span style="font-style:italic;color:#ffb86c;">PubkeyAuthentication </span><span style="color:#bd93f9;">yes
+
+</span><span style="font-style:italic;color:#ffb86c;">UsePAM </span><span style="color:#bd93f9;">no
+</span></pre><h3 id="start-ssh-server">Start SSH Server</h3>
+<pre style="background-color:#282a36;">
+<span style="color:#f8f8f2;">Open System Preferences &gt; Sharing &gt; Remote Login
+</span></pre><h3 id="other-ssh-articles">Other SSH Articles</h3>
+<p>https://help.github.com/categories/ssh/</p>
+<h2 id="3-enjoy">&lt;3 Enjoy!</h2>
+<h2 id="other">Other</h2>
+<ul>
+<li>http://gogs.io/docs/intro/</li>
+</ul>
+
+  </div>
+</article>
+
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="heart">
+          Made with&nbsp;&nbsp; <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" shape-rendering="geometricPrecision" style="color:var(--geist-foreground);--geist-fill:currentColor;--geist-stroke:var(--geist-background)">
+  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" fill="var(--geist-fill)"/>
+</svg>&nbsp;&nbsp; © Fangdun Cai  2019
+        </div>
+        <div class="power">
+          Powered By <a href="https://www.getzola.org/">Zola</a> & <a href="https://zeit.co/">Zeit</a> & <a href="https://zeit.co/design">Design</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.querySelector('button.toggle').onclick = toggle
+    </script>
+  </body>
+</html>
