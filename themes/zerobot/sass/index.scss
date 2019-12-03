@@ -315,12 +315,13 @@ h2 {
 
     &-tags {
       display: inline-block;
-      margin: 0.5rem 0.5rem;
       font-size: 14px;
       color: var(--accents-5);
       font-family: var(--font-sans);
 
       li {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         color: var(--accents-6);
         display: inline-flex;
         overflow: hidden;
