@@ -1,0 +1,49 @@
+{% macro social() %}
+  {% if page %}
+    {% set title = page.title ~ " - " ~ config.title | safe %}
+
+    {% if page.description %}
+    {% set description = page.description | safe %}
+    {% elif page.summary %}
+    {% set description = page.summary | safe %}
+    {% else %}
+    {% set description = page.content | truncate(length=50) | safe %}
+    {% endif %}
+
+    {% if page.extra.social_img %}
+    {% set relpath = current_path ~ page.extra.social_img %}
+    {% set social_img = get_url(path=relpath) %}
+    {% else %}
+    {% set social_img = get_url(path=config.extra.bg_img) %}
+    {%- endif %}
+  {% else %}
+    {% set title = config.title | safe %}
+    {% set description = config.description | safe %}
+    {% set social_img = get_url(path=config.extra.bg_img) %}
+  {% endif %}
+
+ {% set url = current_url | safe %}
+ {% set description = description | striptags | safe %}
+ {% set social_img = social_img | safe %}
+
+  <title>{{ title }}</title>
+  {% if config.extra.author %}
+  {% set author = config.extra.author %}
+  <meta name="author" content="{{ author }}" />
+  {% endif %}
+  <meta name="description" content="{{ description }}" />
+  <meta property="og:title" content="{{ title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:description" content="{{ description }}" />
+  <meta property="og:url" content="{{ url }}" />
+  <meta property="og:image" content="{{ social_img | safe }}" />
+  {% if config.extra.twitter %}
+  {% set twitter = config.extra.twitter %}
+  <meta name="twitter:title" content="{{ title }}">
+  <meta name="twitter:description" content="{{ description }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@{{ twitter }}">
+  <meta name="twitter:creator" content="@{{ twitter }}">
+  <meta name="twitter:image" content="{{ social_img }}">
+  {% endif %}
+{% endmacro social %}

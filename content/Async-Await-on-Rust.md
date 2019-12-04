@@ -13,7 +13,7 @@ tags = ["Async-await", "Rust", "JavaScript", "Web"]
 
 **Rust** 在 **[1.39.0]** 稳定版中引入了期待已久的 `Async-await` 语法糖，这是一个伟大的里程碑，🦀 终于可以愉快地爬行了。
 
-不管是 **JavaScript** 版还是 **Rust** 版本，两则在设计上还是很多相似之处，可以探索一番。
+不管是 **JavaScript** 版本还是 **Rust** 版本，两则在设计上还是很多相似之处，可以探索一番。
 
 ### JavaScript
 
@@ -45,7 +45,7 @@ main()
 
 - [Future]：用来表示一个异步计算
 
-- [Poll]：类似 **JavaScript** 中的 `Promise`，它是一个枚举类型
+- [Poll]：类似 **JavaScript** 中的 `Promise`，它是一个枚举类型 `Poll<T>`
 
   - `Ready<T>`：表示结果已经计算完毕，准备妥当，可以立刻返回
   - `Pending`：等待状态，任务进行中，还在计算，结果准备中
@@ -79,7 +79,7 @@ fn main() {
 
 以上分析两种语言在 `Async-await` 的设计、执行流程，在实现上有很多相识之处，如果之前有 **JavaScript** 开发经验，则可以轻松地过渡到 **Rust** 中。
 
-总之让我们 🦀 愉快的爬起来。
+总之让我们 🦀 愉快地爬起来。
 
 [1.39.0]: https://blog.rust-lang.org/2019/11/07/Rust-1.39.0.html
 [asyncfunction]: https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/AsyncFunction

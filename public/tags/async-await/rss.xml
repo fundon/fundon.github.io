@@ -18,7 +18,7 @@
 从 &lt;code&gt;Callback&lt;&#x2F;code&gt; 到 &lt;code&gt;Promise&lt;&#x2F;code&gt; 再到 &lt;code&gt;Async-await&lt;&#x2F;code&gt;，一路摆脱了 &lt;code&gt;Callback Hell&lt;&#x2F;code&gt;、&lt;code&gt;Promise Chain&lt;&#x2F;code&gt;，
 &lt;code&gt;Async-await&lt;&#x2F;code&gt; 为工程开发带来了极大便利，简直是神兵利器。&lt;&#x2F;p&gt;
 &lt;p&gt;&lt;strong&gt;Rust&lt;&#x2F;strong&gt; 在 &lt;strong&gt;&lt;a href=&quot;https:&#x2F;&#x2F;blog.rust-lang.org&#x2F;2019&#x2F;11&#x2F;07&#x2F;Rust-1.39.0.html&quot;&gt;1.39.0&lt;&#x2F;a&gt;&lt;&#x2F;strong&gt; 稳定版中引入了期待已久的 &lt;code&gt;Async-await&lt;&#x2F;code&gt; 语法糖，这是一个伟大的里程碑，🦀 终于可以愉快地爬行了。&lt;&#x2F;p&gt;
-&lt;p&gt;不管是 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 版还是 &lt;strong&gt;Rust&lt;&#x2F;strong&gt; 版本，两则在设计上还是很多相似之处，可以探索一番。&lt;&#x2F;p&gt;
+&lt;p&gt;不管是 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 版本还是 &lt;strong&gt;Rust&lt;&#x2F;strong&gt; 版本，两则在设计上还是很多相似之处，可以探索一番。&lt;&#x2F;p&gt;
 &lt;h3 id=&quot;javascript&quot;&gt;JavaScript&lt;&#x2F;h3&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -52,7 +52,7 @@
 &lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;std&#x2F;future&#x2F;trait.Future.html&quot;&gt;Future&lt;&#x2F;a&gt;：用来表示一个异步计算&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;beta&#x2F;std&#x2F;task&#x2F;enum.Poll.html&quot;&gt;Poll&lt;&#x2F;a&gt;：类似 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 中的 &lt;code&gt;Promise&lt;&#x2F;code&gt;，它是一个枚举类型&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;a href=&quot;https:&#x2F;&#x2F;doc.rust-lang.org&#x2F;beta&#x2F;std&#x2F;task&#x2F;enum.Poll.html&quot;&gt;Poll&lt;&#x2F;a&gt;：类似 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 中的 &lt;code&gt;Promise&lt;&#x2F;code&gt;，它是一个枚举类型 &lt;code&gt;Poll&amp;lt;T&amp;gt;&lt;&#x2F;code&gt;&lt;&#x2F;p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;Ready&amp;lt;T&amp;gt;&lt;&#x2F;code&gt;：表示结果已经计算完毕，准备妥当，可以立刻返回&lt;&#x2F;li&gt;
 &lt;li&gt;&lt;code&gt;Pending&lt;&#x2F;code&gt;：等待状态，任务进行中，还在计算，结果准备中&lt;&#x2F;li&gt;
@@ -86,7 +86,7 @@ async &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#8be9fd;&qu
 &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ffffff;&quot;&gt;}
 &lt;&#x2F;span&gt;&lt;&#x2F;pre&gt;&lt;h3 id=&quot;zong-jie&quot;&gt;总结&lt;&#x2F;h3&gt;
 &lt;p&gt;以上分析两种语言在 &lt;code&gt;Async-await&lt;&#x2F;code&gt; 的设计、执行流程，在实现上有很多相识之处，如果之前有 &lt;strong&gt;JavaScript&lt;&#x2F;strong&gt; 开发经验，则可以轻松地过渡到 &lt;strong&gt;Rust&lt;&#x2F;strong&gt; 中。&lt;&#x2F;p&gt;
-&lt;p&gt;总之让我们 🦀 愉快的爬起来。&lt;&#x2F;p&gt;
+&lt;p&gt;总之让我们 🦀 愉快地爬起来。&lt;&#x2F;p&gt;
 </description>
             </item>
         

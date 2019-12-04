@@ -30,8 +30,8 @@ taxonomies = [
 [extra]
 # Put all your custom variables here
 author = "Fangdun Cai"
-avatar = "https://avatars2.githubusercontent.com/u/27926?s=400&v=4"
 github = "fundon"
 reddit = "fundon"
 twitter = "_fundon"
 email = "cfddream@gmail.com"
+bg_img = "joshua-alan-davis-l4Xy2d8M-Xs-unsplash.jpg"

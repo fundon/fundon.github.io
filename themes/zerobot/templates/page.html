@@ -1,8 +1,6 @@
 {% extends "basic.html" %}
 
-{% block title %} {{ page.title }} - {{ super() }} {% endblock title %}
-
-{% block header_title %} {{ page.title  }} {% endblock header_title %}
+{% block header_title %}{{ page.title  }}{% endblock header_title %}
 {% block header_date %} 
   <time class="header-meta-date">
     {{ page.date | date(format="%B %eth, %Y") }}

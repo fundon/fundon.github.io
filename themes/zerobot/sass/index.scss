@@ -127,6 +127,7 @@ body {
   margin: 0;
   font-family: var(--font-sans);
   text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -135,13 +136,6 @@ dt,
 dd {
   margin: 0;
   padding: 0;
-}
-
-h1 {
-  font-size: 36px;
-  font-weight: 500;
-  line-height: 1.5;
-  margin: 0;
 }
 
 h2 {
@@ -153,7 +147,7 @@ h2 {
     span {
       display: block;
       color: var(--geist-foreground);
-      font-size: 24px;
+      font-size: 1.5rem;
       font-weight: bold;
       font-family: var(--font-sans);
       margin-top: 20px;
@@ -248,7 +242,7 @@ h2 {
   &-title {
     color: var(--geist-foreground);
     font-weight: 600;
-    font-size: 36px;
+    font-size: 2.25rem;
     font-family: var(--font-sans);
     max-width: 900px;
     line-height: 46px;
@@ -314,14 +308,16 @@ h2 {
     }
 
     &-tags {
+      margin-left: 0.25rem;
       display: inline-block;
       font-size: 14px;
       color: var(--accents-5);
       font-family: var(--font-sans);
+      text-align: right;
 
       li {
-        margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-top: 0.25rem;
+        margin-bottom: 0.25rem;
         color: var(--accents-6);
         display: inline-flex;
         overflow: hidden;
@@ -366,10 +362,12 @@ h2 {
 
   &-title {
     margin: 15px 0px;
+    line-height: 1.5;
+    font-size: 1.5rem;
   }
 
   &-date {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: var(--accents-5);
     font-family: var(--font-sans);
   }
@@ -385,7 +383,8 @@ h2 {
   }
 
   &-more {
-    font-size: 13px;
+    font-size: 0.8125rem;
+    margin-right: 0.25rem;
 
     a {
       display: inline-block;
@@ -428,8 +427,9 @@ h2 {
 
     ul,
     ol {
-      margin: 1em auto;
-      padding-left: 40px;
+      padding: 0;
+      margin: var(--geist-gap-half) var(--geist-gap-half) var(--geist-gap-half)
+        var(--geist-gap);
 
       li {
         font-size: 1em;
@@ -447,8 +447,9 @@ h2 {
       font-size: 3rem;
       letter-spacing: -0.066875rem;
       font-weight: 700;
-      margin-top: 2rem;
-      margin-bottom: 2rem;
+      margin: var(--geist-gap-double) 0 0;
+      // margin-top: 2rem;
+      // margin-bottom: 2rem;
     }
 
     h2 {
@@ -458,8 +459,9 @@ h2 {
       font-size: 2.25rem;
       letter-spacing: -0.049375rem;
       font-weight: 600;
-      margin-top: 1.8675rem;
-      margin-bottom: 1.8675rem;
+      margin: var(--geist-gap-double) 0 0;
+      // margin-top: 1.8675rem;
+      // margin-bottom: 1.8675rem;
     }
 
     h3 {
@@ -468,8 +470,9 @@ h2 {
       font-size: 1.5rem;
       letter-spacing: -0.029375rem;
       font-weight: 600;
-      margin-top: 1.5rem;
-      margin-bottom: 1.5rem;
+      margin: var(--geist-gap-double) 0 0;
+      // margin-top: 1.5rem;
+      // margin-bottom: 1.5rem;
     }
 
     h4 {
@@ -479,8 +482,9 @@ h2 {
       font-size: 1.25rem;
       letter-spacing: -0.020625rem;
       font-weight: 600;
-      margin-top: 1.25rem;
-      margin-bottom: 1.25rem;
+      margin: var(--geist-gap-double) 0 0;
+      // margin-top: 1.25rem;
+      // margin-bottom: 1.25rem;
     }
 
     h5 {
@@ -490,8 +494,9 @@ h2 {
       font-size: 1rem;
       letter-spacing: -0.01125rem;
       font-weight: 600;
-      margin-top: 1rem;
-      margin-bottom: 1rem;
+      margin: var(--geist-gap-double) 0 0;
+      // margin-top: 1rem;
+      // margin-bottom: 1rem;
     }
 
     h6 {
@@ -501,8 +506,9 @@ h2 {
       font-size: 0.875rem;
       letter-spacing: -0.005625rem;
       font-weight: 600;
-      margin-top: 0.875rem;
-      margin-bottom: 0.875rem;
+      margin: var(--geist-gap-double) 0 0;
+      // margin-top: 0.875rem;
+      // margin-bottom: 0.875rem;
     }
 
     a {
@@ -587,7 +593,7 @@ h2 {
 }
 
 .footer {
-  font-size: 14px;
+  font-size: 0.875rem;
   color: var(--accents-5);
   font-family: var(--font-sans);
   line-height: 2;

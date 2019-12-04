@@ -1,14 +1,12 @@
+{% import "macros.html" as macros %}
+
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="{{ config.extra.author }}" />
-    <title>{% block title %}{{ config.title }}{% endblock title %}</title>
-    <meta
-      name="description"
-      content="{% block description %}{{ config.description }}{% endblock description %}"
-    />
+    {{ macros::social() }}
+    <link rel="shortcut icon" href="/favicon.ico">
     <link
       rel="stylesheet"
       href="https://unpkg.com/minireset.css@0.0.6/minireset.min.css"
@@ -41,7 +39,7 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="logo" href="{{ config.base_url }}">
-            <img src="{{ config.extra.avatar }}" />
+            <img src="{{ get_url(path="logo.png") }}" />
           </a>
         </div>
         <ul class="social">
@@ -51,12 +49,14 @@
               "/static/icons/github.svg") %} {{ icon | safe }}
             </a>
           </li>
+          {% if config.extra.twitter %}
           <li>
             <a href="https://twitter.com/{{ config.extra.twitter }}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
               "/static/icons/twitter.svg") %} {{ icon | safe }}
             </a>
           </li>
+          {% endif %}
           <li>
             <a href="mailto:{{ config.extra.email }}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
@@ -93,9 +93,7 @@
 
     <header class="header">
       <div class="container">
-        <h1 class="header-title">
-          {% block header_title %} {{ config.title }} {% endblock header_title %}
-        </h1>
+        <h1 class="header-title">{% block header_title %}{{ config.title }}{% endblock header_title %}</h1>
         <div class="header-meta">
           <span class="header-meta-author">{{ config.extra.author }}</span>
           {% block header_date %}{% endblock header_date %}

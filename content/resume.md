@@ -19,7 +19,7 @@ list_on_index = false
 
 **邮箱**：cfddream@gmail.com
 
-**博客**：[fundon.me](https:://fundon.me) _可能打不开，最近在重新整理_
+**博客**：[fundon.me](https:://fundon.me)
 
 **GitHub**：https://github.com/fundon
 
@@ -63,7 +63,6 @@ list_on_index = false
 ### 开源项目
 
 - [trek-rs](https://github.com/trek-rs)：Fast, effective, minimalist web framework for Rust
-
 - [vue-admin](https://github.com/vue-bulma/vue-admin): 9.4k stars
 - [atom-minimap](https://github.com/atom-minimap/minimap): 604 stars
 - [trek-js](https://github.com/trekjs)
