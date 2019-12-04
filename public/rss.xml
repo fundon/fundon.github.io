@@ -64,7 +64,7 @@
 &lt;h4 id=&quot;xiao-tie-shi&quot;&gt;小贴士&lt;&#x2F;h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;如果一个异步方法有返回结果 &lt;code&gt;T&lt;&#x2F;code&gt;，则相应的，执行 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，返回的是 &lt;code&gt;Future&amp;lt;Outout = T&amp;gt;&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
+&lt;p&gt;如果一个异步方法有返回结果 &lt;code&gt;T&lt;&#x2F;code&gt;，则相应的，执行 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，返回的是 &lt;code&gt;Future&amp;lt;Output = T&amp;gt;&lt;&#x2F;code&gt;。&lt;&#x2F;p&gt;
 &lt;&#x2F;li&gt;
 &lt;li&gt;
 &lt;p&gt;因为返回结果 &lt;code&gt;T&lt;&#x2F;code&gt; 是一个范型，可以在 &lt;code&gt;Future.await&lt;&#x2F;code&gt; 后面加上 &lt;code&gt;?&lt;&#x2F;code&gt; 操作符，&lt;code&gt;Future.await?&lt;&#x2F;code&gt;，它会把结果转化成 &lt;code&gt;Result&amp;lt;T, E&amp;gt;&lt;&#x2F;code&gt;，

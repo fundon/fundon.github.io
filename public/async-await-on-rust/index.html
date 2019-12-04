@@ -207,7 +207,7 @@
 <h4 id="xiao-tie-shi">小贴士</h4>
 <ul>
 <li>
-<p>如果一个异步方法有返回结果 <code>T</code>，则相应的，执行 <code>fn()</code> 时，返回的是 <code>Future&lt;Outout = T&gt;</code>。</p>
+<p>如果一个异步方法有返回结果 <code>T</code>，则相应的，执行 <code>fn()</code> 时，返回的是 <code>Future&lt;Output = T&gt;</code>。</p>
 </li>
 <li>
 <p>因为返回结果 <code>T</code> 是一个范型，可以在 <code>Future.await</code> 后面加上 <code>?</code> 操作符，<code>Future.await?</code>，它会把结果转化成 <code>Result&lt;T, E&gt;</code>，

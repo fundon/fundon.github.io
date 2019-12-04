@@ -55,7 +55,7 @@ main()
 
 #### 小贴士
 
-- 如果一个异步方法有返回结果 `T`，则相应的，执行 `fn()` 时，返回的是 `Future<Outout = T>`。
+- 如果一个异步方法有返回结果 `T`，则相应的，执行 `fn()` 时，返回的是 `Future<Output = T>`。
 
 - 因为返回结果 `T` 是一个范型，可以在 `Future.await` 后面加上 `?` 操作符，`Future.await?`，它会把结果转化成 `Result<T, E>`，
   此时我们就可以轻松判断成功或失败，这就与 **JavaScript** 中的 `Promise#fulfilled` 和 `Promise#rejected` 异曲同工。
