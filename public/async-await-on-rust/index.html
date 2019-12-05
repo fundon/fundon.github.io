@@ -234,7 +234,7 @@
 </ul>
 </li>
 </ul>
-<p>可以通过 <code>async fn</code>，声明一个异步方法，当执行这个异步方法 <code>fn()</code> 时，会返回一个 <code>Future</code>，然后在执行 <code>Future.await</code> 操作，
+<p>可以通过 <code>async fn</code>，声明一个异步方法，当执行这个异步方法 <code>fn()</code> 时，会返回一个 <code>Future</code>，然后再执行 <code>Future.await</code> 操作，
 创建一个新任务，此时内部真正执行的是 <code>Future.poll()</code>，它会返回一个 <code>Poll</code>，经过计算后，就可以获得最终结果。</p>
 <h4 id="xiao-tie-shi">小贴士</h4>
 <ul>

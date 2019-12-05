@@ -59,7 +59,7 @@
 &lt;&#x2F;ul&gt;
 &lt;&#x2F;li&gt;
 &lt;&#x2F;ul&gt;
-&lt;p&gt;可以通过 &lt;code&gt;async fn&lt;&#x2F;code&gt;，声明一个异步方法，当执行这个异步方法 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，会返回一个 &lt;code&gt;Future&lt;&#x2F;code&gt;，然后在执行 &lt;code&gt;Future.await&lt;&#x2F;code&gt; 操作，
+&lt;p&gt;可以通过 &lt;code&gt;async fn&lt;&#x2F;code&gt;，声明一个异步方法，当执行这个异步方法 &lt;code&gt;fn()&lt;&#x2F;code&gt; 时，会返回一个 &lt;code&gt;Future&lt;&#x2F;code&gt;，然后再执行 &lt;code&gt;Future.await&lt;&#x2F;code&gt; 操作，
 创建一个新任务，此时内部真正执行的是 &lt;code&gt;Future.poll()&lt;&#x2F;code&gt;，它会返回一个 &lt;code&gt;Poll&lt;&#x2F;code&gt;，经过计算后，就可以获得最终结果。&lt;&#x2F;p&gt;
 &lt;h4 id=&quot;xiao-tie-shi&quot;&gt;小贴士&lt;&#x2F;h4&gt;
 &lt;ul&gt;
