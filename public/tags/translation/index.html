@@ -3,38 +3,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-  
-    
-    
-    
-  
-
- 
- 
- 
-
-  <title>锈出未来</title>
-  
-  
-  <meta name="author" content="Fangdun Cai" />
-  
-  <meta name="description" content="生命第 N 次练习，谢天地赐我逆境！" />
-  <meta property="og:title" content="锈出未来" />
-  <meta property="og:type" content="website" />
-  <meta property="og:description" content="生命第 N 次练习，谢天地赐我逆境！" />
-  <meta property="og:url" content="https:&#x2F;&#x2F;fundon.me&#x2F;tags&#x2F;translation&#x2F;" />
-  <meta property="og:image" content="https://fundon.me/joshua-alan-davis-l4Xy2d8M-Xs-unsplash.jpg" />
-  
-  
-  <meta name="twitter:title" content="锈出未来">
-  <meta name="twitter:description" content="生命第 N 次练习，谢天地赐我逆境！">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@_fundon">
-  <meta name="twitter:creator" content="@_fundon">
-  <meta name="twitter:image" content="https:&#x2F;&#x2F;fundon.me&#x2F;joshua-alan-davis-l4Xy2d8M-Xs-unsplash.jpg">
-  
-
+    <title>锈出未来</title>
+    <meta name="author" content="Fangdun Cai" />
+    <meta name="description" content="生命第 N 次练习，谢天地赐我逆境！" />
+    <meta property="og:title" content="锈出未来" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="生命第 N 次练习，谢天地赐我逆境！" />
+    <meta property="og:url" content="https:&#x2F;&#x2F;fundon.me&#x2F;tags&#x2F;translation&#x2F;" />
+    <meta property="og:image" content="https://fundon.me/joshua-alan-davis-l4Xy2d8M-Xs-unsplash.jpg" />
+    <meta name="twitter:title" content="锈出未来">
+    <meta name="twitter:description" content="生命第 N 次练习，谢天地赐我逆境！">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@_fundon">
+    <meta name="twitter:creator" content="@_fundon">
+    <meta name="twitter:image" content="https:&#x2F;&#x2F;fundon.me&#x2F;joshua-alan-davis-l4Xy2d8M-Xs-unsplash.jpg">
     <link rel="shortcut icon" href="/favicon.ico">
     <link
       rel="stylesheet"
@@ -49,18 +31,24 @@
   </head>
   <body>
   <script async="">
-      window.isDark = false
       function toggle() {
-        if (document.querySelector('html').classList.toggle('dark-theme')) {
-          localStorage.setItem('dark-mode', true)
+        let classList = document.querySelector('html').classList;
+        if (classList.contains('dark-theme')) {
+          classList.remove('dark-theme')
+          classList.add('sepia-theme')
+          localStorage.setItem('theme-mode', 'sepia')
+        } else if (classList.contains('sepia-theme')) {
+          classList.remove('sepia-theme')
+          localStorage.removeItem('theme-mode')
         } else {
-          localStorage.removeItem('dark-mode')
+          classList.add('dark-theme')
+          localStorage.setItem('theme-mode', 'dark')
         }
       }
       try {
-        if (localStorage.getItem('dark-mode')) {
-          toggle()
-          window.isDark = true
+        let mode = localStorage.getItem('theme-mode');
+        if (mode) {
+          document.querySelector('html').classList.add(`${mode}-theme`)
         }
       } catch (e) {}
     </script>
@@ -79,7 +67,6 @@
 </svg>
             </a>
           </li>
-          
           <li>
             <a href="https://twitter.com/_fundon">
                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
@@ -87,7 +74,6 @@
 </svg>
             </a>
           </li>
-          
           <li>
             <a href="mailto:cfddream@gmail.com">
                <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
@@ -133,6 +119,15 @@
   <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>
 </svg>
               </span>
+              <span class="coffee">
+               <svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none" shape-rendering="geometricPrecision">
+  <path d="M18 8h1a4 4 0 010 8h-1"/>
+  <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/>
+  <path d="M6 1v3"/>
+  <path d="M10 1v3"/>
+  <path d="M14 1v3"/>
+</svg>
+              </span>
             </button>
           </li>
         </ul>
@@ -149,9 +144,7 @@
           
         </div>
         
-        
         <p class="header-meta-description">生命第 N 次练习，谢天地赐我逆境！</p>
-        
       </div>
     </header>
 

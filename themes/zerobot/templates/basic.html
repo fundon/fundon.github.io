@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{ macros::social() }}
+    {{- macros::social() }}
     <link rel="shortcut icon" href="/favicon.ico">
     <link
       rel="stylesheet"
@@ -20,18 +20,24 @@
   </head>
   <body>
   <script async="">
-      window.isDark = false
       function toggle() {
-        if (document.querySelector('html').classList.toggle('dark-theme')) {
-          localStorage.setItem('dark-mode', true)
+        let classList = document.querySelector('html').classList;
+        if (classList.contains('dark-theme')) {
+          classList.remove('dark-theme')
+          classList.add('sepia-theme')
+          localStorage.setItem('theme-mode', 'sepia')
+        } else if (classList.contains('sepia-theme')) {
+          classList.remove('sepia-theme')
+          localStorage.removeItem('theme-mode')
         } else {
-          localStorage.removeItem('dark-mode')
+          classList.add('dark-theme')
+          localStorage.setItem('theme-mode', 'dark')
         }
       }
       try {
-        if (localStorage.getItem('dark-mode')) {
-          toggle()
-          window.isDark = true
+        let mode = localStorage.getItem('theme-mode');
+        if (mode) {
+          document.querySelector('html').classList.add(`${mode}-theme`)
         }
       } catch (e) {}
     </script>
@@ -49,14 +55,14 @@
               "/static/icons/github.svg") %} {{ icon | safe }}
             </a>
           </li>
-          {% if config.extra.twitter %}
+          {%- if config.extra.twitter %}
           <li>
             <a href="https://twitter.com/{{ config.extra.twitter }}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
               "/static/icons/twitter.svg") %} {{ icon | safe }}
             </a>
           </li>
-          {% endif %}
+          {%- endif %}
           <li>
             <a href="mailto:{{ config.extra.email }}">
               {% set icon = load_data(path="themes/" ~ config.theme ~
@@ -85,6 +91,10 @@
               {% set icon = load_data(path="themes/" ~ config.theme ~
               "/static/icons/moon.svg") %} {{ icon | safe }}
               </span>
+              <span class="coffee">
+              {% set icon = load_data(path="themes/" ~ config.theme ~
+              "/static/icons/coffee.svg") %} {{ icon | safe }}
+              </span>
             </button>
           </li>
         </ul>
@@ -99,9 +109,9 @@
           {% block header_date %}{% endblock header_date %}
         </div>
         {% block header_tags %}{% endblock header_tags %}
-        {% if not page %}
+        {%- if not page %}
         <p class="header-meta-description">{{ config.description }}</p>
-        {% endif %}
+        {%- endif %}
       </div>
     </header>
 

@@ -106,6 +106,14 @@
   --portal-opacity: 0.75;
 }
 
+.sepia-theme {
+  --geist-foreground: #433422;
+  --geist-background: #f1e7d0;
+  --geist-success: #00835c;
+  --accents-1: #f1e7d0;
+  --accents-2: #ded0bf;
+}
+
 :root {
   --themed-fg: var(--geist-foreground);
 }
@@ -218,6 +226,10 @@ h2 {
     .moon {
       display: none;
     }
+
+    .coffee {
+      display: none;
+    }
   }
 }
 
@@ -227,6 +239,23 @@ h2 {
       display: none;
     }
     .moon {
+      display: flex;
+    }
+    .coffee {
+      display: none;
+    }
+  }
+}
+
+.sepia-theme {
+  .toggle {
+    .sun {
+      display: none;
+    }
+    .moon {
+      display: none;
+    }
+    .coffee {
       display: flex;
     }
   }
@@ -390,7 +419,7 @@ h2 {
       display: inline-block;
       letter-spacing: 0.04rem;
       font-weight: 500;
-      color: #0070f3;
+      color: var(--geist-success);
       text-transform: uppercase;
       margin: 10px 0px;
       text-decoration: none;
