@@ -123,6 +123,10 @@
   color: var(--geist-foreground);
 }
 
+:focus {
+  outline: none;
+}
+
 html,
 body {
   background-color: var(--geist-background);
