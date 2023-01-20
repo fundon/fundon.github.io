@@ -1,4 +1,3 @@
-- https://www.getzola.org/
-- https://simpleicons.org/
-- https://feathericons.com/
-- https://zeit.co/design/
+## Fundon's Blog
+
+Learn, create, share, enjoy, and feel.
