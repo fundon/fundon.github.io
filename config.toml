@@ -1,14 +1,11 @@
-# The URL the site will be built for
 base_url = "https://fundon.viz.rs"
 
 title = "🦀"
 
 description = "Learn, create, share, enjoy, and feel."
 
-# Whether to automatically compile all Sass files in the sass directory
 compile_sass = true
 
-# Whether to build a search index to be used later on by a JavaScript library
 build_search_index = true
 
 generate_feed = true
@@ -34,8 +31,8 @@ highlight_themes_css = [
 ]
 
 [extra]
-author = ""
-github = ""
-twitter = ""
+author = "Fangdun Tsai"
+github = "fundon"
+twitter = "_fundon"
 email = ""
 banner = "images/tide.jpeg"
