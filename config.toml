@@ -33,6 +33,7 @@ highlight_themes_css = [
 [extra]
 author = "Fangdun Tsai"
 github = "fundon"
+mastodon = "https://fosstodon.org/@fundon"
 twitter = "_fundon"
 email = ""
 banner = "images/tide.jpeg"

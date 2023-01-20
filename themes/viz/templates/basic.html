@@ -58,6 +58,13 @@
             </a>
           </li>
           {%- endif %}
+          {%- if config.extra.mastodon %}
+          <li>
+            <a href="{{ config.extra.mastodon }}">
+              {% set icon = load_data(path="themes/viz/static/icons/mastodon.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+          {%- endif %}
           {%- if config.extra.twitter %}
           <li>
             <a href="https://twitter.com/{{ config.extra.twitter }}">
