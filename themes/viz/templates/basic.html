@@ -5,18 +5,20 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    {{- macros::social() }}
+    <!-- {{- macros::social() }} -->
     <link rel="shortcut icon" href="/favicon.ico">
     <link
       rel="stylesheet"
-      href="https://unpkg.com/minireset.css@0.0.6/minireset.min.css"
+      href="https://unpkg.com/minireset.css@0.0.7/minireset.css"
     />
     <link
       rel="stylesheet"
-      href="https://unpkg.com/firacode@2.0.0/distr/fira_code.css"
+      href="https://unpkg.com/firacode@6.2.0/distr/fira_code.css"
     />
     <link rel="stylesheet" href="{{ get_url(path="index.css") }}" />
-    <link rel='alternate' type='application/rss+xml' href="{{ get_url(path="rss.xml")}}" />
+    {% block rss %}
+      <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path="atom.xml", trailing_slash=false) }}">
+    {% endblock %}
   </head>
   <body>
   <script async="">
@@ -45,55 +47,53 @@
       <div class="container">
         <div class="navbar-brand">
           <a class="logo" href="{{ config.base_url }}">
-            <img src="{{ get_url(path="logo.png") }}" />
+            <img src="{{ get_url(path="logo.png") }}"- />
           </a>
         </div>
         <ul class="social">
+          {%- if config.extra.github %}
           <li>
             <a href="https://github.com/{{ config.extra.github }}">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/github.svg") %} {{ icon | safe }}
+              {% set icon = load_data(path= "themes/viz/static/icons/github.svg") %} {{ icon | safe }}
             </a>
           </li>
+          {%- endif %}
           {%- if config.extra.twitter %}
           <li>
             <a href="https://twitter.com/{{ config.extra.twitter }}">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/twitter.svg") %} {{ icon | safe }}
+              {% set icon = load_data(path="themes/viz/static/icons/twitter.svg") %} {{ icon | safe }}
+            </a>
+          </li>
+          {%- endif %}
+          {%- if config.extra.email %}
+          <li>
+            <a href="mailto:{{ config.extra.email }}">
+              {% set icon = load_data(path="themes/viz/static/icons/mail.svg") %} {{ icon | safe }}
             </a>
           </li>
           {%- endif %}
           <li>
-            <a href="mailto:{{ config.extra.email }}">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/mail.svg") %} {{ icon | safe }}
-            </a>
-          </li>
-          <li>
             <a href="{{ get_url(path="tags", trailing_slash=true) }}">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/tag.svg") %} {{ icon | safe }}
+              {% set icon = load_data(path="themes/viz/static/icons/tag.svg") %} {{ icon | safe }}
             </a>
           </li>
+          {%- if config.generate_feed %}
           <li>
-            <a href="{{ get_url(path="rss.xml", trailing_slash=false)}}">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/rss.svg") %} {{ icon | safe }}
+            <a href="{{ get_url(path="atom.xml", trailing_slash=false)}}">
+              {% set icon = load_data(path="themes/viz/static/icons/rss.svg") %} {{ icon | safe }}
             </a>
           </li>
+          {%- endif %}
           <li>
             <button class="toggle">
               <span class="sun">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/sun.svg") %} {{ icon | safe }}
+              {% set icon = load_data(path="themes/viz/static/icons/sun.svg") %} {{ icon | safe }}
               </span>
               <span class="moon">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/moon.svg") %} {{ icon | safe }}
+              {% set icon = load_data(path="themes/viz/static/icons/moon.svg") %} {{ icon | safe }}
               </span>
               <span class="coffee">
-              {% set icon = load_data(path="themes/" ~ config.theme ~
-              "/static/icons/coffee.svg") %} {{ icon | safe }}
+              {% set icon = load_data(path="themes/viz/static/icons/coffee.svg") %} {{ icon | safe }}
               </span>
             </button>
           </li>
@@ -111,6 +111,7 @@
         {% block header_tags %}{% endblock header_tags %}
         {%- if not page %}
         <p class="header-meta-description">{{ config.description }}</p>
+        <img class="header-banner" alt="tide" src="{{get_url(path=config.extra.banner)}}" />
         {%- endif %}
       </div>
     </header>
@@ -123,10 +124,10 @@
     <footer class="footer">
       <div class="container">
         <div class="heart">
-          Made with&nbsp;&nbsp;{% set icon = load_data(path="themes/" ~ config.theme ~ "/static/icons/heart-fill.svg") %} {{ icon | safe }}&nbsp;&nbsp; © Fangdun Cai  2019
+          Made with&nbsp;&nbsp;{% set icon = load_data(path="themes/viz/static/icons/heart.svg") %} {{ icon | safe }}&nbsp;&nbsp; © Fangdun Tsai 2023
         </div>
         <div class="power">
-          Powered By <a href="https://www.getzola.org/">Zola</a> & <a href="https://zeit.co/">Zeit</a> & <a href="https://zeit.co/design">Design</a>
+          Powered By <a href="https://www.getzola.org/">Zola</a> & <a href="https://vercel.com/design">Design</a>
         </div>
       </div>
     </footer>
